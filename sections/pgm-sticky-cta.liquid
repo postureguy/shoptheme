@@ -1,0 +1,47 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<!-- Mobile sticky CTA bar — fixed to bottom of viewport on mobile only -->
+<div
+  class="pgm-sticky"
+  role="complementary"
+  aria-label="Start your free posture program trial"
+>
+  <div class="pgm-sticky__text">
+    <strong>{{ section.settings.title | default: 'Fix Your Posture Today' }}</strong>
+    <span>{{ section.settings.subtitle | default: 'Free trial · Cancel anytime' }}</span>
+  </div>
+  <a
+    href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}"
+    class="pgm-sticky__btn"
+    target="_blank" rel="noopener"
+    aria-label="{{ section.settings.cta_label | default: 'Start Free Trial' }}"
+  >
+    {{ section.settings.cta_label | default: 'Start Free Trial' }}
+  </a>
+</div>
+
+<script>
+  // Add padding to body so content doesn't hide behind sticky bar on mobile
+  (function() {
+    if (window.innerWidth <= 749) {
+      document.body.classList.add('pgm-has-sticky');
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "PGM — Sticky Mobile CTA",
+  "tag": "section",
+  "class": "pgm-section",
+  "limit": 1,
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    { "type": "text", "id": "title",     "label": "Title",    "default": "Fix Your Posture Today" },
+    { "type": "text", "id": "subtitle",  "label": "Subtitle", "default": "Free trial · Cancel anytime" },
+    { "type": "text", "id": "cta_label", "label": "Button",   "default": "Start Free Trial" },
+    { "type": "url",  "id": "cta_url",   "label": "Button link" }
+  ],
+  "presets": [{ "name": "PGM — Sticky Mobile CTA" }]
+}
+{% endschema %}

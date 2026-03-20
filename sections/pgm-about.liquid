@@ -1,0 +1,85 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<section class="pgm-about pgm-section" id="pgm-about" aria-labelledby="pgm-about-heading">
+  <div class="pgm-about__inner">
+
+    <!-- Image side -->
+    <div class="pgm-about__media">
+      <div class="pgm-about__img-wrap">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              alt: section.settings.image.alt | default: 'Mike Boshnack — Posture Guy Mike, Certified Postural Alignment Specialist'
+          }}
+        {%- else -%}
+          <div class="pgm-about__img-placeholder" aria-hidden="true">🏃</div>
+        {%- endif -%}
+        <div class="pgm-about__cred-badge" aria-label="Mike's credential">
+          <div class="pgm-about__cred-title">{{ section.settings.badge_title | default: 'Egoscue Certified' }}</div>
+          <div class="pgm-about__cred-sub">{{ section.settings.badge_sub | default: 'Postural Alignment Specialist' }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content side -->
+    <div class="pgm-about__content">
+      <span class="pgm-eyebrow pgm-about__eyebrow">{{ section.settings.eyebrow | default: 'The Story Behind the Program' }}</span>
+
+      <h2 class="pgm-about__h2" id="pgm-about-heading">
+        {{ section.settings.heading | default: 'Meet Mike & Emily — Real People, Real Results' }}
+      </h2>
+
+      <div class="pgm-about__body">
+        {{ section.settings.body }}
+      </div>
+
+      <!-- Credential row -->
+      <div class="pgm-about__cred-row">
+        <div class="pgm-about__cred-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="pgm-about__cred-label">{{ section.settings.cred_label | default: 'Certified Postural Alignment Specialist' }}</div>
+          <div class="pgm-about__cred-desc">{{ section.settings.cred_desc | default: 'Trained at Egoscue University · Irvine, CA' }}</div>
+        </div>
+      </div>
+
+      <a href="{{ section.settings.cta_url | default: '/pages/about' }}" class="pgm-btn pgm-btn--dark">
+        {{ section.settings.cta_label | default: 'Learn More About Mike →' }}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — About Mike",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo of Mike (or Mike + Emily)",
+      "info": "Recommended: 900×1160px portrait. Can be a professional coaching shot or candid action photo."
+    },
+    { "type": "text",    "id": "badge_title", "label": "Image badge title", "default": "Egoscue Certified" },
+    { "type": "text",    "id": "badge_sub",   "label": "Image badge subtitle", "default": "Postural Alignment Specialist" },
+    { "type": "text",    "id": "eyebrow",  "label": "Eyebrow", "default": "The Story Behind the Program" },
+    { "type": "text",    "id": "heading",  "label": "Heading",  "default": "Meet Mike & Emily — Real People, Real Results" },
+    { "type": "richtext","id": "body",     "label": "Body text" },
+    { "type": "text",    "id": "cred_label","label": "Credential label", "default": "Certified Postural Alignment Specialist" },
+    { "type": "text",    "id": "cred_desc", "label": "Credential subtitle", "default": "Trained at Egoscue University · Irvine, CA" },
+    { "type": "text",    "id": "cta_label", "label": "Button label", "default": "Learn More About Mike →" },
+    { "type": "url",     "id": "cta_url",   "label": "Button link" }
+  ],
+  "presets": [{ "name": "PGM — About Mike" }]
+}
+{% endschema %}

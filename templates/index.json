@@ -1,75 +1,273 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "pgm_hero": {
+      "type": "pgm-hero",
+      "settings": {
+        "eyebrow": "Certified Postural Alignment Specialist",
+        "subheadline": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.",
+        "primary_cta_label": "Start Your Free Trial",
+        "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "secondary_cta_label": "Watch How It Works",
+        "secondary_cta_url": "https://www.youtube.com/@postureguymike"
+      }
+    },
+    "pgm_social_bar": {
+      "type": "pgm-social-bar",
+      "settings": {
+        "label": "Join millions who follow along",
+        "ig_count": "1.3M",
+        "ig_url": "https://www.instagram.com/postureguymike",
+        "tt_count": "594K",
+        "tt_url": "https://www.tiktok.com/@postureguy",
+        "yt_count": "222K",
+        "yt_url": "https://www.youtube.com/@postureguymike",
+        "fb_count": "651K",
+        "fb_url": "https://www.facebook.com/postureguymike"
+      }
+    },
+    "pgm_about": {
+      "type": "pgm-about",
+      "settings": {
+        "badge_title": "Egoscue Certified",
+        "badge_sub": "Postural Alignment Specialist",
+        "eyebrow": "The Story Behind the Program",
+        "heading": "Meet Mike & Emily — Real People, Real Results",
+        "cred_label": "Certified Postural Alignment Specialist",
+        "cred_desc": "Trained at Egoscue University · Irvine, CA",
+        "cta_label": "Learn More About Mike →",
+        "cta_url": "/pages/about"
+      }
+    },
+    "pgm_membership": {
+      "type": "pgm-membership",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "feat_1": {
+          "type": "feature",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "icon": "📱",
+            "title": "On-Demand Programs",
+            "description": "Structured posture programs — beginner to advanced — available on iOS, Android, and desktop. Work at your own pace."
           }
         },
-        "button": {
-          "type": "buttons",
+        "feat_2": {
+          "type": "feature",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "🎥",
+            "title": "Live Classes with Mike & Emily",
+            "description": "Join Mike and Emily live for real-time coaching, Q&A sessions, and posture challenges with prizes."
+          }
+        },
+        "feat_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "👥",
+            "title": "Private Community",
+            "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
+          }
+        },
+        "feat_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "📊",
+            "title": "Posture Analysis Tools",
+            "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
+          }
+        },
+        "feat_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "💳",
+            "title": "HSA/FSA Eligible",
+            "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
+          }
+        },
+        "feat_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "Start Here Path",
+            "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["feat_1", "feat_2", "feat_3", "feat_4", "feat_5", "feat_6"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "The Membership Program",
+        "heading": "Everything You Need to Fix Your Posture — In One Place",
+        "subheading": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.",
+        "cta_heading": "Ready to get out of pain? Start free today.",
+        "cta_label": "Start My Free Trial",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "pgm_testimonials": {
+      "type": "pgm-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "name": "Sarah M.",
+            "location": "Member since 2023 · Denver, CO",
+            "result": "Pain-free in 3 weeks"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "name": "Robert T.",
+            "location": "Member since 2022 · Phoenix, AZ",
+            "result": "Back to hiking at 67"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "name": "Jessica L.",
+            "location": "Remote worker · Austin, TX",
+            "result": "Neck pain gone in 2 weeks"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "name": "Marcus K.",
+            "location": "Member since 2023 · Chicago, IL",
+            "result": "Complete posture transformation"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Emily's story is so relatable. Knowing Mike built this program for his sister gives me confidence it was built with real care. The community is incredibly supportive too.",
+            "name": "Linda H.",
+            "location": "Member since 2022 · Seattle, WA",
+            "result": "3 months pain-free"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "name": "David R.",
+            "location": "Member · Nashville, TN",
+            "result": "HSA covered, fully pain-free"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "eyebrow": "Real People. Real Results.",
+        "heading": "Thousands Have Fixed Their Posture. You're Next."
+      }
+    },
+    "pgm_quiz": {
+      "type": "pgm-quiz-cta",
+      "settings": {
+        "heading": "What's Your Posture Score?",
+        "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
+        "placeholder": "Enter your email address",
+        "cta_label": "Get My Free Score →",
+        "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers."
+      }
+    },
+    "pgm_products": {
+      "type": "pgm-products",
+      "settings": {
+        "eyebrow": "Posture Tools",
+        "heading": "The Tools That Accelerate Your Results",
+        "viewall_label": "Shop All Products",
+        "viewall_url": "/collections/all",
+        "shipping_note": "Free US shipping on all orders · Ships from Irvine, CA"
+      }
+    },
+    "pgm_tips": {
+      "type": "pgm-posture-tips",
+      "blocks": {
+        "tip1": {
+          "type": "tip",
+          "settings": {
+            "title": "Stack Your Ears Over Shoulders",
+            "body": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine. Gently tuck your chin and lift the crown of your head."
+          }
+        },
+        "tip2": {
+          "type": "tip",
+          "settings": {
+            "title": "Level Your Hips First",
+            "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting hip position changes everything above it."
+          }
+        },
+        "tip3": {
+          "type": "tip",
+          "settings": {
+            "title": "Move Every 30 Minutes",
+            "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets muscle firing patterns and prevents the stiffness that leads to chronic pain."
+          }
+        }
+      },
+      "block_order": ["tip1", "tip2", "tip3"],
+      "settings": {
+        "eyebrow": "Free Posture Education",
+        "heading": "Start Improving Your Posture Today",
+        "cta_label": "Get the Full Program Free →",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+      }
+    },
+    "pgm_collab": {
+      "type": "pgm-collab",
+      "settings": {
+        "eyebrow": "Brand Partnerships",
+        "heading": "Partner With Posture Guy Mike",
+        "body": "Reach over 2.5 million engaged, health-conscious followers across Instagram, TikTok, YouTube, and Facebook. Our audience actively invests in their health — with a high percentage using HSA/FSA benefits for wellness purchases.",
+        "form_heading": "Submit a Partnership Inquiry",
+        "submit_label": "Submit Inquiry"
+      }
+    },
+    "pgm_instagram": {
+      "type": "pgm-instagram",
+      "blocks": {
+        "p1": { "type": "post", "settings": {} },
+        "p2": { "type": "post", "settings": {} },
+        "p3": { "type": "post", "settings": {} },
+        "p4": { "type": "post", "settings": {} },
+        "p5": { "type": "post", "settings": {} },
+        "p6": { "type": "post", "settings": {} }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "settings": {
+        "eyebrow": "Follow Along",
+        "heading": "@postureguymike on Instagram",
+        "ig_url": "https://www.instagram.com/postureguymike",
+        "tt_url": "https://www.tiktok.com/@postureguy",
+        "yt_url": "https://www.youtube.com/@postureguymike",
+        "fb_url": "https://www.facebook.com/postureguymike"
+      }
+    },
+    "pgm_sticky": {
+      "type": "pgm-sticky-cta",
+      "settings": {
+        "title": "Fix Your Posture Today",
+        "subtitle": "Free trial · Cancel anytime",
+        "cta_label": "Start Free Trial",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "pgm_hero",
+    "pgm_social_bar",
+    "pgm_about",
+    "pgm_membership",
+    "pgm_testimonials",
+    "pgm_quiz",
+    "pgm_products",
+    "pgm_tips",
+    "pgm_collab",
+    "pgm_instagram",
+    "pgm_sticky"
   ]
 }

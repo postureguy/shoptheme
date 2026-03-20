@@ -1,0 +1,125 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<section class="pgm-testi pgm-section" aria-labelledby="pgm-testi-heading">
+  <div class="pgm-testi__inner">
+
+    <div class="pgm-testi__header">
+      <span class="pgm-eyebrow pgm-testi__eyebrow">{{ section.settings.eyebrow | default: 'Real People. Real Results.' }}</span>
+      <h2 class="pgm-testi__h2" id="pgm-testi-heading">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+
+    <div class="pgm-testi__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'testimonial' -%}
+          <article class="pgm-testi__card" role="listitem" {{ block.shopify_attributes }}>
+            <div class="pgm-testi__stars" aria-label="5 stars">★★★★★</div>
+            <blockquote class="pgm-testi__quote">
+              "{{ block.settings.quote }}"
+            </blockquote>
+            <footer class="pgm-testi__footer">
+              <div class="pgm-testi__avatar" aria-hidden="true">
+                {{ block.settings.name | slice: 0 | upcase }}
+              </div>
+              <div>
+                <div class="pgm-testi__name">{{ block.settings.name }}</div>
+                <div class="pgm-testi__detail">{{ block.settings.location }}</div>
+                {%- if block.settings.result != blank -%}
+                  <span class="pgm-testi__result">{{ block.settings.result }}</span>
+                {%- endif -%}
+              </div>
+            </footer>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Testimonials",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow",  "default": "Real People. Real Results." },
+    { "type": "text", "id": "heading", "label": "Heading",  "default": "Thousands Have Fixed Their Posture. You're Next." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote",    "label": "Quote",            "default": "I had chronic lower back pain for 6 years. After 3 weeks in the program, I woke up pain-free for the first time." },
+        { "type": "text",     "id": "name",     "label": "Customer name",    "default": "Sarah M." },
+        { "type": "text",     "id": "location", "label": "Location or role", "default": "Member since 2023 · Denver, CO" },
+        { "type": "text",     "id": "result",   "label": "Result tag (optional)", "default": "Pain-free in 3 weeks" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "name": "Sarah M.",
+            "location": "Member since 2023 · Denver, CO",
+            "result": "Pain-free in 3 weeks"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "name": "Robert T.",
+            "location": "Member since 2022 · Phoenix, AZ",
+            "result": "Back to hiking at 67"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home and stares at a screen all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "name": "Jessica L.",
+            "location": "Remote worker · Austin, TX",
+            "result": "Neck pain gone in 2 weeks"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "name": "Marcus K.",
+            "location": "Member since 2023 · Chicago, IL",
+            "result": "Complete posture transformation"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Emily's story is so relatable. Knowing Mike built this program for his sister gives me confidence it was built with real care. The community is incredibly supportive too.",
+            "name": "Linda H.",
+            "location": "Member since 2022 · Seattle, WA",
+            "result": "3 months pain-free"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "name": "David R.",
+            "location": "Member · Nashville, TN",
+            "result": "HSA covered, fully pain-free"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

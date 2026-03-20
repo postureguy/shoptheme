@@ -1,0 +1,142 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<section class="pgm-mem pgm-section" aria-labelledby="pgm-mem-heading">
+  <div class="pgm-mem__inner">
+
+    <!-- Header -->
+    <div class="pgm-mem__header">
+      <span class="pgm-eyebrow pgm-mem__eyebrow">{{ section.settings.eyebrow | default: 'The Membership Program' }}</span>
+      <h2 class="pgm-mem__h2" id="pgm-mem-heading">
+        {{ section.settings.heading | default: 'Everything You Need to Fix Your Posture — In One Place' }}
+      </h2>
+      <p class="pgm-mem__sub">
+        {{ section.settings.subheading | default: 'Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.' }}
+      </p>
+    </div>
+
+    <!-- Feature grid -->
+    <div class="pgm-mem__features">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature' -%}
+          <div class="pgm-mem__feature" {{ block.shopify_attributes }}>
+            <div class="pgm-mem__feat-icon" aria-hidden="true">{{ block.settings.icon | default: '🎯' }}</div>
+            <h3 class="pgm-mem__feat-title">{{ block.settings.title }}</h3>
+            <p class="pgm-mem__feat-desc">{{ block.settings.description }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- CTA Panel -->
+    <div class="pgm-mem__cta-panel">
+      <div class="pgm-mem__cta-copy">
+        <p class="pgm-mem__cta-heading">
+          {{ section.settings.cta_heading | default: 'Ready to get out of pain? <span>Start free today.</span>' }}
+        </p>
+        <div class="pgm-mem__badges">
+          <span class="pgm-mem__badge">✓ Free trial</span>
+          <span class="pgm-mem__badge">✓ Cancel anytime</span>
+          <span class="pgm-mem__badge">✓ HSA/FSA eligible</span>
+          <span class="pgm-mem__badge">✓ iOS &amp; Android app</span>
+        </div>
+      </div>
+      <div class="pgm-mem__cta-actions">
+        <a
+          href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}"
+          class="pgm-btn pgm-btn--primary"
+          target="_blank" rel="noopener"
+        >
+          {{ section.settings.cta_label | default: 'Start My Free Trial' }}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Membership",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text",     "id": "eyebrow",    "label": "Eyebrow",    "default": "The Membership Program" },
+    { "type": "text",     "id": "heading",    "label": "Heading",    "default": "Everything You Need to Fix Your Posture — In One Place" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back." },
+    { "type": "header",   "content": "CTA Panel" },
+    { "type": "text",     "id": "cta_heading","label": "CTA heading", "default": "Ready to get out of pain? Start free today." },
+    { "type": "text",     "id": "cta_label",  "label": "Button label", "default": "Start My Free Trial" },
+    { "type": "url",      "id": "cta_url",    "label": "Button link",  "info": "Link to UScreen free trial" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Program Feature",
+      "settings": [
+        { "type": "text",     "id": "icon",        "label": "Emoji icon", "default": "🎯" },
+        { "type": "text",     "id": "title",       "label": "Title",       "default": "On-Demand Programs" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Structured posture programs from beginner to advanced, guided by Mike and Emily at your own pace." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Membership",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "📱",
+            "title": "On-Demand Programs",
+            "description": "Structured posture programs — beginner to advanced — available on iOS, Android, and desktop. Work at your own pace."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🎥",
+            "title": "Live Classes with Mike & Emily",
+            "description": "Join Mike and Emily live for real-time coaching, Q&A sessions, and posture challenges with prizes."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "👥",
+            "title": "Private Community",
+            "description": "Connect with thousands of members, share wins, ask questions, and get support on your posture journey."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "📊",
+            "title": "Posture Analysis Tools",
+            "description": "Built-in posture assessment tools to track your progress and personalise your program to your body's specific needs."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "💳",
+            "title": "HSA/FSA Eligible",
+            "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "Start Here Path",
+            "description": "New to the program? Our guided Start Here path removes all guesswork and gets you feeling better fast."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

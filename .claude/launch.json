@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Shopify Theme Dev (live preview)",
+      "runtimeExecutable": "/Users/michaelboshnack/.nvm/versions/node/v20.20.1/bin/node",
+      "runtimeArgs": ["/Users/michaelboshnack/.nvm/versions/node/v20.20.1/bin/shopify", "theme", "dev", "--store", "postureguymike.myshopify.com"],
+      "port": 9292
+    },
+    {
+      "name": "Shopify Theme Dev (open browser)",
+      "runtimeExecutable": "/Users/michaelboshnack/.nvm/versions/node/v20.20.1/bin/node",
+      "runtimeArgs": ["/Users/michaelboshnack/.nvm/versions/node/v20.20.1/bin/shopify", "theme", "dev", "--store", "postureguymike.myshopify.com", "--open"],
+      "port": 9292
+    }
+  ]
+}

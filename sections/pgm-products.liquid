@@ -1,0 +1,110 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<section class="pgm-products pgm-section" aria-labelledby="pgm-products-heading">
+  <div class="pgm-products__inner">
+
+    <div class="pgm-products__header">
+      <div>
+        <span class="pgm-eyebrow pgm-products__eyebrow">{{ section.settings.eyebrow | default: 'Posture Tools' }}</span>
+        <h2 class="pgm-products__h2" id="pgm-products-heading">
+          {{ section.settings.heading | default: 'The Tools That Accelerate Your Results' }}
+        </h2>
+      </div>
+      <a href="{{ section.settings.viewall_url | default: '/collections/all' }}" class="pgm-products__viewall">
+        {{ section.settings.viewall_label | default: 'Shop All Products' }} →
+      </a>
+    </div>
+
+    <div class="pgm-products__grid">
+      {%- assign collection = collections[section.settings.collection] -%}
+      {%- if collection != blank -%}
+        {%- assign products_to_show = section.settings.products_to_show | default: 3 -%}
+        {%- for product in collection.products limit: products_to_show -%}
+          <a href="{{ product.url }}" class="pgm-prod-card" aria-label="{{ product.title }}">
+            <div class="pgm-prod-card__img">
+              {%- if product.featured_image -%}
+                {{
+                  product.featured_image
+                  | image_url: width: 600
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: product.featured_image.alt | default: product.title
+                }}
+              {%- endif -%}
+            </div>
+            <div class="pgm-prod-card__body">
+              <h3 class="pgm-prod-card__title">{{ product.title }}</h3>
+              <p class="pgm-prod-card__desc">{{ product.description | strip_html | truncate: 90 }}</p>
+              <div class="pgm-prod-card__foot">
+                <span class="pgm-prod-card__price">{{ product.price | money }}</span>
+                <span class="pgm-prod-card__cta">Shop Now</span>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Fallback: manual product blocks when no collection is set -->
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'product' and block.settings.product != blank -%}
+            {%- assign p = block.settings.product -%}
+            <a href="{{ p.url }}" class="pgm-prod-card" {{ block.shopify_attributes }}>
+              <div class="pgm-prod-card__img">
+                {%- if p.featured_image -%}
+                  {{
+                    p.featured_image
+                    | image_url: width: 600
+                    | image_tag: loading: 'lazy', alt: p.featured_image.alt | default: p.title
+                  }}
+                {%- endif -%}
+              </div>
+              <div class="pgm-prod-card__body">
+                <h3 class="pgm-prod-card__title">{{ p.title }}</h3>
+                <p class="pgm-prod-card__desc">{{ p.description | strip_html | truncate: 90 }}</p>
+                <div class="pgm-prod-card__foot">
+                  <span class="pgm-prod-card__price">{{ p.price | money }}</span>
+                  <span class="pgm-prod-card__cta">Shop Now</span>
+                </div>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <p class="pgm-products__ship" aria-label="Free US shipping">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+      </svg>
+      {{ section.settings.shipping_note | default: 'Free US shipping on all orders · Ships from Irvine, CA' }}
+    </p>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Products",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text",            "id": "eyebrow",         "label": "Eyebrow",           "default": "Posture Tools" },
+    { "type": "text",            "id": "heading",         "label": "Heading",           "default": "The Tools That Accelerate Your Results" },
+    { "type": "collection",      "id": "collection",      "label": "Product collection", "info": "Select a collection to auto-pull products, or use manual product blocks below." },
+    { "type": "range",           "id": "products_to_show","label": "Products to show",   "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "text",            "id": "viewall_label",   "label": "View all label",    "default": "Shop All Products" },
+    { "type": "url",             "id": "viewall_url",     "label": "View all link" },
+    { "type": "text",            "id": "shipping_note",   "label": "Shipping note",     "default": "Free US shipping on all orders · Ships from Irvine, CA" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product (manual)",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "PGM — Products" }]
+}
+{% endschema %}

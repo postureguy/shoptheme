@@ -1,0 +1,68 @@
+{% comment %}
+  PGM — Structured Data (JSON-LD) for Homepage SEO
+  Renders: Organization + Person (Mike) + WebSite schemas
+  Only inject on the homepage.
+{% endcomment %}
+{% if request.page_type == 'index' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://postureguymike.com/#organization",
+      "name": "Posture Guy Mike",
+      "url": "https://postureguymike.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://postureguymike.com/cdn/shop/files/pgm-logo.svg"
+      },
+      "description": "Posture Guy Mike offers postural alignment therapy programs, live classes, and posture tools based on the Egoscue method. Join millions who follow Mike Boshnack for daily posture tips and chronic pain relief.",
+      "sameAs": [
+        "https://www.instagram.com/postureguymike",
+        "https://www.tiktok.com/@postureguy",
+        "https://www.youtube.com/@postureguymike",
+        "https://www.facebook.com/postureguymike"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://postureguymike.com/pages/contact"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://postureguymike.com/#mike",
+      "name": "Mike Boshnack",
+      "alternateName": "Posture Guy Mike",
+      "jobTitle": "Certified Postural Alignment Specialist",
+      "description": "Mike Boshnack is a Certified Postural Alignment Specialist trained at Egoscue University. Known as Posture Guy Mike, he has 1.3M Instagram followers and helps people fix chronic pain through postural therapy.",
+      "url": "https://postureguymike.com",
+      "image": "https://postureguymike.com/cdn/shop/files/mike-boshnack.jpg",
+      "worksFor": {
+        "@id": "https://postureguymike.com/#organization"
+      },
+      "sameAs": [
+        "https://www.instagram.com/postureguymike",
+        "https://www.tiktok.com/@postureguy",
+        "https://www.youtube.com/@postureguymike"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://postureguymike.com/#website",
+      "url": "https://postureguymike.com",
+      "name": "Posture Guy Mike",
+      "publisher": {
+        "@id": "https://postureguymike.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://postureguymike.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+{% endif %}
