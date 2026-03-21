@@ -1,0 +1,11 @@
+# AI-generated images (review before adding to repo or Shopify CDN)
+generated-images/
+
+# Node
+node_modules/
+.env
+.env.local
+.env.production
+
+# macOS
+.DS_Store

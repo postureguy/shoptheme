@@ -1,6 +1,7 @@
 {
   "sections": {
     "pgm_hero": {
+
       "type": "pgm-hero",
       "settings": {
         "eyebrow": "Certified Postural Alignment Specialist",
@@ -15,14 +16,14 @@
       "type": "pgm-social-bar",
       "settings": {
         "label": "Join millions who follow along",
-        "ig_count": "1.3M",
+        "ig_count": "1.4M",
         "ig_url": "https://www.instagram.com/postureguymike",
-        "tt_count": "594K",
+        "tt_count": "607K",
         "tt_url": "https://www.tiktok.com/@postureguy",
-        "yt_count": "222K",
-        "yt_url": "https://www.youtube.com/@postureguymike",
-        "fb_count": "651K",
-        "fb_url": "https://www.facebook.com/postureguymike"
+        "yt_count": "236K",
+        "yt_url": "https://www.youtube.com/@postureguy",
+        "fb_count": "690K",
+        "fb_url": "https://www.facebook.com/posturestrongofficial"
       }
     },
     "pgm_about": {
@@ -31,7 +32,7 @@
         "badge_title": "Egoscue Certified",
         "badge_sub": "Postural Alignment Specialist",
         "eyebrow": "The Story Behind the Program",
-        "heading": "Meet Mike & Emily — Real People, Real Results",
+        "heading": "Meet Mike — Real Expertise, Real Results",
         "cred_label": "Certified Postural Alignment Specialist",
         "cred_desc": "Trained at Egoscue University · Irvine, CA",
         "cta_label": "Learn More About Mike →",
@@ -53,8 +54,8 @@
           "type": "feature",
           "settings": {
             "icon": "🎥",
-            "title": "Live Classes with Mike & Emily",
-            "description": "Join Mike and Emily live for real-time coaching, Q&A sessions, and posture challenges with prizes."
+            "title": "Live Classes with Mike",
+            "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
           }
         },
         "feat_3": {
@@ -142,7 +143,7 @@
         "t5": {
           "type": "testimonial",
           "settings": {
-            "quote": "Emily's story is so relatable. Knowing Mike built this program for his sister gives me confidence it was built with real care. The community is incredibly supportive too.",
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
             "name": "Linda H.",
             "location": "Member since 2022 · Seattle, WA",
             "result": "3 months pain-free"
@@ -172,16 +173,6 @@
         "placeholder": "Enter your email address",
         "cta_label": "Get My Free Score →",
         "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers."
-      }
-    },
-    "pgm_products": {
-      "type": "pgm-products",
-      "settings": {
-        "eyebrow": "Posture Tools",
-        "heading": "The Tools That Accelerate Your Results",
-        "viewall_label": "Shop All Products",
-        "viewall_url": "/collections/all",
-        "shipping_note": "Free US shipping on all orders · Ships from Irvine, CA"
       }
     },
     "pgm_tips": {
@@ -230,21 +221,25 @@
     "pgm_instagram": {
       "type": "pgm-instagram",
       "blocks": {
-        "p1": { "type": "post", "settings": {} },
-        "p2": { "type": "post", "settings": {} },
-        "p3": { "type": "post", "settings": {} },
-        "p4": { "type": "post", "settings": {} },
-        "p5": { "type": "post", "settings": {} },
-        "p6": { "type": "post", "settings": {} }
+        "p1": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWDS-G-GLOv/" } },
+        "p2": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAmXAPD5zj/" } },
+        "p3": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAF7D4EqAi/" } },
+        "p4": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DV974qnFPMB/" } },
+        "p5": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DU_FHNalKbi/" } },
+        "p6": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DV7i_xflAHu/" } }
       },
       "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
       "settings": {
         "eyebrow": "Follow Along",
         "heading": "@postureguymike on Instagram",
         "ig_url": "https://www.instagram.com/postureguymike",
+        "ig_count": "1.4M",
         "tt_url": "https://www.tiktok.com/@postureguy",
-        "yt_url": "https://www.youtube.com/@postureguymike",
-        "fb_url": "https://www.facebook.com/postureguymike"
+        "tt_count": "607K",
+        "yt_url": "https://www.youtube.com/@postureguy",
+        "yt_count": "236K",
+        "fb_url": "https://www.facebook.com/posturestrongofficial",
+        "fb_count": "690K"
       }
     },
     "pgm_sticky": {
@@ -264,7 +259,6 @@
     "pgm_membership",
     "pgm_testimonials",
     "pgm_quiz",
-    "pgm_products",
     "pgm_tips",
     "pgm_collab",
     "pgm_instagram",
