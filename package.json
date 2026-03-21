@@ -1,0 +1,18 @@
+{
+  "name": "postureguymike-shoptheme",
+  "version": "1.0.0",
+  "description": "Posture Guy Mike — Shopify Theme + AI Image Pipeline",
+  "scripts": {
+    "images:all":       "node scripts/pgm-pipeline.js --step all",
+    "images:train":     "node scripts/pgm-pipeline.js --step train",
+    "images:generate":  "node scripts/pgm-pipeline.js --step generate",
+    "images:upload":    "node scripts/pgm-pipeline.js --step upload",
+    "images:generate-only": "node scripts/generate-images.js --provider flux --section all",
+    "sync-counts":      "node scripts/sync-social-counts.js",
+    "theme:dev":        "shopify theme dev",
+    "theme:push":       "shopify theme push"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

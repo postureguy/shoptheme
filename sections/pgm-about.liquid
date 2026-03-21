@@ -15,7 +15,13 @@
               alt: section.settings.image.alt | default: 'Mike Boshnack — Posture Guy Mike, Certified Postural Alignment Specialist'
           }}
         {%- else -%}
-          <div class="pgm-about__img-placeholder" aria-hidden="true">🏃</div>
+          <img
+            src="{{ 'pgm-about.jpg' | asset_url }}"
+            alt="Mike Boshnack — Posture Guy Mike, Certified Postural Alignment Specialist"
+            loading="lazy"
+            width="900"
+            height="1125"
+          >
         {%- endif -%}
         <div class="pgm-about__cred-badge" aria-label="Mike's credential">
           <div class="pgm-about__cred-title">{{ section.settings.badge_title | default: 'Egoscue Certified' }}</div>
@@ -29,7 +35,7 @@
       <span class="pgm-eyebrow pgm-about__eyebrow">{{ section.settings.eyebrow | default: 'The Story Behind the Program' }}</span>
 
       <h2 class="pgm-about__h2" id="pgm-about-heading">
-        {{ section.settings.heading | default: 'Meet Mike & Emily — Real People, Real Results' }}
+        {{ section.settings.heading | default: 'Meet Mike — Real Expertise, Real Results' }}
       </h2>
 
       <div class="pgm-about__body">
@@ -67,13 +73,13 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Photo of Mike (or Mike + Emily)",
+      "label": "Photo of Mike",
       "info": "Recommended: 900×1160px portrait. Can be a professional coaching shot or candid action photo."
     },
     { "type": "text",    "id": "badge_title", "label": "Image badge title", "default": "Egoscue Certified" },
     { "type": "text",    "id": "badge_sub",   "label": "Image badge subtitle", "default": "Postural Alignment Specialist" },
     { "type": "text",    "id": "eyebrow",  "label": "Eyebrow", "default": "The Story Behind the Program" },
-    { "type": "text",    "id": "heading",  "label": "Heading",  "default": "Meet Mike & Emily — Real People, Real Results" },
+    { "type": "text",    "id": "heading",  "label": "Heading",  "default": "Meet Mike — Real Expertise, Real Results" },
     { "type": "richtext","id": "body",     "label": "Body text" },
     { "type": "text",    "id": "cred_label","label": "Credential label", "default": "Certified Postural Alignment Specialist" },
     { "type": "text",    "id": "cred_desc", "label": "Credential subtitle", "default": "Trained at Egoscue University · Irvine, CA" },

@@ -1,0 +1,288 @@
+/* ============================================================
+   POSTURE GUY MIKE — Header & Footer Brand Overrides
+   Applied on top of Dawn's color-scheme system.
+   Brand: #111827 dark · #1d4ed8 blue · #ffffff white
+   ============================================================ */
+
+/* ── Custom Props available globally ─── */
+:root {
+  --pgm-dark:       #111827;
+  --pgm-dark-2:     #1f2937;
+  --pgm-blue:       #1d4ed8;
+  --pgm-blue-hover: #1e40af;
+  --pgm-blue-light: #60a5fa;
+  --pgm-white:      #ffffff;
+  --pgm-border:     rgba(255,255,255,0.08);
+}
+
+
+/* ══════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════ */
+
+.section-header .header-wrapper {
+  background-color: var(--pgm-dark);
+  border-bottom-color: var(--pgm-border);
+}
+
+/* Blurred sticky state */
+.section-header .shopify-section-header-sticky .header-wrapper,
+.shopify-section-header-sticky.section-header .header-wrapper {
+  background-color: rgba(17, 24, 39, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Logo link */
+.section-header .header__heading-link,
+.section-header .header__heading-link .h2 {
+  color: var(--pgm-white);
+}
+.section-header .header__heading-link:hover,
+.section-header .header__heading-link:hover .h2 {
+  color: rgba(255,255,255,0.8);
+}
+
+/* Desktop nav links */
+.section-header .list-menu__item--link {
+  color: rgba(255,255,255,0.82);
+}
+.section-header .list-menu__item--link:hover,
+.section-header .list-menu__item--link:focus-visible {
+  color: var(--pgm-blue-light);
+  text-decoration: none;
+}
+.section-header .list-menu__item--active {
+  color: var(--pgm-white);
+  font-weight: 700;
+}
+
+/* Dropdown caret / disclosure arrows */
+.section-header .header__icon--arrow {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Icons: search, account, cart */
+.section-header .header__icon {
+  color: rgba(255,255,255,0.82);
+}
+.section-header .header__icon:hover {
+  color: var(--pgm-blue-light);
+}
+.section-header .header__icon svg path,
+.section-header .header__icon svg rect,
+.section-header .header__icon svg polyline {
+  stroke: currentColor;
+}
+
+/* Cart count bubble */
+.section-header .cart-count-bubble {
+  background-color: var(--pgm-blue);
+  color: var(--pgm-white);
+}
+
+/* Dropdown submenus */
+.section-header .header__submenu,
+.section-header details[open] > .header__active-menu-item,
+.section-header .mega-menu__content {
+  background-color: var(--pgm-dark-2);
+  border-color: var(--pgm-border);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+.section-header .header__submenu .list-menu__item--link {
+  color: rgba(255,255,255,0.78);
+}
+.section-header .header__submenu .list-menu__item--link:hover {
+  color: var(--pgm-blue-light);
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* Mobile menu drawer */
+.menu-drawer {
+  background-color: var(--pgm-dark);
+  color: var(--pgm-white);
+}
+.menu-drawer__navigation .list-menu__item--link,
+.menu-drawer__inner-container .list-menu__item--link {
+  color: rgba(255,255,255,0.85);
+}
+.menu-drawer__navigation .list-menu__item--link:hover {
+  color: var(--pgm-blue-light);
+}
+.menu-drawer details > summary::after {
+  border-color: rgba(255,255,255,0.5);
+}
+.menu-drawer__close-button {
+  color: rgba(255,255,255,0.8);
+}
+.menu-drawer__close-button:hover {
+  color: var(--pgm-white);
+}
+
+/* Hide cart + account — no Shopify storefront active */
+.section-header .header__icon--cart,
+.section-header .header__icon--account {
+  display: none !important;
+}
+
+/* Search modal */
+.search-modal {
+  background-color: var(--pgm-dark-2);
+}
+.search-modal .search__input {
+  background-color: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--pgm-white);
+}
+.search-modal .search__input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.search-modal .search__button {
+  color: rgba(255,255,255,0.7);
+}
+
+
+/* ══════════════════════════════════════
+   ANNOUNCEMENT BAR
+   ══════════════════════════════════════ */
+
+.announcement-bar-section .utility-bar {
+  background-color: #0a0a0a;
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.announcement-bar-section .announcement-bar__message,
+.announcement-bar-section .announcement-bar__link {
+  color: rgba(255,255,255,0.85);
+}
+.announcement-bar-section .announcement-bar__link:hover {
+  color: var(--pgm-blue-light);
+}
+
+
+/* ══════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════ */
+
+.section-footer footer.footer,
+footer.footer {
+  background-color: #0a0a0a;
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Block headings */
+.section-footer .footer-block__heading,
+footer .footer-block__heading {
+  color: var(--pgm-white);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Footer link lists */
+.section-footer .footer-block__details-content .list-menu__item--link,
+footer .footer-block__details-content .list-menu__item--link,
+.section-footer .link--text,
+footer .link--text {
+  color: rgba(255,255,255,0.58);
+}
+.section-footer .footer-block__details-content .list-menu__item--link:hover,
+footer .footer-block__details-content .list-menu__item--link:hover,
+.section-footer .link--text:hover,
+footer .link--text:hover {
+  color: var(--pgm-blue-light);
+}
+
+/* RTE text blocks */
+.section-footer .footer-block__details-content,
+footer .footer-block__details-content {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Newsletter form */
+.section-footer .field__input,
+footer .field__input {
+  background-color: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--pgm-white);
+}
+.section-footer .field__input:focus,
+footer .field__input:focus {
+  border-color: var(--pgm-blue);
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.25);
+  outline: none;
+}
+.section-footer .field__label,
+footer .field__label {
+  color: rgba(255,255,255,0.4);
+}
+.section-footer .newsletter-form__button,
+footer .newsletter-form__button {
+  background-color: var(--pgm-blue);
+  color: var(--pgm-white);
+  border-color: var(--pgm-blue);
+}
+.section-footer .newsletter-form__button:hover,
+footer .newsletter-form__button:hover {
+  background-color: var(--pgm-blue-hover);
+  border-color: var(--pgm-blue-hover);
+}
+
+/* Social icons */
+.section-footer .social-icons__link,
+footer .social-icons__link {
+  color: rgba(255,255,255,0.55);
+}
+.section-footer .social-icons__link:hover,
+footer .social-icons__link:hover {
+  color: var(--pgm-blue-light);
+}
+
+/* Footer bottom / copyright */
+.section-footer .footer__content-bottom,
+footer .footer__content-bottom {
+  border-top-color: rgba(255,255,255,0.07);
+}
+.section-footer .footer__copyright,
+.section-footer .copyright__content,
+footer .footer__copyright,
+footer .copyright__content {
+  color: rgba(255,255,255,0.3);
+}
+.section-footer .copyright__content a,
+footer .copyright__content a {
+  color: rgba(255,255,255,0.3);
+}
+.section-footer .copyright__content a:hover,
+footer .copyright__content a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Policies links */
+.section-footer .policies-list a,
+footer .policies-list a {
+  color: rgba(255,255,255,0.3);
+}
+.section-footer .policies-list a:hover,
+footer .policies-list a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Payment icons */
+.section-footer .payment-icons,
+footer .payment-icons {
+  opacity: 0.45;
+  filter: brightness(1.8) saturate(0.5);
+}
+
+/* Follow-on-shop button */
+.section-footer .shopify-follow-button,
+footer .shopify-follow-button {
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+}
+
+/* Scrollbar in footer (subtlety) */
+.section-footer ::-webkit-scrollbar-track { background: #0a0a0a; }
+.section-footer ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }

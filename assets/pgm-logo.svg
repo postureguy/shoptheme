@@ -1,35 +1,56 @@
-<svg viewBox="0 0 260 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Posture Guy Mike">
-  <!-- ── Spine Icon ── -->
-  <!-- Head circle -->
-  <circle cx="26" cy="10" r="7" fill="currentColor"/>
-  <!-- Spine rod (straight = aligned posture) -->
-  <rect x="24" y="19" width="4" height="26" rx="2" fill="currentColor"/>
-  <!-- Shoulder line (horizontal alignment marker) -->
-  <rect x="12" y="23" width="28" height="3" rx="1.5" fill="#1d4ed8"/>
-  <!-- Mid-back line -->
-  <rect x="16" y="31" width="20" height="2.5" rx="1.25" fill="#3b82f6" opacity="0.7"/>
-  <!-- Hip line -->
-  <rect x="14" y="38" width="24" height="3" rx="1.5" fill="#1d4ed8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 56" role="img" aria-label="Posture Guy Mike">
+  <title>Posture Guy Mike</title>
 
-  <!-- ── Wordmark ── -->
-  <!-- "POSTURE GUY" top line -->
+  <!-- ── ICON: Aligned Figure Badge ── -->
+  <!-- Dark pill background -->
+  <rect x="0" y="2" width="48" height="52" rx="10" fill="#111827"/>
+  <!-- Inner ring accent -->
+  <rect x="2" y="4" width="44" height="48" rx="8" fill="none" stroke="#1d4ed8" stroke-width="1" stroke-opacity="0.5"/>
+
+  <!-- Head circle — solid blue -->
+  <circle cx="24" cy="14" r="7" fill="#1d4ed8"/>
+
+  <!-- Spine — white, subtle -->
+  <rect x="22.5" y="21" width="3" height="18" rx="1.5" fill="rgba(255,255,255,0.75)"/>
+
+  <!-- Shoulder alignment bar — lighter blue, extends wide = level shoulders -->
+  <rect x="8" y="25" width="32" height="3" rx="1.5" fill="#60a5fa"/>
+
+  <!-- Hip alignment bar — same width as shoulders = perfect posture -->
+  <rect x="10" y="36" width="28" height="3" rx="1.5" fill="#60a5fa"/>
+
+  <!-- Left leg -->
+  <rect x="15" y="40" width="4.5" height="12" rx="2.25" fill="#1d4ed8"/>
+
+  <!-- Right leg -->
+  <rect x="28.5" y="40" width="4.5" height="12" rx="2.25" fill="#1d4ed8"/>
+
+  <!-- Alignment check dots — green, right side of figure -->
+  <circle cx="42" cy="26.5" r="2.5" fill="#22c55e"/>
+  <circle cx="40" cy="37.5" r="2.5" fill="#22c55e"/>
+
+  <!-- ── DIVIDER ── -->
+  <line x1="62" y1="8" x2="62" y2="48" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- ── WORDMARK ── -->
+  <!-- "POSTURE GUY" — tracked, muted -->
   <text
-    x="52"
-    y="26"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-weight="800"
-    font-size="17"
-    letter-spacing="-0.4"
-    fill="currentColor"
+    x="74" y="26"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="9" font-weight="700"
+    fill="rgba(255,255,255,0.45)"
+    letter-spacing="3.5"
   >POSTURE GUY</text>
-  <!-- "MIKE" bottom line in blue -->
+
+  <!-- "MIKE" — bold, white, hero size -->
   <text
-    x="52"
-    y="47"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-weight="900"
-    font-size="22"
-    letter-spacing="-0.8"
-    fill="#1d4ed8"
+    x="72" y="49"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="28" font-weight="900"
+    fill="#ffffff"
+    letter-spacing="-0.5"
   >MIKE</text>
+
+  <!-- Blue accent underline beneath MIKE -->
+  <rect x="72" y="52" width="68" height="2.5" rx="1.25" fill="#1d4ed8"/>
 </svg>
