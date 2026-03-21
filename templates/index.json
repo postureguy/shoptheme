@@ -221,12 +221,12 @@
     "pgm_instagram": {
       "type": "pgm-instagram",
       "blocks": {
-        "p1": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWDS-G-GLOv/" } },
-        "p2": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAmXAPD5zj/" } },
-        "p3": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAF7D4EqAi/" } },
-        "p4": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DV974qnFPMB/" } },
-        "p5": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DU_FHNalKbi/" } },
-        "p6": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DV7i_xflAHu/" } }
+        "p1": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWDS-G-GLOv/", "is_reel": true, "likes": "1.6K", "comments": "29" } },
+        "p2": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAmXAPD5zj/", "is_reel": true, "likes": "587", "comments": "4" } },
+        "p3": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAF7D4EqAi/", "is_reel": true, "likes": "1.9K", "comments": "30" } },
+        "p4": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DV974qnFPMB/", "is_reel": true, "likes": "10.2K", "comments": "50" } },
+        "p5": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DU_FHNalKbi/", "is_reel": false, "likes": "176", "comments": "17" } },
+        "p6": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DV7i_xflAHu/", "is_reel": false, "likes": "", "comments": "4" } }
       },
       "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
       "settings": {
