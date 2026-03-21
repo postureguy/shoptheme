@@ -19,7 +19,7 @@
         "primary_cta_label": "Start Your Free Trial",
         "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
         "secondary_cta_label": "Watch How It Works",
-        "secondary_cta_url": "https://www.youtube.com/@postureguymike"
+        "video_id": "b6Yt1JtvUH0"
       }
     },
     "pgm_social_bar": {
@@ -41,18 +41,14 @@
       "settings": {
         "badge_title": "Egoscue Certified",
         "badge_sub": "Postural Alignment Specialist",
-<<<<<<< HEAD
-        "eyebrow": "The Coach Behind the Movement",
-        "heading": "Meet Mike — The Posture Expert Trusted by Millions",
-=======
         "eyebrow": "The Story Behind the Program",
         "heading": "Meet Mike — Real Expertise, Real Results",
         "body": "",
->>>>>>> 650ed880f6b60c3f5c37339dc9012759f480c01b
         "cred_label": "Certified Postural Alignment Specialist",
         "cred_desc": "Trained at Egoscue University · Irvine, CA",
         "cta_label": "Learn More About Mike →",
-        "cta_url": "/pages/about"
+        "cta_url": "/pages/about",
+        "celeb_label": "Trusted by celebrities, athletes & professional teams"
       }
     },
     "pgm_membership": {
@@ -69,7 +65,7 @@
         "feat_2": {
           "type": "feature",
           "settings": {
-            "icon_name": "live",
+            "icon_name": "programs",
             "title": "Live Classes with Mike",
             "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
           }
@@ -77,7 +73,7 @@
         "feat_3": {
           "type": "feature",
           "settings": {
-            "icon_name": "community",
+            "icon_name": "programs",
             "title": "Private Community",
             "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
           }
@@ -85,7 +81,7 @@
         "feat_4": {
           "type": "feature",
           "settings": {
-            "icon_name": "analysis",
+            "icon_name": "programs",
             "title": "Posture Analysis Tools",
             "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
           }
@@ -93,7 +89,7 @@
         "feat_5": {
           "type": "feature",
           "settings": {
-            "icon_name": "hsa",
+            "icon_name": "programs",
             "title": "HSA/FSA Eligible",
             "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
           }
@@ -101,7 +97,7 @@
         "feat_6": {
           "type": "feature",
           "settings": {
-            "icon_name": "start",
+            "icon_name": "programs",
             "title": "Start Here Path",
             "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
           }
@@ -130,55 +126,55 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years.",
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
             "name": "Sarah M.",
             "location": "Member since 2023 · Denver, CO",
-            "result": "Pain-Free in 3 Weeks"
+            "result": "Pain-free in 3 weeks"
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "quote": "I'm 67 and I thought hip pain was just part of aging. Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
             "name": "Robert T.",
             "location": "Member since 2022 · Phoenix, AZ",
-            "result": "Back to Hiking at 67"
+            "result": "Back to hiking at 67"
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
-            "quote": "I work from home and stare at a screen all day. My neck and shoulder pain was unbearable. Two weeks into the desk worker program — gone. I tell everyone about this.",
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
             "name": "Jessica L.",
             "location": "Remote worker · Austin, TX",
-            "result": "Neck Pain Gone in 2 Weeks"
+            "result": "Neck pain gone in 2 weeks"
           }
         },
         "t4": {
           "type": "testimonial",
           "settings": {
-            "quote": "I was skeptical — how can exercises alone fix posture? The science clicked immediately. My posture has completely transformed in 60 days.",
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
             "name": "Marcus K.",
             "location": "Member since 2023 · Chicago, IL",
-            "result": "Complete Transformation — 60 Days"
+            "result": "Complete posture transformation"
           }
         },
         "t5": {
           "type": "testimonial",
           "settings": {
-            "quote": "I've tried YouTube stretches, PT, even a chiropractor for years. Nothing held. Mike's method is the first thing that addressed why I hurt, not just where. Three months later I'm still pain-free.",
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
             "name": "Linda H.",
             "location": "Member since 2022 · Seattle, WA",
-            "result": "Pain-Free — 3 Months & Counting"
+            "result": "3 months pain-free"
           }
         },
         "t6": {
           "type": "testimonial",
           "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me a cent out of pocket. Best health decision I've made in years. The results speak for themselves.",
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
             "name": "David R.",
             "location": "Member · Nashville, TN",
-            "result": "HSA-Eligible · Zero Out-of-Pocket"
+            "result": "HSA covered, fully pain-free"
           }
         }
       },
@@ -192,7 +188,7 @@
       ],
       "settings": {
         "eyebrow": "Real People. Real Results.",
-        "heading": "What Happens When You Fix the Root Cause",
+        "heading": "Thousands Have Fixed Their Posture. You're Next.",
         "show_trust_bar": true,
         "trust_bar_rating": "4.9 / 5 Rating",
         "trust_bar_members": "2,000+ Members",
@@ -202,13 +198,16 @@
     "pgm_quiz": {
       "type": "pgm-quiz-cta",
       "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_51_51_PM.png",
         "heading": "What's Your Posture Score?",
         "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
         "placeholder": "Enter your email address",
         "cta_label": "Get My Free Score →",
         "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers.",
+        "trial_url": "",
+        "result_cta_label": "Start My Free Trial — Fix This Now",
         "klaviyo_id": "RY86tU",
-        "klaviyo_list_id": "S7DCaR"
+        "klaviyo_list_id": ""
       }
     },
     "pgm_tips": {
@@ -225,7 +224,7 @@
         "tip2": {
           "type": "tip",
           "settings": {
-            "category": "Back Health",
+            "category": "Neck Relief",
             "title": "Level Your Hips First",
             "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting hip position changes everything above it."
           }
@@ -233,7 +232,7 @@
         "tip3": {
           "type": "tip",
           "settings": {
-            "category": "Daily Habit",
+            "category": "Neck Relief",
             "title": "Move Every 30 Minutes",
             "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets muscle firing patterns and prevents the stiffness that leads to chronic pain."
           }
@@ -355,10 +354,10 @@
     "pgm_hero",
     "pgm_social_bar",
     "pgm_about",
-    "pgm_tips",
     "pgm_membership",
     "pgm_testimonials",
     "pgm_quiz",
+    "pgm_tips",
     "pgm_collab",
     "pgm_instagram",
     "pgm_sticky"
