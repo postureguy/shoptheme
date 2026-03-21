@@ -1,10 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "pgm_hero": {
-
       "type": "pgm-hero",
       "settings": {
+        "bg_image": "shopify://shop_images/36ce4371-588f-4244-b4fc-9220b7578ae7.png",
         "eyebrow": "Certified Postural Alignment Specialist",
+        "headline": "<p>Your Pain Has a<br/><em>Root Cause.</em><br/>Let's Fix It.</p>",
         "subheadline": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.",
         "primary_cta_label": "Start Your Free Trial",
         "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
@@ -33,6 +43,7 @@
         "badge_sub": "Postural Alignment Specialist",
         "eyebrow": "The Story Behind the Program",
         "heading": "Meet Mike — Real Expertise, Real Results",
+        "body": "",
         "cred_label": "Certified Postural Alignment Specialist",
         "cred_desc": "Trained at Egoscue University · Irvine, CA",
         "cta_label": "Learn More About Mike →",
@@ -91,7 +102,14 @@
           }
         }
       },
-      "block_order": ["feat_1", "feat_2", "feat_3", "feat_4", "feat_5", "feat_6"],
+      "block_order": [
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6"
+      ],
       "settings": {
         "eyebrow": "The Membership Program",
         "heading": "Everything You Need to Fix Your Posture — In One Place",
@@ -159,7 +177,14 @@
           }
         }
       },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
       "settings": {
         "eyebrow": "Real People. Real Results.",
         "heading": "Thousands Have Fixed Their Posture. You're Next."
@@ -200,7 +225,11 @@
           }
         }
       },
-      "block_order": ["tip1", "tip2", "tip3"],
+      "block_order": [
+        "tip1",
+        "tip2",
+        "tip3"
+      ],
       "settings": {
         "eyebrow": "Free Posture Education",
         "heading": "Start Improving Your Posture Today",
@@ -221,17 +250,73 @@
     "pgm_instagram": {
       "type": "pgm-instagram",
       "blocks": {
-        "p1": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWDS-G-GLOv/", "is_reel": true, "likes": "1.6K", "comments": "29" } },
-        "p2": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAmXAPD5zj/", "is_reel": true, "likes": "587", "comments": "4" } },
-        "p3": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DWAF7D4EqAi/", "is_reel": true, "likes": "1.9K", "comments": "30" } },
-        "p4": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/reel/DV974qnFPMB/", "is_reel": true, "likes": "10.2K", "comments": "50" } },
-        "p5": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DU_FHNalKbi/", "is_reel": false, "likes": "176", "comments": "17" } },
-        "p6": { "type": "post", "settings": { "link": "https://www.instagram.com/postureguymike/p/DV7i_xflAHu/", "is_reel": false, "likes": "", "comments": "4" } }
+        "p1": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/reel/DWDS-G-GLOv/",
+            "is_reel": true,
+            "likes": "1.6K",
+            "comments": "29"
+          }
+        },
+        "p2": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/reel/DWAmXAPD5zj/",
+            "is_reel": true,
+            "likes": "587",
+            "comments": "4"
+          }
+        },
+        "p3": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/reel/DWAF7D4EqAi/",
+            "is_reel": true,
+            "likes": "1.9K",
+            "comments": "30"
+          }
+        },
+        "p4": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/reel/DV974qnFPMB/",
+            "is_reel": true,
+            "likes": "10.2K",
+            "comments": "50"
+          }
+        },
+        "p5": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/p/DU_FHNalKbi/",
+            "is_reel": false,
+            "likes": "176",
+            "comments": "17"
+          }
+        },
+        "p6": {
+          "type": "post",
+          "settings": {
+            "link": "https://www.instagram.com/postureguymike/p/DV7i_xflAHu/",
+            "is_reel": false,
+            "likes": "",
+            "comments": "4"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
       "settings": {
         "eyebrow": "Follow Along",
         "heading": "@postureguymike on Instagram",
+        "embed_code": "",
         "ig_url": "https://www.instagram.com/postureguymike",
         "ig_count": "1.4M",
         "tt_url": "https://www.tiktok.com/@postureguy",
