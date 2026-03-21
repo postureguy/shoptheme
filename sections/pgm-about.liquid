@@ -32,14 +32,35 @@
 
     <!-- Content side -->
     <div class="pgm-about__content">
-      <span class="pgm-eyebrow pgm-about__eyebrow">{{ section.settings.eyebrow | default: 'The Story Behind the Program' }}</span>
+      <span class="pgm-eyebrow pgm-about__eyebrow">{{ section.settings.eyebrow | default: 'The Coach Behind the Movement' }}</span>
 
       <h2 class="pgm-about__h2" id="pgm-about-heading">
-        {{ section.settings.heading | default: 'Meet Mike — Real Expertise, Real Results' }}
+        {{ section.settings.heading | default: 'Meet Mike — The Posture Expert Trusted by Millions' }}
       </h2>
 
+      <!-- Credibility stats -->
+      <div class="pgm-about__stats" aria-label="Mike's reach">
+        <div class="pgm-about__stat">
+          <span class="pgm-about__stat-n">2.5M+</span>
+          <span class="pgm-about__stat-l">Social followers</span>
+        </div>
+        <div class="pgm-about__stat">
+          <span class="pgm-about__stat-n">1M+</span>
+          <span class="pgm-about__stat-l">People helped</span>
+        </div>
+        <div class="pgm-about__stat">
+          <span class="pgm-about__stat-n">10+</span>
+          <span class="pgm-about__stat-l">Years experience</span>
+        </div>
+      </div>
+
       <div class="pgm-about__body">
-        {{ section.settings.body }}
+        {%- if section.settings.body != blank -%}
+          {{ section.settings.body }}
+        {%- else -%}
+          <p>Mike Boshnack isn't just a trainer — he's a Certified Postural Alignment Specialist trained directly under the Egoscue Method at Egoscue University in Irvine, California. After watching his sister struggle with debilitating pain for years, Mike made it his mission to bring the same structural correction that professional athletes and celebrities receive into the hands of everyday people.</p>
+          <p>Today, with over 2.5 million followers and more than a million people helped, Mike's method is proven: fix the root cause of pain — not just the symptoms — and your body will heal itself.</p>
+        {%- endif -%}
       </div>
 
       <!-- Credential row -->
@@ -61,6 +82,39 @@
     </div>
 
   </div>
+
+  <!-- Celebrity / Athlete carousel — full width below the 2-col grid -->
+  {%- assign celeb_blocks = section.blocks | where: 'type', 'celebrity' -%}
+  {%- if celeb_blocks.size > 0 -%}
+    <div class="pgm-about__celeb">
+      <p class="pgm-about__celeb-label">{{ section.settings.celeb_label | default: 'Trusted by celebrities, athletes & professional teams' }}</p>
+      <div class="pgm-about__celeb-strip" role="list" aria-label="Celebrity and athlete clients">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'celebrity' -%}
+            <div class="pgm-about__celeb-item" role="listitem" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 200
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.name | default: 'Client'
+                }}
+              {%- else -%}
+                <div class="pgm-about__celeb-placeholder" aria-hidden="true">
+                  {{ block.settings.name | slice: 0 | upcase }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.name != blank -%}
+                <span class="pgm-about__celeb-name">{{ block.settings.name }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
 </section>
 
 {% schema %}
@@ -76,15 +130,27 @@
       "label": "Photo of Mike",
       "info": "Recommended: 900×1160px portrait. Can be a professional coaching shot or candid action photo."
     },
-    { "type": "text",    "id": "badge_title", "label": "Image badge title", "default": "Egoscue Certified" },
-    { "type": "text",    "id": "badge_sub",   "label": "Image badge subtitle", "default": "Postural Alignment Specialist" },
-    { "type": "text",    "id": "eyebrow",  "label": "Eyebrow", "default": "The Story Behind the Program" },
-    { "type": "text",    "id": "heading",  "label": "Heading",  "default": "Meet Mike — Real Expertise, Real Results" },
-    { "type": "richtext","id": "body",     "label": "Body text" },
-    { "type": "text",    "id": "cred_label","label": "Credential label", "default": "Certified Postural Alignment Specialist" },
-    { "type": "text",    "id": "cred_desc", "label": "Credential subtitle", "default": "Trained at Egoscue University · Irvine, CA" },
-    { "type": "text",    "id": "cta_label", "label": "Button label", "default": "Learn More About Mike →" },
-    { "type": "url",     "id": "cta_url",   "label": "Button link" }
+    { "type": "text",    "id": "badge_title",  "label": "Image badge title",    "default": "Egoscue Certified" },
+    { "type": "text",    "id": "badge_sub",    "label": "Image badge subtitle", "default": "Postural Alignment Specialist" },
+    { "type": "text",    "id": "eyebrow",      "label": "Eyebrow",              "default": "The Coach Behind the Movement" },
+    { "type": "text",    "id": "heading",      "label": "Heading",              "default": "Meet Mike — The Posture Expert Trusted by Millions" },
+    { "type": "richtext","id": "body",         "label": "Body text",            "info": "Leave blank to use the default copy." },
+    { "type": "text",    "id": "cred_label",   "label": "Credential label",     "default": "Certified Postural Alignment Specialist" },
+    { "type": "text",    "id": "cred_desc",    "label": "Credential subtitle",  "default": "Trained at Egoscue University · Irvine, CA" },
+    { "type": "text",    "id": "cta_label",    "label": "Button label",         "default": "Learn More About Mike →" },
+    { "type": "url",     "id": "cta_url",      "label": "Button link" },
+    { "type": "header",  "content": "Celebrity / Athlete Carousel" },
+    { "type": "text",    "id": "celeb_label",  "label": "Carousel label",       "default": "Trusted by celebrities, athletes & professional teams" }
+  ],
+  "blocks": [
+    {
+      "type": "celebrity",
+      "name": "Celebrity / Athlete",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (square crop recommended)" },
+        { "type": "text",         "id": "name",  "label": "Name / Role" }
+      ]
+    }
   ],
   "presets": [{ "name": "PGM — About Mike" }]
 }

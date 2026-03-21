@@ -45,7 +45,7 @@
         "feat_1": {
           "type": "feature",
           "settings": {
-            "icon": "📱",
+            "icon_name": "programs",
             "title": "On-Demand Programs",
             "description": "Structured posture programs — beginner to advanced — available on iOS, Android, and desktop. Work at your own pace."
           }
@@ -53,7 +53,7 @@
         "feat_2": {
           "type": "feature",
           "settings": {
-            "icon": "🎥",
+            "icon_name": "live",
             "title": "Live Classes with Mike",
             "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
           }
@@ -61,7 +61,7 @@
         "feat_3": {
           "type": "feature",
           "settings": {
-            "icon": "👥",
+            "icon_name": "community",
             "title": "Private Community",
             "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
           }
@@ -69,7 +69,7 @@
         "feat_4": {
           "type": "feature",
           "settings": {
-            "icon": "📊",
+            "icon_name": "analysis",
             "title": "Posture Analysis Tools",
             "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
           }
@@ -77,7 +77,7 @@
         "feat_5": {
           "type": "feature",
           "settings": {
-            "icon": "💳",
+            "icon_name": "hsa",
             "title": "HSA/FSA Eligible",
             "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
           }
@@ -85,7 +85,7 @@
         "feat_6": {
           "type": "feature",
           "settings": {
-            "icon": "🏆",
+            "icon_name": "start",
             "title": "Start Here Path",
             "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
           }
@@ -107,62 +107,66 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years.",
             "name": "Sarah M.",
             "location": "Member since 2023 · Denver, CO",
-            "result": "Pain-free in 3 weeks"
+            "result": "Pain-Free in 3 Weeks"
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "quote": "I'm 67 and I thought hip pain was just part of aging. Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
             "name": "Robert T.",
             "location": "Member since 2022 · Phoenix, AZ",
-            "result": "Back to hiking at 67"
+            "result": "Back to Hiking at 67"
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
-            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "quote": "I work from home and stare at a screen all day. My neck and shoulder pain was unbearable. Two weeks into the desk worker program — gone. I tell everyone about this.",
             "name": "Jessica L.",
             "location": "Remote worker · Austin, TX",
-            "result": "Neck pain gone in 2 weeks"
+            "result": "Neck Pain Gone in 2 Weeks"
           }
         },
         "t4": {
           "type": "testimonial",
           "settings": {
-            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "quote": "I was skeptical — how can exercises alone fix posture? The science clicked immediately. My posture has completely transformed in 60 days.",
             "name": "Marcus K.",
             "location": "Member since 2023 · Chicago, IL",
-            "result": "Complete posture transformation"
+            "result": "Complete Transformation — 60 Days"
           }
         },
         "t5": {
           "type": "testimonial",
           "settings": {
-            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
+            "quote": "I've tried YouTube stretches, PT, even a chiropractor for years. Nothing held. Mike's method is the first thing that addressed why I hurt, not just where. Three months later I'm still pain-free.",
             "name": "Linda H.",
             "location": "Member since 2022 · Seattle, WA",
-            "result": "3 months pain-free"
+            "result": "Pain-Free — 3 Months & Counting"
           }
         },
         "t6": {
           "type": "testimonial",
           "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "quote": "I used my HSA to cover the membership — didn't cost me a cent out of pocket. Best health decision I've made in years. The results speak for themselves.",
             "name": "David R.",
             "location": "Member · Nashville, TN",
-            "result": "HSA covered, fully pain-free"
+            "result": "HSA-Eligible · Zero Out-of-Pocket"
           }
         }
       },
       "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
       "settings": {
         "eyebrow": "Real People. Real Results.",
-        "heading": "Thousands Have Fixed Their Posture. You're Next."
+        "heading": "What Happens When You Fix the Root Cause",
+        "show_trust_bar": true,
+        "trust_bar_rating": "4.9 / 5 Rating",
+        "trust_bar_members": "2,000+ Members",
+        "trust_bar_guarantee": "30-Day Guarantee"
       }
     },
     "pgm_quiz": {
@@ -181,6 +185,7 @@
         "tip1": {
           "type": "tip",
           "settings": {
+            "category": "Neck Relief",
             "title": "Stack Your Ears Over Shoulders",
             "body": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine. Gently tuck your chin and lift the crown of your head."
           }
@@ -188,6 +193,7 @@
         "tip2": {
           "type": "tip",
           "settings": {
+            "category": "Back Health",
             "title": "Level Your Hips First",
             "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting hip position changes everything above it."
           }
@@ -195,6 +201,7 @@
         "tip3": {
           "type": "tip",
           "settings": {
+            "category": "Daily Habit",
             "title": "Move Every 30 Minutes",
             "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets muscle firing patterns and prevents the stiffness that leads to chronic pain."
           }

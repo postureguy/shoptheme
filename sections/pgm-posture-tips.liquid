@@ -4,19 +4,55 @@
   <div class="pgm-tips__inner">
 
     <div class="pgm-tips__header">
-      <span class="pgm-eyebrow pgm-tips__eyebrow">{{ section.settings.eyebrow | default: 'Free Posture Education' }}</span>
-      <h2 class="pgm-tips__h2" id="pgm-tips-heading">
-        {{ section.settings.heading | default: 'Start Improving Your Posture Today' }}
-      </h2>
+      <div class="pgm-tips__header-left">
+        <span class="pgm-eyebrow pgm-tips__eyebrow">{{ section.settings.eyebrow | default: 'Free Posture Education' }}</span>
+        <h2 class="pgm-tips__h2" id="pgm-tips-heading">
+          {{ section.settings.heading | default: 'Start Improving Your Posture Today' }}
+        </h2>
+      </div>
+      <p class="pgm-tips__header-sub">Browse free lessons from Mike's library — or unlock the full program.</p>
     </div>
 
+    <!-- Content stats bar -->
+    <div class="pgm-tips__stats" aria-label="Content library stats">
+      <div class="pgm-tips__stat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/></svg>
+        <strong>200+</strong> video lessons
+      </div>
+      <span class="pgm-tips__stat-sep" aria-hidden="true"></span>
+      <div class="pgm-tips__stat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"/></svg>
+        <strong>12</strong> structured programs
+      </div>
+      <span class="pgm-tips__stat-sep" aria-hidden="true"></span>
+      <div class="pgm-tips__stat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z"/></svg>
+        <strong>Live</strong> classes weekly
+      </div>
+      <span class="pgm-tips__stat-sep" aria-hidden="true"></span>
+      <div class="pgm-tips__stat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd"/></svg>
+        <strong>2,500+</strong> active members
+      </div>
+    </div>
+
+    <!-- Content cards -->
     <div class="pgm-tips__grid">
       {%- for block in section.blocks -%}
         {%- if block.type == 'tip' -%}
           <div class="pgm-tip" {{ block.shopify_attributes }}>
-            <span class="pgm-tip__num" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <h3 class="pgm-tip__title">{{ block.settings.title }}</h3>
-            <p class="pgm-tip__body">{{ block.settings.body }}</p>
+            <!-- Thumbnail header -->
+            <div class="pgm-tip__thumb pgm-tip__thumb--{{ forloop.index }}">
+              <div class="pgm-tip__play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="white"><path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/></svg>
+              </div>
+              <span class="pgm-tip__cat">{{ block.settings.category | default: 'Posture Tip' }}</span>
+            </div>
+            <!-- Card body -->
+            <div class="pgm-tip__card-body">
+              <h3 class="pgm-tip__title">{{ block.settings.title }}</h3>
+              <p class="pgm-tip__desc">{{ block.settings.body }}</p>
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -25,8 +61,9 @@
     {%- if section.settings.cta_label != blank -%}
       <div class="pgm-tips__cta">
         <a href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}" class="pgm-btn pgm-btn--primary" target="_blank" rel="noopener">
-          {{ section.settings.cta_label | default: 'Get the Full Program Free →' }}
+          {{ section.settings.cta_label | default: 'Unlock the Full Library Free →' }}
         </a>
+        <p class="pgm-tips__cta-note">200+ exercises &amp; programs · New content every week</p>
       </div>
     {%- endif -%}
 
@@ -40,18 +77,19 @@
   "class": "pgm-section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Free Posture Education" },
-    { "type": "text", "id": "heading", "label": "Heading",  "default": "Start Improving Your Posture Today" },
-    { "type": "text", "id": "cta_label","label": "CTA button label", "default": "Get the Full Program Free →" },
-    { "type": "url",  "id": "cta_url",  "label": "CTA link" }
+    { "type": "text", "id": "eyebrow",   "label": "Eyebrow",          "default": "Free Posture Education" },
+    { "type": "text", "id": "heading",   "label": "Heading",           "default": "Start Improving Your Posture Today" },
+    { "type": "text", "id": "cta_label", "label": "CTA button label",  "default": "Unlock the Full Library Free →" },
+    { "type": "url",  "id": "cta_url",   "label": "CTA link" }
   ],
   "blocks": [
     {
       "type": "tip",
-      "name": "Posture Tip",
+      "name": "Lesson Card",
       "settings": [
-        { "type": "text",     "id": "title", "label": "Tip title", "default": "Check Your Head Position" },
-        { "type": "textarea", "id": "body",  "label": "Tip body",  "default": "Your head should sit directly over your shoulders. Every inch it juts forward adds 10 lbs of pressure on your spine. Bring your ears over your shoulders." }
+        { "type": "text",     "id": "category", "label": "Category tag",  "default": "Neck Relief" },
+        { "type": "text",     "id": "title",    "label": "Lesson title",  "default": "Stack Your Ears Over Shoulders" },
+        { "type": "textarea", "id": "body",     "label": "Description",   "default": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine." }
       ]
     }
   ],
@@ -62,6 +100,7 @@
         {
           "type": "tip",
           "settings": {
+            "category": "Neck Relief",
             "title": "Stack Your Ears Over Shoulders",
             "body": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine. Gently tuck your chin and lift the crown of your head."
           }
@@ -69,15 +108,17 @@
         {
           "type": "tip",
           "settings": {
+            "category": "Back Health",
             "title": "Level Your Hips First",
-            "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting your hip position first changes everything above it."
+            "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting hip position changes everything above it."
           }
         },
         {
           "type": "tip",
           "settings": {
+            "category": "Daily Habit",
             "title": "Move Every 30 Minutes",
-            "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets your muscle firing patterns and prevents the stiffness that leads to chronic pain."
+            "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets muscle firing patterns and prevents the stiffness that leads to chronic pain."
           }
         }
       ]
