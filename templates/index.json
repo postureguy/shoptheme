@@ -176,7 +176,9 @@
         "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
         "placeholder": "Enter your email address",
         "cta_label": "Get My Free Score →",
-        "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers."
+        "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers.",
+        "klaviyo_id": "RY86tU",
+        "klaviyo_list_id": "S7DCaR"
       }
     },
     "pgm_tips": {
@@ -263,10 +265,10 @@
     "pgm_hero",
     "pgm_social_bar",
     "pgm_about",
+    "pgm_tips",
     "pgm_membership",
     "pgm_testimonials",
     "pgm_quiz",
-    "pgm_tips",
     "pgm_collab",
     "pgm_instagram",
     "pgm_sticky"

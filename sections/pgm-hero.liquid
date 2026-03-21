@@ -2,7 +2,33 @@
 
 <section class="pgm-hero pgm-section" id="pgm-hero-{{ section.id }}">
 
-  <!-- Left: content panel -->
+  <!-- Full-bleed background image -->
+  <div class="pgm-hero__bg">
+    {%- if section.settings.bg_image != blank -%}
+      {{
+        section.settings.bg_image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          alt: section.settings.bg_image.alt | default: 'Posture Guy Mike coaching session'
+      }}
+    {%- else -%}
+      <img
+        src="{{ 'pgm-hero.jpg' | asset_url }}"
+        alt="Mike Boshnack — Posture Guy Mike coaching session"
+        loading="eager"
+        fetchpriority="high"
+        width="2400"
+        height="1600"
+      >
+    {%- endif -%}
+  </div>
+
+  <!-- Gradient overlay so left-side text stays readable -->
+  <div class="pgm-hero__overlay" aria-hidden="true"></div>
+
+  <!-- Content overlaid on top-left -->
   <div class="pgm-hero__content">
     <div class="pgm-hero__content-inner">
 
@@ -87,28 +113,6 @@
     </div>
   </div>
 
-  <!-- Right: image panel -->
-  <div class="pgm-hero__image">
-    {%- if section.settings.bg_image != blank -%}
-      {{
-        section.settings.bg_image
-        | image_url: width: 1400
-        | image_tag:
-          loading: 'eager',
-          fetchpriority: 'high',
-          alt: section.settings.bg_image.alt | default: 'Posture Guy Mike coaching session'
-      }}
-    {%- else -%}
-      <img
-        src="{{ 'pgm-hero.jpg' | asset_url }}"
-        alt="Mike Boshnack — Posture Guy Mike coaching session"
-        loading="eager"
-        fetchpriority="high"
-        width="1000"
-        height="1000"
-      >
-    {%- endif -%}
-  </div>
 
 </section>
 
