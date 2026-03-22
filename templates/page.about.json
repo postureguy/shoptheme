@@ -28,54 +28,13 @@
     "pgm_celeb_gallery": {
       "type": "pgm-celebrity-gallery",
       "blocks": {
-        "p1": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/Untitled_design_2.png",
-            "name": "@thesharkdaymond",
-            "role": ""
-          }
-        },
-        "p2": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_3826.jpg",
-            "name": "@stevewilldoit",
-            "role": ""
-          }
-        },
-        "p3": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_2378.jpg",
-            "name": "@timwelchmt",
-            "role": ""
-          }
-        },
-        "p4": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        },
-        "p5": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        }
+        "p1": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p2": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p3": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p4": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p5": { "type": "photo", "settings": { "name": "", "role": "" } }
       },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": {
         "eyebrow": "In Good Company",
         "heading": "Mike With Celebrities, Athletes & Public Figures",
@@ -85,62 +44,76 @@
     "pgm_press_bar": {
       "type": "pgm-press-bar",
       "blocks": {
-        "l1": {
-          "type": "logo",
-          "settings": {
-            "name": "ESPN",
-            "url": ""
-          }
-        },
-        "l2": {
-          "type": "logo",
-          "settings": {
-            "name": "Men's Health",
-            "url": ""
-          }
-        },
-        "l3": {
-          "type": "logo",
-          "settings": {
-            "name": "The Today Show",
-            "url": ""
-          }
-        },
-        "l4": {
-          "type": "logo",
-          "settings": {
-            "name": "Muscle & Fitness",
-            "url": ""
-          }
-        },
-        "l5": {
-          "type": "logo",
-          "settings": {
-            "name": "Fox News",
-            "url": ""
-          }
-        }
+        "l1": { "type": "logo", "settings": { "name": "ESPN", "url": "" } },
+        "l2": { "type": "logo", "settings": { "name": "Men's Health", "url": "" } },
+        "l3": { "type": "logo", "settings": { "name": "The Today Show", "url": "" } },
+        "l4": { "type": "logo", "settings": { "name": "Muscle & Fitness", "url": "" } },
+        "l5": { "type": "logo", "settings": { "name": "Fox News", "url": "" } }
       },
-      "block_order": [
-        "l1",
-        "l2",
-        "l3",
-        "l4",
-        "l5"
-      ],
-      "settings": {
-        "label": "As Featured In"
-      }
+      "block_order": ["l1", "l2", "l3", "l4", "l5"],
+      "settings": { "label": "As Featured In" }
     },
     "pgm_origin_story": {
       "type": "pgm-split-content",
       "settings": {
         "image": "shopify://shop_images/shoulder_copy.jpg",
         "image_position": "left",
-        "eyebrow": "The Origin Story",
-        "heading": "From Broken Down to Breakthrough",
-        "body": "<p>Mike grew up as an athlete — skateboarding, competing in sports, pushing his body hard from a young age. Athletic performance wasn't just a hobby, it was his identity.</p><p>Then a torn ACL and a failed surgery left him in pain that doctors couldn't fix. More specialists, more dead ends, more \"learn to live with it.\"</p><p>Refusing to accept that answer, Mike discovered the Egoscue Method — a structural alignment system that addresses the root cause of pain, not just the symptoms. It worked when nothing else had.</p><p>He enrolled at Egoscue University in Irvine, CA — earning his certification alongside practitioners who work with professional athletes and Olympians. Then he started sharing what he learned online. Over 2.5 million followers later, he has helped more people than he ever imagined possible.</p>",
+        "eyebrow": "How It Started",
+        "heading": "A Lifetime of Sports. A Body That Broke Down. And Doctors Who Had No Answers.",
+        "body": "<p>Mike Boshnack grew up as an athlete. Skateboarding, competitive sports, pushing his body hard — it was his identity. But years of athletic wear and hard living caught up with him. Injuries piled up. A torn ACL led to surgery. The surgery didn't fix it. More doctors. More dead ends. More \"learn to live with it.\"</p><p>He refused to accept that. If conventional medicine couldn't help him — a young, active guy who just wanted to move without pain — something was fundamentally wrong with the approach.</p><p>That search led him to the Egoscue Method, and it changed everything. The premise was simple but profound: most chronic pain isn't about where you hurt. It's about structural misalignment throughout your entire body. Fix the structure, and the pain resolves itself.</p><p>Mike enrolled at Egoscue University in Irvine, California — the same institution that trains practitioners who work with professional athletes and Olympians — and became a Certified Postural Alignment Specialist. He fixed himself. Then he made it his mission to share what he'd found with the world.</p>",
+        "background": "white"
+      }
+    },
+    "pgm_credentials": {
+      "type": "pgm-dark-cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "cert",
+            "title": "Egoscue Certified",
+            "body": "Mike completed his certification at Egoscue University in Irvine, CA — the only institution in the world that trains Egoscue Postural Alignment Specialists. The same method used by professional sports teams and elite athletes worldwide."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "people",
+            "title": "1M+ People Helped",
+            "body": "Over a million people have used Mike's programs to reduce chronic pain, improve posture, and move without restriction. Many had tried surgery, medication, and physical therapy before finding the Egoscue Method."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "star",
+            "title": "2.5M Social Followers",
+            "body": "Mike's free content has reached more than 2.5 million people across Instagram, TikTok, YouTube, and Facebook — making him the most-followed postural alignment specialist on social media."
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {
+        "eyebrow": "Credentials",
+        "heading": "Trained to the Same Standard as Elite Athletic Programs"
+      }
+    },
+    "pgm_method": {
+      "type": "pgm-rich-text",
+      "settings": {
+        "eyebrow": "Why It Works When Everything Else Has Failed",
+        "heading": "Most Pain Treatment Addresses Where You Hurt. The Egoscue Method Addresses Why.",
+        "body": "<p>If you've seen a chiropractor, done physical therapy, or tried stretching and massage, you already know that temporary relief isn't the same as fixing the problem. Those approaches work on symptoms — the tight muscle, the inflamed joint, the compressed disc.</p><p>The Egoscue Method works differently. It starts with a full-body postural assessment to identify where your skeleton has drifted from its ideal position. When your hips are tilted forward, your pelvis is uneven, or your head sits in front of your shoulders, the rest of your body compensates. That compensation — held over years — is what creates chronic pain.</p><p>Mike's program uses targeted, non-impact exercises called \"e-cises\" to retrain your body's position from the ground up. No equipment. No gym. No prescription. Just precise movements that restore your structural alignment and allow your body to stop compensating — and start healing.</p><p>This is what professional athletes use to extend their careers. It's what celebrities use to maintain performance under pressure. And now it's available to you, from home, for less than a dollar a day.</p>",
         "background": "light"
+      }
+    },
+    "pgm_trusted_by": {
+      "type": "pgm-rich-text",
+      "settings": {
+        "eyebrow": "Elite-Level Access, Everyday Pricing",
+        "heading": "The Method Trusted by Celebrities, Athletes, and Professional Teams",
+        "body": "<p>The Egoscue Method has been used by professional athletes across the NFL, NBA, and PGA Tour, as well as Hollywood celebrities who need to perform at the highest level. Mike brings this same structural alignment expertise to everyday people through his membership program — for a fraction of the cost of a single private session.</p>",
+        "background": "white"
       }
     }
   },
@@ -148,6 +121,9 @@
     "pgm_about_hero",
     "pgm_celeb_gallery",
     "pgm_press_bar",
-    "pgm_origin_story"
+    "pgm_origin_story",
+    "pgm_credentials",
+    "pgm_method",
+    "pgm_trusted_by"
   ]
 }
