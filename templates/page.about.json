@@ -13,7 +13,7 @@
       "type": "pgm-hero",
       "settings": {
         "bg_image": "shopify://shop_images/about-mike-desktop.jpg",
-        "mobile_image": "shopify://shop_images/about-mike.jpg",
+        "mobile_image": "shopify://shop_images/about-mike-mobile.jpg",
         "desktop_text_align": "left",
         "mobile_layout": "overlay",
         "mobile_text_position": "bottom",
