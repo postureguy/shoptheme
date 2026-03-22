@@ -26,63 +26,6 @@
         "video_id": "b6Yt1JtvUH0"
       }
     },
-    "pgm_celeb_gallery": {
-      "type": "pgm-celebrity-gallery",
-      "blocks": {
-        "p1": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/Untitled_design_2.png",
-            "name": "@thesharkdaymond",
-            "role": ""
-          }
-        },
-        "p2": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_3826.jpg",
-            "name": "@stevewilldoit",
-            "role": ""
-          }
-        },
-        "p3": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_2378.jpg",
-            "name": "@timwelchmt",
-            "role": ""
-          }
-        },
-        "p4": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        },
-        "p5": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
-      "settings": {
-        "eyebrow": "In Good Company",
-        "heading": "Mike With Celebrities, Athletes & Public Figures",
-        "subheading": ""
-      }
-    },
     "pgm_press_bar": {
       "type": "pgm-press-bar",
       "blocks": {
@@ -144,6 +87,63 @@
         "background": "white"
       }
     },
+    "pgm_celeb_gallery": {
+      "type": "pgm-celebrity-gallery",
+      "blocks": {
+        "p1": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Untitled_design_2.png",
+            "name": "@thesharkdaymond",
+            "role": ""
+          }
+        },
+        "p2": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/IMG_3826.jpg",
+            "name": "@stevewilldoit",
+            "role": ""
+          }
+        },
+        "p3": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/IMG_2378.jpg",
+            "name": "@timwelchmt",
+            "role": ""
+          }
+        },
+        "p4": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        },
+        "p5": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "eyebrow": "In Good Company",
+        "heading": "Mike With Celebrities, Athletes & Public Figures",
+        "subheading": ""
+      }
+    },
     "pgm_credentials": {
       "type": "pgm-dark-cards",
       "blocks": {
@@ -203,11 +203,11 @@
   },
   "order": [
     "pgm_about_hero",
+    "pgm_origin_story",
+    "pgm_trusted_by",
     "pgm_celeb_gallery",
     "pgm_press_bar",
-    "pgm_origin_story",
     "pgm_credentials",
-    "pgm_method",
-    "pgm_trusted_by"
+    "pgm_method"
   ]
 }
