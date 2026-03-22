@@ -1,0 +1,336 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<style>
+.pgm-tl {
+  padding: 9.6rem 0;
+  background: var(--pgm-dark);
+  overflow: hidden;
+}
+.pgm-tl__inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+.pgm-tl__header {
+  text-align: center;
+  margin-bottom: 7.2rem;
+}
+.pgm-tl__eyebrow {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+}
+.pgm-tl__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+}
+
+/* ── Timeline track ── */
+.pgm-tl__track {
+  position: relative;
+  max-width: 88rem;
+  margin: 0 auto;
+}
+
+/* Vertical center line */
+.pgm-tl__track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(29,78,216,0.5) 8%, rgba(29,78,216,0.5) 92%, transparent 100%);
+  transform: translateX(-50%);
+}
+
+/* ── Individual milestone ── */
+.pgm-tl__item {
+  display: grid;
+  grid-template-columns: 1fr 4rem 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 5.6rem;
+  position: relative;
+}
+.pgm-tl__item:last-child { margin-bottom: 0; }
+
+/* Dot on the line */
+.pgm-tl__dot-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.pgm-tl__dot {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--pgm-blue);
+  border: 3px solid var(--pgm-dark);
+  box-shadow: 0 0 0 2px var(--pgm-blue);
+  flex-shrink: 0;
+}
+
+/* Card */
+.pgm-tl__card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 1.6rem;
+  padding: 2.8rem 3.2rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pgm-tl__card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(29,78,216,0.4);
+}
+
+/* Odd items: card left, empty right */
+.pgm-tl__item:nth-child(odd) .pgm-tl__card  { grid-column: 1; grid-row: 1; text-align: right; }
+.pgm-tl__item:nth-child(odd) .pgm-tl__dot-col { grid-column: 2; grid-row: 1; }
+.pgm-tl__item:nth-child(odd) .pgm-tl__empty  { grid-column: 3; grid-row: 1; }
+
+/* Even items: empty left, card right */
+.pgm-tl__item:nth-child(even) .pgm-tl__empty  { grid-column: 1; grid-row: 1; }
+.pgm-tl__item:nth-child(even) .pgm-tl__dot-col { grid-column: 2; grid-row: 1; }
+.pgm-tl__item:nth-child(even) .pgm-tl__card  { grid-column: 3; grid-row: 1; }
+
+.pgm-tl__year {
+  font-family: var(--pgm-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 0.8rem;
+}
+.pgm-tl__title {
+  font-family: var(--pgm-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+}
+.pgm-tl__body {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+}
+.pgm-tl__stat {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-family: var(--pgm-head);
+  color: #fff;
+  line-height: 1;
+}
+.pgm-tl__stat-label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Mobile: single column ── */
+@media (max-width: 749px) {
+  .pgm-tl__track::before {
+    left: 1.6rem;
+    transform: none;
+  }
+  .pgm-tl__item {
+    grid-template-columns: 3.2rem 1fr;
+    grid-template-rows: auto;
+    margin-bottom: 3.2rem;
+  }
+  .pgm-tl__item:nth-child(odd) .pgm-tl__card,
+  .pgm-tl__item:nth-child(even) .pgm-tl__card {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+  }
+  .pgm-tl__item:nth-child(odd) .pgm-tl__dot-col,
+  .pgm-tl__item:nth-child(even) .pgm-tl__dot-col {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: flex-start;
+    padding-top: 1.4rem;
+  }
+  .pgm-tl__item:nth-child(odd) .pgm-tl__empty,
+  .pgm-tl__item:nth-child(even) .pgm-tl__empty {
+    display: none;
+  }
+  .pgm-tl__card { padding: 2rem 2rem; }
+  .pgm-tl__title { font-size: 1.8rem; }
+  .pgm-tl { padding: 6.4rem 0; }
+  .pgm-tl__header { margin-bottom: 5.6rem; }
+}
+</style>
+
+
+<section class="pgm-tl pgm-section" aria-labelledby="pgm-tl-heading">
+  <div class="pgm-tl__inner">
+
+    <div class="pgm-tl__header">
+      <span class="pgm-tl__eyebrow">{{ section.settings.eyebrow | default: "The Journey" }}</span>
+      <h2 class="pgm-tl__h2" id="pgm-tl-heading">{{ section.settings.heading | default: "From Broken Down to Helping Millions" }}</h2>
+    </div>
+
+    <div class="pgm-tl__track">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'milestone' -%}
+          <div class="pgm-tl__item" {{ block.shopify_attributes }}>
+            <div class="pgm-tl__card">
+              {%- if block.settings.year != blank -%}
+                <div class="pgm-tl__year">{{ block.settings.year }}</div>
+              {%- endif -%}
+              <div class="pgm-tl__title">{{ block.settings.title }}</div>
+              {%- if block.settings.body != blank -%}
+                <p class="pgm-tl__body">{{ block.settings.body }}</p>
+              {%- endif -%}
+              {%- if block.settings.stat != blank -%}
+                <div>
+                  <span class="pgm-tl__stat">{{ block.settings.stat }}</span>
+                  {%- if block.settings.stat_label != blank -%}
+                    <span class="pgm-tl__stat-label">{{ block.settings.stat_label }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+            <div class="pgm-tl__dot-col"><div class="pgm-tl__dot"></div></div>
+            <div class="pgm-tl__empty" aria-hidden="true"></div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "PGM — Timeline",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "The Journey"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "From Broken Down to Helping Millions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year or era",
+          "info": "e.g. 2003, Early 2000s, 2024"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Milestone title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat (optional)",
+          "info": "e.g. 1M+, 2.5M, #1"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Stat label",
+          "info": "e.g. People Helped, Social Followers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Timeline",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "Growing Up",
+            "title": "Born an Athlete",
+            "body": "Mike grew up competing in sports and skateboarding — pushing his body hard from a young age. Athletic performance wasn't just a hobby, it was his identity."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "The Injury",
+            "title": "A Torn ACL and a Failed Surgery",
+            "body": "Years of hard living caught up with him. A torn ACL led to surgery — but the surgery didn't fix it. More doctors, more dead ends, more \"learn to live with it.\""
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "The Discovery",
+            "title": "Found the Egoscue Method",
+            "body": "Refusing to accept a lifetime of pain, Mike discovered the Egoscue Method — a structural alignment system that addressed the root cause of his pain, not just the symptoms. It worked when nothing else had."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "Certified",
+            "title": "Egoscue University, Irvine CA",
+            "body": "Mike enrolled at Egoscue University — the only institution in the world that trains Egoscue Postural Alignment Specialists. He earned his certification and began working with clients, from everyday people to professional athletes."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "Going Public",
+            "title": "Started Sharing on Social Media",
+            "body": "What began as short posture tips online quickly took off. The message resonated — millions of people dealing with the same pain, tired of the same failed solutions."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "Today",
+            "title": "Over a Million People Helped",
+            "body": "The Posture Guy Mike membership program now serves thousands of active members, and Mike's free content has reached over 2.5 million followers across Instagram, TikTok, YouTube, and Facebook.",
+            "stat": "2.5M+",
+            "stat_label": "Social Followers Across All Platforms"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
