@@ -65,6 +65,25 @@
 .section-header .list-menu__item--link {
   color: rgba(255,255,255,0.82);
 }
+
+/* "Start Free Trial" nav link — styled as a button.
+   Add a nav item with the exact text "Start Free Trial" in Shopify Admin > Navigation */
+.section-header .list-menu__item--link[href*="membership.postureguymike.com"],
+.section-header .header__menu-item[href*="membership.postureguymike.com"] {
+  background: var(--pgm-blue);
+  color: #fff !important;
+  border-radius: 10rem;
+  padding: 0.7rem 1.8rem !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-left: 0.8rem;
+  transition: background 0.2s ease;
+}
+.section-header .list-menu__item--link[href*="membership.postureguymike.com"]:hover,
+.section-header .header__menu-item[href*="membership.postureguymike.com"]:hover {
+  background: var(--pgm-blue-hover);
+  color: #fff !important;
+}
 .section-header .list-menu__item--link:hover,
 .section-header .list-menu__item--link:focus-visible {
   color: var(--pgm-blue-light);

@@ -1,0 +1,747 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<style>
+/* ── About Page Styles ───────────────────────────────────────────── */
+
+/* Shared */
+.pgm-ap { font-family: var(--pgm-body); color: var(--pgm-dark); }
+.pgm-ap__inner { max-width: 120rem; margin: 0 auto; padding: 0 2.4rem; }
+
+/* ── 1. Hero ─────────────────────────────────────────────────────── */
+.pgm-ap-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--pgm-dark);
+}
+.pgm-ap-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+.pgm-ap-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.pgm-ap-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(10,14,26,0.85) 60%, rgba(10,14,26,1) 100%);
+}
+.pgm-ap-hero__content {
+  position: relative;
+  width: 100%;
+  padding: 8rem 2.4rem 7rem;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.pgm-ap-hero__eyebrow {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.6rem;
+}
+.pgm-ap-hero__h1 {
+  font-family: var(--pgm-head);
+  font-size: clamp(3.2rem, 6vw, 5.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  max-width: 80rem;
+  margin-bottom: 2rem;
+}
+.pgm-ap-hero__sub {
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  color: rgba(255,255,255,0.8);
+  max-width: 64rem;
+  line-height: 1.6;
+  margin-bottom: 3.2rem;
+}
+
+/* ── 2. Origin Story ─────────────────────────────────────────────── */
+.pgm-ap-origin {
+  padding: 9.6rem 0;
+  background: #fff;
+}
+.pgm-ap-origin__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6.4rem;
+  align-items: center;
+}
+.pgm-ap-origin__media {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.pgm-ap-origin__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pgm-ap-origin__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.pgm-ap-origin__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.8rem, 3.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--pgm-dark);
+  margin-bottom: 2.4rem;
+}
+.pgm-ap-origin__body p {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: 1.6rem;
+}
+.pgm-ap-origin__body p:last-child { margin-bottom: 0; }
+
+/* ── 3. Credentials ──────────────────────────────────────────────── */
+.pgm-ap-creds {
+  background: var(--pgm-dark);
+  padding: 9.6rem 0;
+}
+.pgm-ap-creds__heading {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  max-width: 72rem;
+  margin: 0 auto 5.6rem;
+  line-height: 1.2;
+}
+.pgm-ap-creds__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+.pgm-ap-creds__card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+}
+.pgm-ap-creds__icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background: var(--pgm-blue);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.pgm-ap-creds__icon svg { width: 2.4rem; height: 2.4rem; }
+.pgm-ap-creds__title {
+  font-family: var(--pgm-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.pgm-ap-creds__body {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── 4. The Method ───────────────────────────────────────────────── */
+.pgm-ap-method {
+  padding: 9.6rem 0;
+  background: #f8f8f6;
+}
+.pgm-ap-method__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+  display: block;
+  text-align: center;
+}
+.pgm-ap-method__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--pgm-dark);
+  text-align: center;
+  max-width: 80rem;
+  margin: 0 auto 4rem;
+}
+.pgm-ap-method__body {
+  max-width: 76rem;
+  margin: 0 auto;
+}
+.pgm-ap-method__body p {
+  font-size: 1.7rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2rem;
+}
+.pgm-ap-method__body p:last-child { margin-bottom: 0; }
+
+/* ── 5. Pull Quotes ──────────────────────────────────────────────── */
+.pgm-ap-quotes {
+  padding: 9.6rem 0;
+  background: #fff;
+}
+.pgm-ap-quotes__header {
+  text-align: center;
+  margin-bottom: 5.6rem;
+}
+.pgm-ap-quotes__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.pgm-ap-quotes__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-weight: 800;
+  color: var(--pgm-dark);
+  line-height: 1.15;
+}
+.pgm-ap-quotes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+}
+.pgm-ap-quotes__card {
+  border: 1px solid #e8e8e8;
+  border-radius: 1.6rem;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.pgm-ap-quotes__result {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  background: rgba(59,130,246,0.08);
+  border-radius: 10rem;
+  padding: 0.4rem 1.2rem;
+  margin-bottom: 1.6rem;
+  align-self: flex-start;
+}
+.pgm-ap-quotes__quote {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #333;
+  flex: 1;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.pgm-ap-quotes__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pgm-dark);
+}
+.pgm-ap-quotes__loc {
+  font-size: 1.3rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+/* ── 6. Trusted By ───────────────────────────────────────────────── */
+.pgm-ap-trusted {
+  padding: 8rem 0;
+  background: #f8f8f6;
+  text-align: center;
+}
+.pgm-ap-trusted__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.pgm-ap-trusted__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  font-weight: 800;
+  color: var(--pgm-dark);
+  max-width: 72rem;
+  margin: 0 auto 2rem;
+  line-height: 1.2;
+}
+.pgm-ap-trusted__body {
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: #555;
+  max-width: 64rem;
+  margin: 0 auto 4.8rem;
+}
+
+/* ── 7. FAQ ──────────────────────────────────────────────────────── */
+.pgm-ap-faq {
+  padding: 9.6rem 0;
+  background: #fff;
+}
+.pgm-ap-faq__header {
+  text-align: center;
+  margin-bottom: 5.6rem;
+}
+.pgm-ap-faq__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.pgm-ap-faq__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-weight: 800;
+  color: var(--pgm-dark);
+  line-height: 1.15;
+}
+.pgm-ap-faq__list {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.pgm-ap-faq__item {
+  border: 1px solid #e8e8e8;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+.pgm-ap-faq__q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 2.4rem;
+  text-align: left;
+  font-family: var(--pgm-head);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--pgm-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+}
+.pgm-ap-faq__q:hover { background: #fafafa; }
+.pgm-ap-faq__chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.pgm-ap-faq__item[open] .pgm-ap-faq__chevron { transform: rotate(180deg); }
+.pgm-ap-faq__a {
+  padding: 0 2.4rem 2.4rem;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  color: #555;
+}
+
+/* ── 8. Final CTA ────────────────────────────────────────────────── */
+.pgm-ap-cta {
+  padding: 10rem 0;
+  background: var(--pgm-dark);
+  text-align: center;
+}
+.pgm-ap-cta__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.6rem;
+  display: block;
+}
+.pgm-ap-cta__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  max-width: 72rem;
+  margin: 0 auto 2rem;
+}
+.pgm-ap-cta__sub {
+  font-size: 1.8rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 56rem;
+  margin: 0 auto 4rem;
+  line-height: 1.6;
+}
+.pgm-ap-cta__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+}
+.pgm-ap-cta__badge {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10rem;
+  padding: 0.6rem 1.6rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 989px) {
+  .pgm-ap-origin__grid { grid-template-columns: 1fr; gap: 4rem; }
+  .pgm-ap-origin__media { max-width: 48rem; margin: 0 auto; aspect-ratio: 3/2; }
+  .pgm-ap-creds__grid { grid-template-columns: 1fr; }
+  .pgm-ap-quotes__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 749px) {
+  .pgm-ap-hero__content { padding: 6rem 2rem 5rem; }
+  .pgm-ap-origin { padding: 6.4rem 0; }
+  .pgm-ap-creds { padding: 6.4rem 0; }
+  .pgm-ap-method { padding: 6.4rem 0; }
+  .pgm-ap-quotes { padding: 6.4rem 0; }
+  .pgm-ap-trusted { padding: 5.6rem 0; }
+  .pgm-ap-faq { padding: 6.4rem 0; }
+  .pgm-ap-cta { padding: 6.4rem 0; }
+}
+</style>
+
+
+<!-- ── 1. Hero ──────────────────────────────────────────────────── -->
+<div class="pgm-ap-hero pgm-ap">
+  <div class="pgm-ap-hero__bg">
+    {%- if section.settings.hero_image != blank -%}
+      {{
+        section.settings.hero_image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          alt: section.settings.hero_image.alt | default: 'Mike Boshnack — Posture Guy Mike'
+      }}
+    {%- else -%}
+      <img src="{{ 'pgm-about.jpg' | asset_url }}" alt="Mike Boshnack — Posture Guy Mike" loading="eager" fetchpriority="high" width="2400" height="1600">
+    {%- endif -%}
+  </div>
+  <div class="pgm-ap-hero__overlay" aria-hidden="true"></div>
+  <div class="pgm-ap-hero__content">
+    <div class="pgm-ap-hero__eyebrow">The Man Behind the Method</div>
+    <h1 class="pgm-ap-hero__h1">
+      {{ section.settings.hero_headline | default: 'I Was Watching Someone I Love Suffer. So I Found a Better Way.' }}
+    </h1>
+    <p class="pgm-ap-hero__sub">
+      {{ section.settings.hero_sub | default: 'Mike Boshnack is a Certified Postural Alignment Specialist who has helped over a million people get out of chronic pain — without surgery, injections, or endless doctor visits.' }}
+    </p>
+    <a href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}" class="pgm-btn pgm-btn--primary" target="_blank" rel="noopener">
+      {{ section.settings.cta_label | default: 'Start Your Free Trial' }}
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+<!-- ── 2. Origin Story ─────────────────────────────────────────── -->
+<div class="pgm-ap-origin pgm-ap">
+  <div class="pgm-ap__inner">
+    <div class="pgm-ap-origin__grid">
+      <div class="pgm-ap-origin__media">
+        {%- if section.settings.origin_image != blank -%}
+          {{
+            section.settings.origin_image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              alt: section.settings.origin_image.alt | default: 'Mike Boshnack coaching'
+          }}
+        {%- else -%}
+          <img src="{{ 'pgm-about.jpg' | asset_url }}" alt="Mike Boshnack — Posture Guy Mike" loading="lazy" width="900" height="1125">
+        {%- endif -%}
+      </div>
+      <div class="pgm-ap-origin__content">
+        <span class="pgm-ap-origin__eyebrow">How It Started</span>
+        <h2 class="pgm-ap-origin__h2">It Started With His Sister.</h2>
+        <div class="pgm-ap-origin__body">
+          <p>Growing up, Mike watched his sister deal with debilitating chronic pain. She saw doctors, tried physical therapy, and was told to manage it. Nothing fixed it. Frustrated and desperate for a real answer, Mike dove into the science of structural alignment — and discovered the Egoscue Method.</p>
+          <p>The Egoscue Method starts with a simple premise: most chronic pain isn't an injury. It's a postural misalignment. When your skeleton is out of its designed position, muscles compensate, joints wear unevenly, and pain follows. Fix the structure, fix the pain.</p>
+          <p>Mike enrolled at Egoscue University in Irvine, California — the same institution that trains practitioners who work with professional athletes, Olympians, and celebrities. He became a Certified Postural Alignment Specialist and put the method to work for his sister. It worked.</p>
+          <p>That result changed everything. Mike knew he had to share it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 3. Credentials ──────────────────────────────────────────── -->
+<div class="pgm-ap-creds pgm-ap">
+  <div class="pgm-ap__inner">
+    <h2 class="pgm-ap-creds__heading">Trained to the Same Standard as Elite Athletic Programs</h2>
+    <div class="pgm-ap-creds__grid">
+
+      <div class="pgm-ap-creds__card">
+        <div class="pgm-ap-creds__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.704-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="pgm-ap-creds__title">Egoscue Certified</div>
+        <p class="pgm-ap-creds__body">Mike completed his certification at Egoscue University in Irvine, CA — the only institution in the world that trains Egoscue Postural Alignment Specialists. The same method used by professional sports teams and elite athletes worldwide.</p>
+      </div>
+
+      <div class="pgm-ap-creds__card">
+        <div class="pgm-ap-creds__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="pgm-ap-creds__title">1M+ People Helped</div>
+        <p class="pgm-ap-creds__body">Over a million people have used Mike's programs to reduce chronic pain, improve posture, and move without restriction. Many had tried surgery, medication, and physical therapy before finding the Egoscue Method.</p>
+      </div>
+
+      <div class="pgm-ap-creds__card">
+        <div class="pgm-ap-creds__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1l2.2 4.5L16 6.4l-3.5 3.4.8 4.8L9 12.3l-4.3 2.3.8-4.8L2 6.4l4.8-.9L9 1z"/>
+          </svg>
+        </div>
+        <div class="pgm-ap-creds__title">2.5M Social Followers</div>
+        <p class="pgm-ap-creds__body">Mike's free content has reached more than 2.5 million people across Instagram, TikTok, YouTube, and Facebook — making him the most-followed postural alignment specialist on social media.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 4. The Method ────────────────────────────────────────────── -->
+<div class="pgm-ap-method pgm-ap">
+  <div class="pgm-ap__inner">
+    <span class="pgm-ap-method__eyebrow">Why It Works When Everything Else Has Failed</span>
+    <h2 class="pgm-ap-method__h2">Most Pain Treatment Addresses Where You Hurt. The Egoscue Method Addresses Why.</h2>
+    <div class="pgm-ap-method__body">
+      <p>If you've seen a chiropractor, done physical therapy, or tried stretching and massage, you already know that temporary relief isn't the same as fixing the problem. Those approaches work on symptoms — the tight muscle, the inflamed joint, the compressed disc.</p>
+      <p>The Egoscue Method works differently. It starts with a full-body postural assessment to identify where your skeleton has drifted from its ideal position. When your hips are tilted forward, your pelvis is uneven, or your head sits in front of your shoulders, the rest of your body compensates. That compensation — held over years — is what creates chronic pain.</p>
+      <p>Mike's program uses targeted, non-impact exercises called "e-cises" to retrain your body's position from the ground up. No equipment. No gym. No prescription. Just precise movements that restore your structural alignment and allow your body to stop compensating — and start healing.</p>
+      <p>This is what professional athletes use to extend their careers. It's what celebrities use to maintain performance under pressure. And now it's available to you, from home, for less than a dollar a day.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 5. Pull Quotes ───────────────────────────────────────────── -->
+<div class="pgm-ap-quotes pgm-ap">
+  <div class="pgm-ap__inner">
+    <div class="pgm-ap-quotes__header">
+      <span class="pgm-ap-quotes__eyebrow">Real People. Real Results.</span>
+      <h2 class="pgm-ap-quotes__h2">What Happens When You Fix the Root Cause</h2>
+    </div>
+    <div class="pgm-ap-quotes__grid">
+      <div class="pgm-ap-quotes__card">
+        <span class="pgm-ap-quotes__result">Pain-free in 3 weeks</span>
+        <p class="pgm-ap-quotes__quote">"I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life."</p>
+        <div class="pgm-ap-quotes__name">Sarah M.</div>
+        <div class="pgm-ap-quotes__loc">Member since 2023 · Denver, CO</div>
+      </div>
+      <div class="pgm-ap-quotes__card">
+        <span class="pgm-ap-quotes__result">Back to hiking at 67</span>
+        <p class="pgm-ap-quotes__quote">"I'm 67 years old and I thought my hip pain was just part of aging. Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago."</p>
+        <div class="pgm-ap-quotes__name">Robert T.</div>
+        <div class="pgm-ap-quotes__loc">Member since 2022 · Phoenix, AZ</div>
+      </div>
+      <div class="pgm-ap-quotes__card">
+        <span class="pgm-ap-quotes__result">3 months pain-free</span>
+        <p class="pgm-ap-quotes__quote">"I've tried YouTube stretches, physical therapy, and a chiropractor for years. Nothing lasted. Mike's method is the first thing that addressed why I hurt, not just where."</p>
+        <div class="pgm-ap-quotes__name">Linda H.</div>
+        <div class="pgm-ap-quotes__loc">Member since 2022 · Seattle, WA</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 6. Trusted By ────────────────────────────────────────────── -->
+<div class="pgm-ap-trusted pgm-ap">
+  <div class="pgm-ap__inner">
+    <span class="pgm-ap-trusted__eyebrow">Elite-Level Access, Everyday Pricing</span>
+    <h2 class="pgm-ap-trusted__h2">The Method Trusted by Celebrities, Athletes, and Professional Teams</h2>
+    <p class="pgm-ap-trusted__body">The Egoscue Method has been used by professional athletes across the NFL, NBA, and PGA Tour, as well as Hollywood celebrities who need to perform at the highest level. Mike brings this same structural alignment expertise to everyday people through his membership program — for a fraction of the cost of a single private session.</p>
+  </div>
+</div>
+
+
+<!-- ── 7. FAQ ──────────────────────────────────────────────────── -->
+<div class="pgm-ap-faq pgm-ap">
+  <div class="pgm-ap__inner">
+    <div class="pgm-ap-faq__header">
+      <span class="pgm-ap-faq__eyebrow">Common Questions</span>
+      <h2 class="pgm-ap-faq__h2">Everything You Need to Know Before Starting</h2>
+    </div>
+    <div class="pgm-ap-faq__list">
+
+      {%- assign faqs = "Do I need any equipment?|Do I need any equipment?,It Doesn't Require Equipment|No. Every exercise in the program is designed to be done at home using only your body and a floor. Some exercises use a wall, a chair, or a block — items you already have.;I've had surgery or have a serious condition. Is this safe for me?|Safe for Most Conditions|The Egoscue Method is non-impact and non-manipulative. It has been used safely by people recovering from surgery and managing chronic conditions. However, you should consult your physician before starting any new exercise program.;How is this different from yoga, stretching, or physical therapy?|It's Different|Yoga and stretching address flexibility and mobility, but they don't systematically correct structural misalignment. Physical therapy typically targets a specific injury site. The Egoscue Method maps your entire postural system and corrects the root cause — not just the symptom.;How quickly will I see results?|Results Timeline|Many members report feeling a difference within their first 1–2 sessions. Meaningful, lasting change typically develops over 2–6 weeks depending on how long misalignment patterns have been present.;Can I use my HSA or FSA account?|HSA / FSA Eligible|Yes. The Posture Guy Mike membership is one of the only posture programs that qualifies for HSA and FSA reimbursement. This means the membership may cost you nothing out of pocket.;What if it doesn't work for me?|30-Day Guarantee|Every membership includes a 30-day satisfaction guarantee. If you're not seeing results and you've put in the work, contact support and you'll receive a full refund — no questions asked." | split: ";" -%}
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          Do I need any equipment?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">No. Every exercise in the program is designed to be done at home using only your body and a floor. Some exercises use a wall, a chair, or a block — items you already have.</p>
+      </details>
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          I've had surgery or have a serious condition. Is this safe for me?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">The Egoscue Method is non-impact and non-manipulative. It has been used safely by people recovering from surgery and managing chronic conditions. However, you should always consult your physician before starting any new exercise program.</p>
+      </details>
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          How is this different from yoga, stretching, or physical therapy?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">Yoga and stretching address flexibility and mobility, but they don't systematically correct structural misalignment. Physical therapy typically targets a specific injury site. The Egoscue Method maps your entire postural system and corrects the root cause — not just the symptom.</p>
+      </details>
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          How quickly will I see results?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">Many members report feeling a difference within their first 1–2 sessions. Meaningful, lasting change typically develops over 2–6 weeks depending on how long misalignment patterns have been present.</p>
+      </details>
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          Can I use my HSA or FSA account?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">Yes. The Posture Guy Mike membership is one of the only posture programs that qualifies for HSA and FSA reimbursement. This means the membership may cost you nothing out of pocket.</p>
+      </details>
+
+      <details class="pgm-ap-faq__item">
+        <summary class="pgm-ap-faq__q">
+          What if it doesn't work for me?
+          <svg class="pgm-ap-faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg>
+        </summary>
+        <p class="pgm-ap-faq__a">Every membership includes a 30-day satisfaction guarantee. If you're not seeing results and you've put in the work, contact support and you'll receive a full refund — no questions asked.</p>
+      </details>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ── 8. Final CTA ─────────────────────────────────────────────── -->
+<div class="pgm-ap-cta pgm-ap">
+  <div class="pgm-ap__inner">
+    <span class="pgm-ap-cta__eyebrow">Your Next Step</span>
+    <h2 class="pgm-ap-cta__h2">A Million People Have Done This. Your Turn.</h2>
+    <p class="pgm-ap-cta__sub">Start with a free trial. No commitment, no surprise charges. If you don't feel a difference, cancel anytime. If you do — you'll wonder why you waited this long.</p>
+    <a href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}" class="pgm-btn pgm-btn--primary" target="_blank" rel="noopener">
+      Start My Free Trial
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="pgm-ap-cta__badges">
+      <span class="pgm-ap-cta__badge">✓ Free trial — cancel anytime</span>
+      <span class="pgm-ap-cta__badge">✓ 30-day satisfaction guarantee</span>
+      <span class="pgm-ap-cta__badge">✓ HSA / FSA eligible</span>
+      <span class="pgm-ap-cta__badge">✓ iOS &amp; Android app included</span>
+      <span class="pgm-ap-cta__badge">✓ Trusted by 2,500+ members</span>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "PGM — About Page",
+  "tag": "div",
+  "class": "pgm-about-page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image",
+      "info": "Wide/landscape image of Mike. Subject on one side so text is readable."
+    },
+    {
+      "type": "text",
+      "id": "hero_headline",
+      "label": "Hero headline",
+      "default": "I Was Watching Someone I Love Suffer. So I Found a Better Way."
+    },
+    {
+      "type": "textarea",
+      "id": "hero_sub",
+      "label": "Hero subheadline",
+      "default": "Mike Boshnack is a Certified Postural Alignment Specialist who has helped over a million people get out of chronic pain — without surgery, injections, or endless doctor visits."
+    },
+    {
+      "type": "header",
+      "content": "Origin Story Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "origin_image",
+      "label": "Origin story photo",
+      "info": "Portrait or action shot of Mike — 4:5 ratio works best."
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Free trial URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Start Your Free Trial"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — About Page"
+    }
+  ]
+}
+{% endschema %}
