@@ -55,9 +55,8 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Logo → @postureguymike text */
-.section-header .header__heading-logo { display: none !important; }
-.section-header .header__heading-link .h2 { display: none !important; }
+/* Logo → @postureguymike text — hide everything inside the link, inject text */
+.section-header .header__heading-link > * { display: none !important; }
 .section-header .header__heading-link::after {
   content: '@postureguymike';
   font-size: 1.9rem;
