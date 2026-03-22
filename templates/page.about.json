@@ -154,21 +154,23 @@
           "type": "photo",
           "settings": {
             "photo": "shopify://shop_images/Untitled_design_2.png",
-            "name": "",
+            "name": "@thesharkdaymond",
             "role": ""
           }
         },
         "p2": {
           "type": "photo",
           "settings": {
-            "name": "",
+            "photo": "shopify://shop_images/IMG_3826.jpg",
+            "name": "@stevewilldoit",
             "role": ""
           }
         },
         "p3": {
           "type": "photo",
           "settings": {
-            "name": "",
+            "photo": "shopify://shop_images/IMG_2378.jpg",
+            "name": "@timwelchmt",
             "role": ""
           }
         },
