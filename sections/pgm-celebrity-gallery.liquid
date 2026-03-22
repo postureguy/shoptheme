@@ -1,0 +1,359 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<style>
+.pgm-celeb {
+  padding: 9.6rem 0;
+  background: var(--pgm-dark);
+  overflow: hidden;
+}
+.pgm-celeb__header {
+  text-align: center;
+  max-width: 120rem;
+  margin: 0 auto 4.8rem;
+  padding: 0 2.4rem;
+}
+.pgm-celeb__eyebrow {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.2rem;
+}
+.pgm-celeb__h2 {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+}
+.pgm-celeb__sub {
+  font-size: 1.7rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 1.2rem;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Track + navigation wrapper */
+.pgm-celeb__nav-wrap {
+  position: relative;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 6.4rem;
+}
+@media (max-width: 749px) {
+  .pgm-celeb__nav-wrap { padding: 0 1.6rem; }
+}
+
+/* Arrow buttons */
+.pgm-celeb__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.pgm-celeb__arrow:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.4);
+}
+.pgm-celeb__arrow--prev { left: 0.8rem; }
+.pgm-celeb__arrow--next { right: 0.8rem; }
+@media (max-width: 749px) {
+  .pgm-celeb__arrow { display: none; }
+}
+
+/* Scrollable track */
+.pgm-celeb__track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.4rem;
+}
+.pgm-celeb__track::-webkit-scrollbar { display: none; }
+
+/* Individual slide */
+.pgm-celeb__slide {
+  flex: 0 0 calc(33.333% - 1.4rem);
+  scroll-snap-align: start;
+}
+@media (max-width: 989px) {
+  .pgm-celeb__slide { flex: 0 0 calc(50% - 1rem); }
+}
+@media (max-width: 599px) {
+  .pgm-celeb__slide { flex: 0 0 80vw; }
+}
+
+/* Photo card */
+.pgm-celeb__card {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: rgba(255,255,255,0.06);
+}
+.pgm-celeb__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.pgm-celeb__card:hover img {
+  transform: scale(1.03);
+}
+.pgm-celeb__card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.4rem 2rem 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+}
+.pgm-celeb__card-name {
+  font-family: var(--pgm-head);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.pgm-celeb__card-role {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.3rem;
+}
+
+/* Placeholder card when no image set */
+.pgm-celeb__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 1.4rem;
+}
+
+/* Dot indicators */
+.pgm-celeb__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 3.2rem;
+}
+.pgm-celeb__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.pgm-celeb__dot--active {
+  background: var(--pgm-blue);
+  transform: scale(1.4);
+}
+</style>
+
+
+<section class="pgm-celeb pgm-section" id="pgm-celeb-{{ section.id }}" aria-label="{{ section.settings.heading | default: 'Celebrity & Athlete Gallery' }}">
+
+  <div class="pgm-celeb__header">
+    <span class="pgm-celeb__eyebrow">{{ section.settings.eyebrow | default: 'In Good Company' }}</span>
+    <h2 class="pgm-celeb__h2">{{ section.settings.heading | default: "Mike With Celebrities, Athletes & Public Figures" }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="pgm-celeb__sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="pgm-celeb__nav-wrap">
+
+    <button class="pgm-celeb__arrow pgm-celeb__arrow--prev" aria-label="Previous photos" data-dir="prev">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 4L6 9l5 5"/>
+      </svg>
+    </button>
+
+    <div class="pgm-celeb__track" id="pgm-celeb-track-{{ section.id }}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'photo' -%}
+          <div class="pgm-celeb__slide" {{ block.shopify_attributes }}>
+            <div class="pgm-celeb__card">
+              {%- if block.settings.photo != blank -%}
+                {{
+                  block.settings.photo
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.name | default: 'Mike Boshnack'
+                }}
+              {%- else -%}
+                <div class="pgm-celeb__placeholder">Add photo in editor</div>
+              {%- endif -%}
+              {%- if block.settings.name != blank -%}
+                <div class="pgm-celeb__card-overlay">
+                  <div class="pgm-celeb__card-name">{{ block.settings.name }}</div>
+                  {%- if block.settings.role != blank -%}
+                    <div class="pgm-celeb__card-role">{{ block.settings.role }}</div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <button class="pgm-celeb__arrow pgm-celeb__arrow--next" aria-label="Next photos" data-dir="next">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 4l5 5-5 5"/>
+      </svg>
+    </button>
+
+  </div>
+
+  {%- if section.blocks.size > 3 -%}
+    <div class="pgm-celeb__dots" id="pgm-celeb-dots-{{ section.id }}" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'photo' -%}
+          <button class="pgm-celeb__dot{% if forloop.first %} pgm-celeb__dot--active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Go to photo {{ forloop.index }}"></button>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+</section>
+
+
+<script>
+(function () {
+  var track  = document.getElementById('pgm-celeb-track-{{ section.id }}');
+  var dotsEl = document.getElementById('pgm-celeb-dots-{{ section.id }}');
+  var btns   = document.querySelectorAll('#pgm-celeb-{{ section.id }} .pgm-celeb__arrow');
+  if (!track) return;
+
+  var slides = track.querySelectorAll('.pgm-celeb__slide');
+  var dots   = dotsEl ? dotsEl.querySelectorAll('.pgm-celeb__dot') : [];
+
+  function slideWidth() {
+    return slides[0] ? slides[0].offsetWidth + 20 : 0; /* 20 = gap */
+  }
+
+  function currentIndex() {
+    return Math.round(track.scrollLeft / slideWidth());
+  }
+
+  function scrollTo(idx) {
+    idx = Math.max(0, Math.min(slides.length - 1, idx));
+    track.scrollTo({ left: idx * slideWidth(), behavior: 'smooth' });
+  }
+
+  function updateDots() {
+    var ci = currentIndex();
+    dots.forEach(function (d, i) {
+      d.classList.toggle('pgm-celeb__dot--active', i === ci);
+    });
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var dir = btn.getAttribute('data-dir') === 'next' ? 1 : -1;
+      scrollTo(currentIndex() + dir);
+    });
+  });
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      scrollTo(parseInt(dot.getAttribute('data-index'), 10));
+    });
+  });
+
+  track.addEventListener('scroll', updateDots, { passive: true });
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "PGM — Celebrity Gallery",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "In Good Company"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Mike With Celebrities, Athletes & Public Figures"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Photo of Mike with guest",
+          "info": "Square or portrait crop works best. 4:5 ratio recommended."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "info": "e.g. John Mellencamp"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Description",
+          "info": "e.g. Grammy-winning musician"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Celebrity Gallery",
+      "blocks": [
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -16,7 +16,95 @@
         "hero_sub": "Mike Boshnack spent years dealing with sports injuries, a failed ACL surgery, and chronic pain that doctors couldn't resolve. Then he discovered the Egoscue Method — and everything changed. Now he's helped over a million people do the same.",
         "cta_label": "Start Your Free Trial"
       }
+    },
+    "pgm_celeb_gallery": {
+      "type": "pgm-celebrity-gallery",
+      "blocks": {
+        "p1": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p2": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p3": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p4": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p5": { "type": "photo", "settings": { "name": "", "role": "" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": {
+        "eyebrow": "In Good Company",
+        "heading": "Mike With Celebrities, Athletes & Public Figures",
+        "subheading": ""
+      }
+    },
+    "pgm_about_testimonials": {
+      "type": "pgm-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "name": "Sarah M.",
+            "location": "Member since 2023 · Denver, CO",
+            "result": "Pain-free in 3 weeks"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just part of aging. Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "name": "Robert T.",
+            "location": "Member since 2022 · Phoenix, AZ",
+            "result": "Back to hiking at 67"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "name": "Jessica L.",
+            "location": "Remote worker · Austin, TX",
+            "result": "Neck pain gone in 2 weeks"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "name": "Marcus K.",
+            "location": "Member since 2023 · Chicago, IL",
+            "result": "Complete posture transformation"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
+            "name": "Linda H.",
+            "location": "Member since 2022 · Seattle, WA",
+            "result": "3 months pain-free"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "name": "David R.",
+            "location": "Member · Nashville, TN",
+            "result": "HSA covered, fully pain-free"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "settings": {
+        "eyebrow": "Real People. Real Results.",
+        "heading": "Thousands Have Fixed Their Posture. You're Next.",
+        "show_trust_bar": true,
+        "trust_bar_rating": "4.9 / 5 Rating",
+        "trust_bar_members": "2,000+ Members",
+        "trust_bar_guarantee": "30-Day Guarantee"
+      }
     }
   },
-  "order": ["pgm_about_page"]
+  "order": [
+    "pgm_about_page",
+    "pgm_celeb_gallery",
+    "pgm_about_testimonials"
+  ]
 }
