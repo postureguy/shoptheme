@@ -13,6 +13,10 @@
       "type": "pgm-hero",
       "settings": {
         "bg_image": "shopify://shop_images/2ec94009-015c-41b9-a27a-824a257e9945.png",
+        "mobile_image": "shopify://shop_images/2ec94009-015c-41b9-a27a-824a257e9945.png",
+        "desktop_text_align": "left",
+        "mobile_layout": "overlay",
+        "mobile_text_position": "bottom",
         "eyebrow": "Certified Postural Alignment Specialist",
         "headline": "<p>Your Pain Has a<br/><em>Root Cause.</em><br/>Let's Fix It.</p>",
         "subheadline": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.",
@@ -43,6 +47,7 @@
         "badge_sub": "Postural Alignment Specialist",
         "eyebrow": "The Coach Behind the Movement",
         "heading": "Meet Mike — The Posture Expert Trusted by Millions",
+        "body": "",
         "cred_label": "Certified Postural Alignment Specialist",
         "cred_desc": "Trained at Egoscue University · Irvine, CA",
         "cta_label": "Learn More About Mike →",
@@ -116,7 +121,9 @@
         "subheading": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.",
         "cta_heading": "Ready to get out of pain? Start free today.",
         "cta_label": "Start My Free Trial",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "apple_url": "",
+        "android_url": ""
       }
     },
     "pgm_testimonials": {
@@ -197,6 +204,11 @@
     "pgm_quiz": {
       "type": "pgm-quiz-cta",
       "settings": {
+        "bg_image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_22_39_PM.png",
+        "mobile_image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_22_39_PM.png",
+        "desktop_text_align": "left",
+        "mobile_layout": "overlay",
+        "mobile_text_position": "bottom",
         "heading": "What's Your Posture Score?",
         "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
         "placeholder": "Enter your email address",
