@@ -76,20 +76,26 @@
           <div class="pgm-collab__field">
             <label class="pgm-collab__label" for="collab-type">Partnership Type *</label>
             <select id="collab-type" name="contact[partnership_type]" class="pgm-collab__select" required>
-              <option value="" disabled selected>Select a partnership type</option>
-              <option value="Sponsored Content (Instagram/TikTok)">Sponsored Content (Instagram/TikTok)</option>
-              <option value="YouTube Integration">YouTube Integration</option>
-              <option value="Email Campaign">Email Campaign Sponsorship</option>
-              <option value="Product Collaboration">Product Collaboration / Bundle</option>
-              <option value="Affiliate Program">Affiliate / Commission Program</option>
-              <option value="Website Feature">Website Feature / Placement</option>
+              <option value="" disabled selected>Select inquiry type</option>
+              <optgroup label="Work With Mike">
+                <option value="Private 1:1 Coaching">Private 1:1 Coaching Session</option>
+                <option value="Corporate Wellness Program">Corporate Wellness Program</option>
+                <option value="Speaking Engagement / Keynote">Speaking Engagement / Keynote</option>
+              </optgroup>
+              <optgroup label="Brand Partnerships">
+                <option value="Sponsored Content (Instagram/TikTok)">Sponsored Content (Instagram/TikTok)</option>
+                <option value="YouTube Integration">YouTube Integration</option>
+                <option value="Email Campaign">Email Campaign Sponsorship</option>
+                <option value="Product Collaboration">Product Collaboration / Bundle</option>
+                <option value="Affiliate Program">Affiliate / Commission Program</option>
+              </optgroup>
               <option value="Other">Other</option>
             </select>
           </div>
 
           <div class="pgm-collab__field">
             <label class="pgm-collab__label" for="collab-message">Tell us about your brand & goals</label>
-            <textarea id="collab-message" name="contact[body]" class="pgm-collab__textarea" placeholder="What's your brand, campaign goal, timeline, and budget range?"></textarea>
+            <textarea id="collab-message" name="contact[body]" class="pgm-collab__textarea" placeholder="Tell us about your inquiry — goals, timeline, and any relevant details."></textarea>
           </div>
 
           <input type="hidden" name="contact[form_type]" value="partnership_inquiry">
