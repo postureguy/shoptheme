@@ -12,7 +12,7 @@
     "pgm_about_hero": {
       "type": "pgm-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/about-mike.jpg",
+        "bg_image": "shopify://shop_images/about-mike-desktop.jpg",
         "mobile_image": "shopify://shop_images/about-mike.jpg",
         "desktop_text_align": "left",
         "mobile_layout": "overlay",
