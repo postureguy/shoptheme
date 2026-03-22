@@ -10,7 +10,8 @@
     https://youtu.be/VIDEO_ID                 →  https://www.youtube.com/embed/VIDEO_ID
 {%- endcomment -%}
 
-{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+{%- assign _prog_handle = section.settings.program_handle | default: page.handle -%}
+{%- assign prog = shop.metaobjects.program[_prog_handle] -%}
 
 {%- comment -%}
   Helper: extract YouTube video ID from a URL string.

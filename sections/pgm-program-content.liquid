@@ -6,7 +6,8 @@
   Loads `seo_description` from metaobject, with schema overrides for heading and content.
 {%- endcomment -%}
 
-{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+{%- assign _prog_handle = section.settings.program_handle | default: page.handle -%}
+{%- assign prog = shop.metaobjects.program[_prog_handle] -%}
 
 {%- comment -%} Resolve heading {%- endcomment -%}
 {%- if section.settings.heading != blank -%}

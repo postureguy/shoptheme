@@ -6,7 +6,8 @@
   All fields have schema overrides that take precedence over metaobject values.
 {%- endcomment -%}
 
-{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+{%- assign _prog_handle = section.settings.program_handle | default: page.handle -%}
+{%- assign prog = shop.metaobjects.program[_prog_handle] -%}
 
 {%- comment -%} Resolve title: schema override → metaobject → fallback {%- endcomment -%}
 {%- if section.settings.title != blank -%}

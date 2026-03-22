@@ -7,7 +7,8 @@
   Right: price card with CTA button and guarantee badge.
 {%- endcomment -%}
 
-{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+{%- assign _prog_handle = section.settings.program_handle | default: page.handle -%}
+{%- assign prog = shop.metaobjects.program[_prog_handle] -%}
 
 {%- comment -%} Resolve heading {%- endcomment -%}
 {%- assign purchase_heading = section.settings.heading | default: 'Get Full Access' -%}
