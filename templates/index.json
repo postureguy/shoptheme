@@ -40,6 +40,81 @@
         "fb_url": "https://www.facebook.com/posturestrongofficial"
       }
     },
+    "pgm_testimonials": {
+      "type": "pgm-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "name": "Sarah M.",
+            "location": "Member since 2023 · Denver, CO",
+            "result": "Pain-free in 3 weeks"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "name": "Robert T.",
+            "location": "Member since 2022 · Phoenix, AZ",
+            "result": "Back to hiking at 67"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "name": "Jessica L.",
+            "location": "Remote worker · Austin, TX",
+            "result": "Neck pain gone in 2 weeks"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "name": "Marcus K.",
+            "location": "Member since 2023 · Chicago, IL",
+            "result": "Complete posture transformation"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
+            "name": "Linda H.",
+            "location": "Member since 2022 · Seattle, WA",
+            "result": "3 months pain-free"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "name": "David R.",
+            "location": "Member · Nashville, TN",
+            "result": "HSA covered, fully pain-free"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
+      "settings": {
+        "eyebrow": "Real People. Real Results.",
+        "heading": "Thousands Have Fixed Their Posture. You're Next.",
+        "show_trust_bar": true,
+        "trust_bar_rating": "4.9 / 5 Rating",
+        "trust_bar_members": "2,000+ Members",
+        "trust_bar_guarantee": "30-Day Guarantee"
+      }
+    },
     "pgm_about": {
       "type": "pgm-about",
       "settings": {
@@ -126,81 +201,6 @@
         "android_url": ""
       }
     },
-    "pgm_testimonials": {
-      "type": "pgm-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
-            "name": "Sarah M.",
-            "location": "Member since 2023 · Denver, CO",
-            "result": "Pain-free in 3 weeks"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
-            "name": "Robert T.",
-            "location": "Member since 2022 · Phoenix, AZ",
-            "result": "Back to hiking at 67"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
-            "name": "Jessica L.",
-            "location": "Remote worker · Austin, TX",
-            "result": "Neck pain gone in 2 weeks"
-          }
-        },
-        "t4": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
-            "name": "Marcus K.",
-            "location": "Member since 2023 · Chicago, IL",
-            "result": "Complete posture transformation"
-          }
-        },
-        "t5": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
-            "name": "Linda H.",
-            "location": "Member since 2022 · Seattle, WA",
-            "result": "3 months pain-free"
-          }
-        },
-        "t6": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
-            "name": "David R.",
-            "location": "Member · Nashville, TN",
-            "result": "HSA covered, fully pain-free"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4",
-        "t5",
-        "t6"
-      ],
-      "settings": {
-        "eyebrow": "Real People. Real Results.",
-        "heading": "Thousands Have Fixed Their Posture. You're Next.",
-        "show_trust_bar": true,
-        "trust_bar_rating": "4.9 / 5 Rating",
-        "trust_bar_members": "2,000+ Members",
-        "trust_bar_guarantee": "30-Day Guarantee"
-      }
-    },
     "pgm_quiz": {
       "type": "pgm-quiz-cta",
       "settings": {
@@ -226,6 +226,7 @@
         "tip1": {
           "type": "tip",
           "settings": {
+            "image": "shopify://shop_images/Copy_of_posture_masters_updated_program_thumbnail.png",
             "category": "Neck Relief",
             "title": "Stack Your Ears Over Shoulders",
             "body": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine. Gently tuck your chin and lift the crown of your head."
@@ -258,16 +259,6 @@
         "heading": "Start Improving Your Posture Today",
         "cta_label": "Get the Full Program Free →",
         "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
-      }
-    },
-    "pgm_collab": {
-      "type": "pgm-collab",
-      "settings": {
-        "eyebrow": "Brand Partnerships",
-        "heading": "Partner With Posture Guy Mike",
-        "body": "Reach over 2.5 million engaged, health-conscious followers across Instagram, TikTok, YouTube, and Facebook. Our audience actively invests in their health — with a high percentage using HSA/FSA benefits for wellness purchases.",
-        "form_heading": "Submit a Partnership Inquiry",
-        "submit_label": "Submit Inquiry"
       }
     },
     "pgm_instagram": {
@@ -348,6 +339,16 @@
         "yt_count": "236K",
         "fb_url": "https://www.facebook.com/posturestrongofficial",
         "fb_count": "690K"
+      }
+    },
+    "pgm_collab": {
+      "type": "pgm-collab",
+      "settings": {
+        "eyebrow": "Brand Partnerships",
+        "heading": "Partner With Posture Guy Mike",
+        "body": "Reach over 2.5 million engaged, health-conscious followers across Instagram, TikTok, YouTube, and Facebook. Our audience actively invests in their health — with a high percentage using HSA/FSA benefits for wellness purchases.",
+        "form_heading": "Submit a Partnership Inquiry",
+        "submit_label": "Submit Inquiry"
       }
     },
     "pgm_sticky": {
