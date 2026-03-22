@@ -199,6 +199,15 @@
         "body": "<p>The Egoscue Method has been used by professional athletes across the NFL, NBA, and PGA Tour, as well as Hollywood celebrities who need to perform at the highest level. Mike brings this same structural alignment expertise to everyday people through his membership program — for a fraction of the cost of a single private session.</p>",
         "background": "white"
       }
+    },
+    "pgm_about_sticky": {
+      "type": "pgm-sticky-cta",
+      "settings": {
+        "title": "Fix Your Posture Today",
+        "subtitle": "Free trial · Cancel anytime",
+        "cta_label": "Start Free Trial",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+      }
     }
   },
   "order": [
@@ -208,6 +217,7 @@
     "pgm_celeb_gallery",
     "pgm_press_bar",
     "pgm_credentials",
-    "pgm_method"
+    "pgm_method",
+    "pgm_about_sticky"
   ]
 }
