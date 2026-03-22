@@ -9,282 +9,68 @@
  */
 {
   "sections": {
-    "pgm_about_page": {
-      "type": "pgm-about-page",
+    "pgm_about_hero": {
+      "type": "pgm-hero",
       "settings": {
-        "hero_image": "shopify://shop_images/about-mike.jpg",
-        "hero_headline": "Doctors Couldn't Fix Me. So I Fixed Myself — and Built a Method for Everyone.",
-        "hero_sub": "Mike Boshnack spent years dealing with sports injuries, a failed ACL surgery, and chronic pain that doctors couldn't resolve. Then he discovered the Egoscue Method — and everything changed. Now he's helped over a million people do the same.",
-        "origin_image": "shopify://shop_images/shoulder_copy.jpg",
-        "cta_url": "",
-        "cta_label": "Start Your Free Trial"
-      }
-    },
-    "pgm_timeline": {
-      "type": "pgm-timeline",
-      "blocks": {
-        "m1": {
-          "type": "milestone",
-          "settings": {
-            "year": "Growing Up",
-            "title": "Born an Athlete",
-            "body": "Mike grew up competing in sports and skateboarding — pushing his body hard from a young age. Athletic performance wasn't just a hobby, it was his identity.",
-            "stat": "",
-            "stat_label": ""
-          }
-        },
-        "m2": {
-          "type": "milestone",
-          "settings": {
-            "year": "The Injury",
-            "title": "A Torn ACL and a Failed Surgery",
-            "body": "Years of hard living caught up with him. A torn ACL led to surgery — but the surgery didn't fix it. More doctors, more dead ends, more \"learn to live with it.\"",
-            "stat": "",
-            "stat_label": ""
-          }
-        },
-        "m3": {
-          "type": "milestone",
-          "settings": {
-            "year": "The Discovery",
-            "title": "Found the Egoscue Method",
-            "body": "Refusing to accept a lifetime of pain, Mike discovered the Egoscue Method — a structural alignment system that addressed the root cause of his pain, not just the symptoms. It worked when nothing else had.",
-            "stat": "",
-            "stat_label": ""
-          }
-        },
-        "m4": {
-          "type": "milestone",
-          "settings": {
-            "year": "Certified",
-            "title": "Egoscue University, Irvine CA",
-            "body": "Mike enrolled at Egoscue University — the only institution in the world that trains Egoscue Postural Alignment Specialists. He earned his certification alongside practitioners who work with professional athletes and Olympians.",
-            "stat": "",
-            "stat_label": ""
-          }
-        },
-        "m5": {
-          "type": "milestone",
-          "settings": {
-            "year": "Going Public",
-            "title": "Started Sharing on Social Media",
-            "body": "What began as short posture tips online quickly took off. The message resonated — millions of people dealing with the same pain, tired of the same failed solutions.",
-            "stat": "",
-            "stat_label": ""
-          }
-        },
-        "m6": {
-          "type": "milestone",
-          "settings": {
-            "year": "Today",
-            "title": "Over a Million People Helped",
-            "body": "The Posture Guy Mike membership program now serves thousands of active members, and Mike's free content has reached over 2.5 million followers across Instagram, TikTok, YouTube, and Facebook.",
-            "stat": "2.5M+",
-            "stat_label": "Social Followers Across All Platforms"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6"
-      ],
-      "settings": {
-        "eyebrow": "The Journey",
-        "heading": "From Broken Down to Helping Millions"
-      }
-    },
-    "pgm_press_bar": {
-      "type": "pgm-press-bar",
-      "blocks": {
-        "l1": {
-          "type": "logo",
-          "settings": {
-            "name": "ESPN",
-            "url": ""
-          }
-        },
-        "l2": {
-          "type": "logo",
-          "settings": {
-            "name": "Men's Health",
-            "url": ""
-          }
-        },
-        "l3": {
-          "type": "logo",
-          "settings": {
-            "name": "The Today Show",
-            "url": ""
-          }
-        },
-        "l4": {
-          "type": "logo",
-          "settings": {
-            "name": "Muscle & Fitness",
-            "url": ""
-          }
-        },
-        "l5": {
-          "type": "logo",
-          "settings": {
-            "name": "Fox News",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "l1",
-        "l2",
-        "l3",
-        "l4",
-        "l5"
-      ],
-      "settings": {
-        "label": "As Featured In"
+        "bg_image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_51_51_PM.png",
+        "desktop_text_align": "left",
+        "mobile_layout": "overlay",
+        "mobile_text_position": "bottom",
+        "eyebrow": "The Coach Behind the Movement",
+        "headline": "<p>Doctors Couldn't Fix Me.<br/>So I Fixed Myself — and<br/><em>Built a Method for Everyone.</em></p>",
+        "subheadline": "Mike Boshnack is a certified Postural Alignment Specialist who went from a failed ACL surgery and years of chronic pain to helping over a million people fix their posture at home.",
+        "primary_cta_label": "Start Your Free Trial",
+        "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "secondary_cta_label": "Watch How It Works",
+        "video_id": "b6Yt1JtvUH0"
       }
     },
     "pgm_celeb_gallery": {
       "type": "pgm-celebrity-gallery",
       "blocks": {
-        "p1": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/Untitled_design_2.png",
-            "name": "@thesharkdaymond",
-            "role": ""
-          }
-        },
-        "p2": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_3826.jpg",
-            "name": "@stevewilldoit",
-            "role": ""
-          }
-        },
-        "p3": {
-          "type": "photo",
-          "settings": {
-            "photo": "shopify://shop_images/IMG_2378.jpg",
-            "name": "@timwelchmt",
-            "role": ""
-          }
-        },
-        "p4": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        },
-        "p5": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "name": "",
-            "role": ""
-          }
-        }
+        "p1": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p2": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p3": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p4": { "type": "photo", "settings": { "name": "", "role": "" } },
+        "p5": { "type": "photo", "settings": { "name": "", "role": "" } }
       },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": {
         "eyebrow": "In Good Company",
         "heading": "Mike With Celebrities, Athletes & Public Figures",
         "subheading": ""
       }
     },
-    "pgm_about_testimonials": {
-      "type": "pgm-testimonials",
+    "pgm_press_bar": {
+      "type": "pgm-press-bar",
       "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
-            "name": "Sarah M.",
-            "location": "Member since 2023 · Denver, CO",
-            "result": "Pain-free in 3 weeks"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I'm 67 years old and I thought my hip pain was just part of aging. Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
-            "name": "Robert T.",
-            "location": "Member since 2022 · Phoenix, AZ",
-            "result": "Back to hiking at 67"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
-            "name": "Jessica L.",
-            "location": "Remote worker · Austin, TX",
-            "result": "Neck pain gone in 2 weeks"
-          }
-        },
-        "t4": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
-            "name": "Marcus K.",
-            "location": "Member since 2023 · Chicago, IL",
-            "result": "Complete posture transformation"
-          }
-        },
-        "t5": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
-            "name": "Linda H.",
-            "location": "Member since 2022 · Seattle, WA",
-            "result": "3 months pain-free"
-          }
-        },
-        "t6": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
-            "name": "David R.",
-            "location": "Member · Nashville, TN",
-            "result": "HSA covered, fully pain-free"
-          }
-        }
+        "l1": { "type": "logo", "settings": { "name": "ESPN", "url": "" } },
+        "l2": { "type": "logo", "settings": { "name": "Men's Health", "url": "" } },
+        "l3": { "type": "logo", "settings": { "name": "The Today Show", "url": "" } },
+        "l4": { "type": "logo", "settings": { "name": "Muscle & Fitness", "url": "" } },
+        "l5": { "type": "logo", "settings": { "name": "Fox News", "url": "" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4",
-        "t5",
-        "t6"
-      ],
+      "block_order": ["l1", "l2", "l3", "l4", "l5"],
       "settings": {
-        "eyebrow": "Real People. Real Results.",
-        "heading": "Thousands Have Fixed Their Posture. You're Next.",
-        "show_trust_bar": true,
-        "trust_bar_rating": "4.9 / 5 Rating",
-        "trust_bar_members": "2,000+ Members",
-        "trust_bar_guarantee": "30-Day Guarantee"
+        "label": "As Featured In"
+      }
+    },
+    "pgm_origin_story": {
+      "type": "pgm-split-content",
+      "settings": {
+        "image": "shopify://shop_images/shoulder_copy.jpg",
+        "image_position": "left",
+        "eyebrow": "The Origin Story",
+        "heading": "From Broken Down to Breakthrough",
+        "body": "<p>Mike grew up as an athlete — skateboarding, competing in sports, pushing his body hard from a young age. Athletic performance wasn't just a hobby, it was his identity.</p><p>Then a torn ACL and a failed surgery left him in pain that doctors couldn't fix. More specialists, more dead ends, more \"learn to live with it.\"</p><p>Refusing to accept that answer, Mike discovered the Egoscue Method — a structural alignment system that addresses the root cause of pain, not just the symptoms. It worked when nothing else had.</p><p>He enrolled at Egoscue University in Irvine, CA — earning his certification alongside practitioners who work with professional athletes and Olympians. Then he started sharing what he learned online. Over 2.5 million followers later, he has helped more people than he ever imagined possible.</p>",
+        "background": "light"
       }
     }
   },
   "order": [
-    "pgm_about_page",
-    "pgm_timeline",
-    "pgm_press_bar",
+    "pgm_about_hero",
     "pgm_celeb_gallery",
-    "pgm_about_testimonials"
+    "pgm_press_bar",
+    "pgm_origin_story"
   ]
 }
