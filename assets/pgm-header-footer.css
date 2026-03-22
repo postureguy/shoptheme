@@ -20,6 +20,24 @@
    HEADER
    ══════════════════════════════════════ */
 
+/* Layout: logo left · hamburger right · no search */
+.section-header .header {
+  display: flex !important;
+  align-items: center;
+  grid-template-areas: unset !important;
+  grid-template-columns: unset !important;
+}
+/* Logo is the first DOM child after the drawer — push drawer to end */
+.section-header header-drawer {
+  order: 100;
+  margin-left: auto;
+  justify-self: unset;
+}
+/* Hide the icons container — search removed, cart/account already hidden */
+.section-header .header__icons {
+  display: none !important;
+}
+
 .section-header .header-wrapper {
   background-color: var(--pgm-dark);
   border-bottom-color: var(--pgm-border);

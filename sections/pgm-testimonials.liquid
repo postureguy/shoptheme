@@ -44,7 +44,7 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'testimonial' -%}
           <article
-            class="pgm-testi__card{% if forloop.first %} pgm-testi__card--hero{% endif %}{% if forloop.last %} pgm-testi__card--wide{% endif %}"
+            class="pgm-testi__card"
             role="listitem"
             {{ block.shopify_attributes }}
             itemscope
@@ -53,22 +53,28 @@
             <meta itemprop="reviewRating" content="5">
             <meta itemprop="reviewBody" content="{{ block.settings.quote | escape }}">
 
-            <div class="pgm-testi__stars" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-              <span class="pgm-testi__stars-text">5/5</span>
-            </div>
+            <!-- Result tag — top of card -->
+            {%- if block.settings.result != blank -%}
+              <div class="pgm-testi__result">
+                <span class="pgm-testi__result-dot" aria-hidden="true"></span>
+                {{ block.settings.result }}
+              </div>
+            {%- endif -%}
 
-            <div class="pgm-testi__quote-wrap">
-              <blockquote class="pgm-testi__quote">
-                "{{ block.settings.quote }}"
-              </blockquote>
-            </div>
+            <!-- Stars -->
+            <div class="pgm-testi__stars" aria-label="5 out of 5 stars" aria-hidden="true">★★★★★</div>
 
+            <!-- Quote -->
+            <blockquote class="pgm-testi__quote" itemprop="reviewBody">
+              {{ block.settings.quote }}
+            </blockquote>
+
+            <!-- Author -->
             <footer class="pgm-testi__footer">
               <div class="pgm-testi__avatar" aria-hidden="true">
                 {{ block.settings.name | slice: 0 | upcase }}
               </div>
-              <div>
+              <div class="pgm-testi__author-info">
                 <div
                   class="pgm-testi__name"
                   itemprop="author"
@@ -78,9 +84,6 @@
                   <span itemprop="name">{{ block.settings.name }}</span>
                 </div>
                 <div class="pgm-testi__detail">{{ block.settings.location }}</div>
-                {%- if block.settings.result != blank -%}
-                  <span class="pgm-testi__result">{{ block.settings.result }}</span>
-                {%- endif -%}
               </div>
             </footer>
           </article>

@@ -42,7 +42,17 @@
         {%- if block.type == 'tip' -%}
           <div class="pgm-tip" {{ block.shopify_attributes }}>
             <!-- Thumbnail header -->
-            <div class="pgm-tip__thumb pgm-tip__thumb--{{ forloop.index }}">
+            <div class="pgm-tip__thumb pgm-tip__thumb--{{ forloop.index }}{% if block.settings.image != blank %} pgm-tip__thumb--has-image{% endif %}">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.image.alt | default: block.settings.title,
+                    class: 'pgm-tip__thumb-img'
+                }}
+              {%- endif -%}
               <div class="pgm-tip__play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="white"><path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/></svg>
               </div>
@@ -87,9 +97,10 @@
       "type": "tip",
       "name": "Lesson Card",
       "settings": [
-        { "type": "text",     "id": "category", "label": "Category tag",  "default": "Neck Relief" },
-        { "type": "text",     "id": "title",    "label": "Lesson title",  "default": "Stack Your Ears Over Shoulders" },
-        { "type": "textarea", "id": "body",     "label": "Description",   "default": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine." }
+        { "type": "image_picker", "id": "image",    "label": "Thumbnail image", "info": "Optional. Replaces the gradient placeholder." },
+        { "type": "text",         "id": "category", "label": "Category tag",    "default": "Neck Relief" },
+        { "type": "text",         "id": "title",    "label": "Lesson title",    "default": "Stack Your Ears Over Shoulders" },
+        { "type": "textarea",     "id": "body",     "label": "Description",     "default": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine." }
       ]
     }
   ],
