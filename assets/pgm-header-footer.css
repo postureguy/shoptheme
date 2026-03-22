@@ -72,8 +72,6 @@
   background-image: var(--pgm-nav-avatar);
   background-size: cover;
   background-position: center top;
-  outline: 2px solid var(--pgm-blue);
-  outline-offset: 2px;
 }
 /* Handle text */
 .section-header .header__heading-link::after {
@@ -82,9 +80,6 @@
   font-weight: 700;
   color: var(--pgm-white);
   letter-spacing: -0.01em;
-}
-.section-header .header__heading-link:hover::before {
-  outline-color: var(--pgm-blue-light);
 }
 .section-header .header__heading-link:hover::after {
   color: rgba(255,255,255,0.75);
