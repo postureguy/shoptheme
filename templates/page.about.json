@@ -11,7 +11,11 @@
   "sections": {
     "pgm_about_page": {
       "type": "pgm-about-page",
-      "settings": {}
+      "settings": {
+        "hero_headline": "Doctors Couldn't Fix Me. So I Fixed Myself — and Built a Method for Everyone.",
+        "hero_sub": "Mike Boshnack spent years dealing with sports injuries, a failed ACL surgery, and chronic pain that doctors couldn't resolve. Then he discovered the Egoscue Method — and everything changed. Now he's helped over a million people do the same.",
+        "cta_label": "Start Your Free Trial"
+      }
     }
   },
   "order": ["pgm_about_page"]
