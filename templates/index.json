@@ -69,7 +69,7 @@
         "feat_2": {
           "type": "feature",
           "settings": {
-            "icon_name": "programs",
+            "icon_name": "live",
             "title": "Live Classes with Mike",
             "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
           }
@@ -77,7 +77,7 @@
         "feat_3": {
           "type": "feature",
           "settings": {
-            "icon_name": "programs",
+            "icon_name": "community",
             "title": "Private Community",
             "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
           }
@@ -85,7 +85,7 @@
         "feat_4": {
           "type": "feature",
           "settings": {
-            "icon_name": "programs",
+            "icon_name": "analysis",
             "title": "Posture Analysis Tools",
             "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
           }
@@ -93,7 +93,7 @@
         "feat_5": {
           "type": "feature",
           "settings": {
-            "icon_name": "programs",
+            "icon_name": "hsa",
             "title": "HSA/FSA Eligible",
             "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
           }
@@ -101,7 +101,7 @@
         "feat_6": {
           "type": "feature",
           "settings": {
-            "icon_name": "programs",
+            "icon_name": "start",
             "title": "Start Here Path",
             "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
           }
