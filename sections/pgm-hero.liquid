@@ -2,8 +2,9 @@
 
 {%- assign _dalign = section.settings.desktop_text_align | default: 'left' -%}
 {%- assign _mpos   = section.settings.mobile_text_position | default: 'bottom' -%}
+{%- assign _mlay   = section.settings.mobile_layout | default: 'overlay' -%}
 <section
-  class="pgm-hero pgm-section pgm-hero--align-{{ _dalign }} pgm-hero--mobile-{{ _mpos }}"
+  class="pgm-hero pgm-section pgm-hero--align-{{ _dalign }} pgm-hero--mob-{{ _mlay }}{% if _mlay == 'overlay' %} pgm-hero--mobile-{{ _mpos }}{% endif %}"
   id="pgm-hero-{{ section.id }}"
 >
 
@@ -232,8 +233,18 @@
     },
     {
       "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile — image style",
+      "default": "overlay",
+      "options": [
+        { "value": "stacked", "label": "Stacked (image above, text below)" },
+        { "value": "overlay", "label": "Overlay (text over image)" }
+      ]
+    },
+    {
+      "type": "select",
       "id": "mobile_text_position",
-      "label": "Mobile — vertical position",
+      "label": "Mobile — vertical position (overlay only)",
       "default": "bottom",
       "options": [
         { "value": "top",    "label": "Top" },

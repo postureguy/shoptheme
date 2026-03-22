@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "pgm_hero": {
@@ -188,7 +197,6 @@
     "pgm_quiz": {
       "type": "pgm-quiz-cta",
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_51_51_PM.png",
         "heading": "What's Your Posture Score?",
         "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
         "placeholder": "Enter your email address",
