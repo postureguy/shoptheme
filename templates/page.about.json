@@ -29,14 +29,52 @@
     "pgm_press_bar": {
       "type": "pgm-press-bar",
       "blocks": {
-        "l1": { "type": "logo", "settings": { "name": "ESPN", "url": "" } },
-        "l2": { "type": "logo", "settings": { "name": "Men's Health", "url": "" } },
-        "l3": { "type": "logo", "settings": { "name": "The Today Show", "url": "" } },
-        "l4": { "type": "logo", "settings": { "name": "Muscle & Fitness", "url": "" } },
-        "l5": { "type": "logo", "settings": { "name": "Fox News", "url": "" } }
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "name": "ESPN",
+            "url": ""
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "name": "Men's Health",
+            "url": ""
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "name": "The Today Show",
+            "url": ""
+          }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": {
+            "name": "Muscle & Fitness",
+            "url": ""
+          }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": {
+            "name": "Fox News",
+            "url": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4", "l5"],
-      "settings": { "label": "As Seen On" }
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
+      "settings": {
+        "label": "As Seen On"
+      }
     },
     "pgm_origin_story": {
       "type": "pgm-split-content",
@@ -77,7 +115,11 @@
           }
         }
       },
-      "block_order": ["c1", "c2", "c3"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
       "settings": {
         "eyebrow": "Credentials",
         "heading": "The Credentials Behind the Movement"
@@ -89,6 +131,8 @@
         "eyebrow": "Why It Works",
         "heading": "Most Pain Treatment Addresses Where You Hurt. The Egoscue Method Addresses Why.",
         "body": "<p>If you've seen a chiropractor, done physical therapy, or tried stretching and massage, you already know that temporary relief isn't the same as fixing the problem. Those approaches work on symptoms — the tight muscle, the inflamed joint, the compressed disc.</p><p>The Egoscue Method works differently. It starts with a full-body postural assessment to identify where your skeleton has drifted from its ideal position. When your hips are tilted forward, your pelvis is uneven, or your head sits in front of your shoulders, the rest of your body compensates. That compensation — held over years — is what creates chronic pain.</p><p>Mike's program uses targeted, non-impact exercises called \"e-cises\" to retrain your body's position from the ground up. No equipment. No gym. No prescription. Just precise movements that restore your structural alignment and allow your body to stop compensating — and start healing.</p><p>This is what professional athletes use to extend their careers. It's what celebrities use to maintain performance under pressure. And now it's available to you, from home, for less than a dollar a day.</p>",
+        "cta_label": "",
+        "cta_url": "",
         "background": "light"
       }
     },
@@ -150,7 +194,14 @@
           }
         }
       },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
       "settings": {
         "eyebrow": "Real People. Real Results.",
         "heading": "Thousands Have Fixed Their Posture. Here's What They Say.",
@@ -198,10 +249,30 @@
             "role": ""
           }
         },
-        "p4": { "type": "photo", "disabled": true, "settings": { "name": "", "role": "" } },
-        "p5": { "type": "photo", "disabled": true, "settings": { "name": "", "role": "" } }
+        "p4": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        },
+        "p5": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
       "settings": {
         "eyebrow": "In Good Company",
         "heading": "Mike With Celebrities, Athletes & Public Figures",
@@ -260,7 +331,14 @@
           }
         }
       },
-      "block_order": ["feat_1", "feat_2", "feat_3", "feat_4", "feat_5", "feat_6"],
+      "block_order": [
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6"
+      ],
       "settings": {
         "eyebrow": "The Membership Program",
         "heading": "Everything You Need to Fix Your Posture — In One Place",
@@ -303,6 +381,7 @@
     },
     "pgm_about_newsletter": {
       "type": "pgm-newsletter-cta",
+      "disabled": true,
       "settings": {
         "eyebrow": "Free Weekly Tips",
         "heading": "Your Posture, Upgraded Weekly.",
