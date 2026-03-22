@@ -55,14 +55,19 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Logo link */
-.section-header .header__heading-link,
-.section-header .header__heading-link .h2 {
+/* Logo → @postureguymike text */
+.section-header .header__heading-logo { display: none !important; }
+.section-header .header__heading-link .h2 { display: none !important; }
+.section-header .header__heading-link::after {
+  content: '@postureguymike';
+  font-size: 1.9rem;
+  font-weight: 700;
   color: var(--pgm-white);
+  letter-spacing: -0.01em;
+  text-decoration: none;
 }
-.section-header .header__heading-link:hover,
-.section-header .header__heading-link:hover .h2 {
-  color: rgba(255,255,255,0.8);
+.section-header .header__heading-link:hover::after {
+  color: rgba(255,255,255,0.75);
 }
 
 /* Desktop nav links */
