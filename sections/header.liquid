@@ -1,4 +1,7 @@
 {{ 'pgm-header-footer.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.nav_avatar != blank -%}
+  <style>:root { --pgm-nav-avatar: url('{{ section.settings.nav_avatar | image_url: width: 200 }}'); }</style>
+{%- endif -%}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -471,6 +474,12 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "nav_avatar",
+      "label": "Nav avatar photo",
+      "info": "Square crop recommended. Shows as a circle next to @postureguymike in the header."
+    },
     {
       "type": "select",
       "id": "logo_position",
