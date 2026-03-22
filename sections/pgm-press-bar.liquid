@@ -1,0 +1,154 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<style>
+.pgm-press {
+  padding: 6.4rem 0;
+  background: #f4f4f2;
+  border-top: 1px solid #e8e8e4;
+  border-bottom: 1px solid #e8e8e4;
+}
+.pgm-press__inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+.pgm-press__label {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 3.6rem;
+}
+.pgm-press__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem 5.6rem;
+}
+.pgm-press__logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  filter: grayscale(1);
+  transition: opacity 0.2s, filter 0.2s;
+  text-decoration: none;
+}
+.pgm-press__logo-item:hover {
+  opacity: 0.85;
+  filter: grayscale(0);
+}
+.pgm-press__logo-item img {
+  max-height: 3.6rem;
+  max-width: 14rem;
+  width: auto;
+  display: block;
+}
+/* Text fallback when no image uploaded */
+.pgm-press__logo-text {
+  font-family: var(--pgm-head);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+@media (max-width: 749px) {
+  .pgm-press__logos { gap: 2.4rem 3.6rem; }
+  .pgm-press__logo-item img { max-height: 2.8rem; max-width: 11rem; }
+  .pgm-press__logo-text { font-size: 1.6rem; }
+}
+</style>
+
+
+<div class="pgm-press pgm-section" aria-label="{{ section.settings.label | default: 'As featured in' }}">
+  <div class="pgm-press__inner">
+    <p class="pgm-press__label">{{ section.settings.label | default: 'As Featured In' }}</p>
+    <div class="pgm-press__logos">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'logo' -%}
+          {%- if block.settings.url != blank -%}
+            <a href="{{ block.settings.url }}" target="_blank" rel="noopener" class="pgm-press__logo-item" {{ block.shopify_attributes }}>
+          {%- else -%}
+            <div class="pgm-press__logo-item" {{ block.shopify_attributes }}>
+          {%- endif -%}
+            {%- if block.settings.logo_image != blank -%}
+              {{
+                block.settings.logo_image
+                | image_url: width: 280
+                | image_tag:
+                  loading: 'lazy',
+                  alt: block.settings.name | default: 'Media logo'
+              }}
+            {%- elsif block.settings.name != blank -%}
+              <span class="pgm-press__logo-text">{{ block.settings.name }}</span>
+            {%- endif -%}
+          {%- if block.settings.url != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "PGM — Press Bar",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label above logos",
+      "default": "As Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Media Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo image",
+          "info": "Upload a dark/black version of the logo. PNG with transparent background works best."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name (shown if no image uploaded)",
+          "info": "e.g. ESPN, Men's Health, The Today Show"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Press Bar",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "ESPN" } },
+        { "type": "logo", "settings": { "name": "Men's Health" } },
+        { "type": "logo", "settings": { "name": "The Today Show" } },
+        { "type": "logo", "settings": { "name": "Muscle & Fitness" } },
+        { "type": "logo", "settings": { "name": "Fox News" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

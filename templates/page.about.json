@@ -17,6 +17,80 @@
         "cta_label": "Start Your Free Trial"
       }
     },
+    "pgm_timeline": {
+      "type": "pgm-timeline",
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "year": "Growing Up",
+            "title": "Born an Athlete",
+            "body": "Mike grew up competing in sports and skateboarding — pushing his body hard from a young age. Athletic performance wasn't just a hobby, it was his identity."
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "year": "The Injury",
+            "title": "A Torn ACL and a Failed Surgery",
+            "body": "Years of hard living caught up with him. A torn ACL led to surgery — but the surgery didn't fix it. More doctors, more dead ends, more \"learn to live with it.\""
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "year": "The Discovery",
+            "title": "Found the Egoscue Method",
+            "body": "Refusing to accept a lifetime of pain, Mike discovered the Egoscue Method — a structural alignment system that addressed the root cause of his pain, not just the symptoms. It worked when nothing else had."
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "year": "Certified",
+            "title": "Egoscue University, Irvine CA",
+            "body": "Mike enrolled at Egoscue University — the only institution in the world that trains Egoscue Postural Alignment Specialists. He earned his certification alongside practitioners who work with professional athletes and Olympians."
+          }
+        },
+        "m5": {
+          "type": "milestone",
+          "settings": {
+            "year": "Going Public",
+            "title": "Started Sharing on Social Media",
+            "body": "What began as short posture tips online quickly took off. The message resonated — millions of people dealing with the same pain, tired of the same failed solutions."
+          }
+        },
+        "m6": {
+          "type": "milestone",
+          "settings": {
+            "year": "Today",
+            "title": "Over a Million People Helped",
+            "body": "The Posture Guy Mike membership program now serves thousands of active members, and Mike's free content has reached over 2.5 million followers across Instagram, TikTok, YouTube, and Facebook.",
+            "stat": "2.5M+",
+            "stat_label": "Social Followers Across All Platforms"
+          }
+        }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6"],
+      "settings": {
+        "eyebrow": "The Journey",
+        "heading": "From Broken Down to Helping Millions"
+      }
+    },
+    "pgm_press_bar": {
+      "type": "pgm-press-bar",
+      "blocks": {
+        "l1": { "type": "logo", "settings": { "name": "ESPN" } },
+        "l2": { "type": "logo", "settings": { "name": "Men's Health" } },
+        "l3": { "type": "logo", "settings": { "name": "The Today Show" } },
+        "l4": { "type": "logo", "settings": { "name": "Muscle & Fitness" } },
+        "l5": { "type": "logo", "settings": { "name": "Fox News" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5"],
+      "settings": {
+        "label": "As Featured In"
+      }
+    },
     "pgm_celeb_gallery": {
       "type": "pgm-celebrity-gallery",
       "blocks": {
@@ -104,6 +178,8 @@
   },
   "order": [
     "pgm_about_page",
+    "pgm_timeline",
+    "pgm_press_bar",
     "pgm_celeb_gallery",
     "pgm_about_testimonials"
   ]
