@@ -28,13 +28,54 @@
     "pgm_celeb_gallery": {
       "type": "pgm-celebrity-gallery",
       "blocks": {
-        "p1": { "type": "photo", "settings": { "name": "", "role": "" } },
-        "p2": { "type": "photo", "settings": { "name": "", "role": "" } },
-        "p3": { "type": "photo", "settings": { "name": "", "role": "" } },
-        "p4": { "type": "photo", "settings": { "name": "", "role": "" } },
-        "p5": { "type": "photo", "settings": { "name": "", "role": "" } }
+        "p1": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Untitled_design_2.png",
+            "name": "@thesharkdaymond",
+            "role": ""
+          }
+        },
+        "p2": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/IMG_3826.jpg",
+            "name": "@stevewilldoit",
+            "role": ""
+          }
+        },
+        "p3": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/IMG_2378.jpg",
+            "name": "@timwelchmt",
+            "role": ""
+          }
+        },
+        "p4": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        },
+        "p5": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "name": "",
+            "role": ""
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
       "settings": {
         "eyebrow": "In Good Company",
         "heading": "Mike With Celebrities, Athletes & Public Figures",
@@ -44,13 +85,49 @@
     "pgm_press_bar": {
       "type": "pgm-press-bar",
       "blocks": {
-        "l1": { "type": "logo", "settings": { "name": "ESPN", "url": "" } },
-        "l2": { "type": "logo", "settings": { "name": "Men's Health", "url": "" } },
-        "l3": { "type": "logo", "settings": { "name": "The Today Show", "url": "" } },
-        "l4": { "type": "logo", "settings": { "name": "Muscle & Fitness", "url": "" } },
-        "l5": { "type": "logo", "settings": { "name": "Fox News", "url": "" } }
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "name": "ESPN",
+            "url": ""
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "name": "Men's Health",
+            "url": ""
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "name": "The Today Show",
+            "url": ""
+          }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": {
+            "name": "Muscle & Fitness",
+            "url": ""
+          }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": {
+            "name": "Fox News",
+            "url": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4", "l5"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
       "settings": {
         "label": "As Featured In"
       }
