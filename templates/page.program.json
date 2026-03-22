@@ -1,0 +1,96 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pgm_program_hero": {
+      "type": "pgm-program-hero",
+      "settings": {
+        "program_handle": "",
+        "title": "",
+        "tagline": "",
+        "hero_image": "",
+        "video_count": 0,
+        "program_duration": "",
+        "difficulty": "",
+        "cta_label": "Start This Program",
+        "cta_url": ""
+      }
+    },
+    "pgm_program_content": {
+      "type": "pgm-program-content",
+      "settings": {
+        "program_handle": "",
+        "eyebrow": "Program Overview",
+        "heading": "",
+        "content": "",
+        "background": "white"
+      }
+    },
+    "pgm_program_videos": {
+      "type": "pgm-program-videos",
+      "settings": {
+        "program_handle": "",
+        "section_heading": "Watch Free Sample Videos",
+        "section_subheading": "See exactly what's inside the program before you commit.",
+        "video_1_url": "",
+        "video_1_title": "",
+        "video_2_url": "",
+        "video_2_title": "",
+        "video_3_url": "",
+        "video_3_title": "",
+        "show_locked_teaser": true,
+        "locked_video_count": 40,
+        "program_url": ""
+      }
+    },
+    "pgm_program_purchase": {
+      "type": "pgm-program-purchase",
+      "settings": {
+        "program_handle": "",
+        "heading": "Get Full Access",
+        "features": "Step-by-step video program,Daily guided exercise sessions,Progress tracking tools,Access on iOS, Android & desktop,Private member community,Live classes with Mike Boshnack,New content added every month,HSA/FSA eligible",
+        "price_label": "From $27/mo",
+        "price_subtext": "Cancel anytime · No contracts",
+        "cta_label": "Start Free Trial",
+        "cta_url": "",
+        "guarantee_text": "30-day money-back guarantee",
+        "enrollment_display": "2,400+",
+        "background": "dark"
+      }
+    },
+    "pgm_program_related": {
+      "type": "pgm-program-related",
+      "settings": {
+        "heading": "You Might Also Need",
+        "see_all_url": "/pages/programs",
+        "program_handle_1": "",
+        "program_handle_2": "",
+        "program_handle_3": ""
+      }
+    },
+    "pgm_program_sticky": {
+      "type": "pgm-sticky-cta",
+      "settings": {
+        "title": "Ready to Fix Your Posture?",
+        "subtitle": "Free trial · Cancel anytime",
+        "cta_label": "Start Free Trial",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+      }
+    }
+  },
+  "order": [
+    "pgm_program_hero",
+    "pgm_program_content",
+    "pgm_program_videos",
+    "pgm_program_purchase",
+    "pgm_program_related",
+    "pgm_program_sticky"
+  ]
+}

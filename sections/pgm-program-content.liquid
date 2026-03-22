@@ -1,0 +1,121 @@
+{{ 'pgm-programs.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Program Content
+  Long-form SEO content section.
+  Loads `seo_description` from metaobject, with schema overrides for heading and content.
+{%- endcomment -%}
+
+{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+
+{%- comment -%} Resolve heading {%- endcomment -%}
+{%- if section.settings.heading != blank -%}
+  {%- assign content_heading = section.settings.heading -%}
+{%- elsif prog.seo_heading.value != blank -%}
+  {%- assign content_heading = prog.seo_heading.value -%}
+{%- elsif prog.title.value != blank -%}
+  {%- assign content_heading = 'About the ' | append: prog.title.value | append: ' Program' -%}
+{%- endif -%}
+
+{%- comment -%} Resolve eyebrow {%- endcomment -%}
+{%- assign content_eyebrow = section.settings.eyebrow | default: 'Program Overview' -%}
+
+{%- comment -%} Resolve content: schema richtext → metaobject seo_description {%- endcomment -%}
+{%- if section.settings.content != blank -%}
+  {%- assign content_body = section.settings.content -%}
+  {%- assign content_is_richtext = true -%}
+{%- elsif prog.seo_description.value != blank -%}
+  {%- assign content_body = prog.seo_description.value -%}
+  {%- assign content_is_richtext = false -%}
+{%- endif -%}
+
+{%- assign bg_class = 'pgm-program-content--' | append: section.settings.background | default: 'pgm-program-content--white' -%}
+
+<section
+  class="pgm-program-content {{ bg_class }} pgm-section"
+  id="pgm-program-content-{{ section.id }}"
+>
+  <div class="pgm-program-content__inner">
+
+    {%- if content_eyebrow != blank -%}
+      <span class="pgm-program-content__eyebrow">{{ content_eyebrow }}</span>
+    {%- endif -%}
+
+    {%- if content_heading != blank -%}
+      <h2 class="pgm-program-content__heading">{{ content_heading }}</h2>
+    {%- endif -%}
+
+    {%- if content_body != blank -%}
+      <div class="pgm-program-content__prose">
+        {%- if content_is_richtext -%}
+          {{ content_body }}
+        {%- else -%}
+          {{ content_body | newline_to_br }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Program Content",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Metaobject Source"
+    },
+    {
+      "type": "text",
+      "id": "program_handle",
+      "label": "Program handle",
+      "info": "Handle of the `program` metaobject to load seo_description from (e.g. forward-head-posture)"
+    },
+    {
+      "type": "header",
+      "content": "Content Overrides"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Program Overview"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading override",
+      "info": "Leave blank to auto-generate from metaobject title"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content override",
+      "info": "Rich text body. If blank, loads seo_description from metaobject."
+    },
+    {
+      "type": "header",
+      "content": "Design"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background color",
+      "default": "white",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "light", "label": "Light gray" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Program Content"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,275 @@
+{{ 'pgm-programs.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Program Purchase
+  Two-column purchase CTA section.
+  Left: what's included checklist + social proof.
+  Right: price card with CTA button and guarantee badge.
+{%- endcomment -%}
+
+{%- assign prog = shop.metaobjects.program[section.settings.program_handle] -%}
+
+{%- comment -%} Resolve heading {%- endcomment -%}
+{%- assign purchase_heading = section.settings.heading | default: 'Get Full Access' -%}
+
+{%- comment -%} Resolve price {%- endcomment -%}
+{%- if section.settings.price_label != blank -%}
+  {%- assign purchase_price = section.settings.price_label -%}
+{%- elsif prog.price_label.value != blank -%}
+  {%- assign purchase_price = prog.price_label.value -%}
+{%- else -%}
+  {%- assign purchase_price = 'From $27/mo' -%}
+{%- endif -%}
+
+{%- if section.settings.price_subtext != blank -%}
+  {%- assign purchase_price_sub = section.settings.price_subtext -%}
+{%- elsif prog.price_subtext.value != blank -%}
+  {%- assign purchase_price_sub = prog.price_subtext.value -%}
+{%- else -%}
+  {%- assign purchase_price_sub = 'Cancel anytime · No contracts' -%}
+{%- endif -%}
+
+{%- comment -%} CTA {%- endcomment -%}
+{%- assign purchase_cta_label = section.settings.cta_label | default: 'Start Free Trial' -%}
+{%- assign purchase_cta_url   = section.settings.cta_url -%}
+{%- if purchase_cta_url == blank -%}
+  {%- assign purchase_cta_url = prog.checkout_url.value | default: prog.page_url.value | default: '#' -%}
+{%- endif -%}
+
+{%- comment -%} Guarantee text {%- endcomment -%}
+{%- assign guarantee = section.settings.guarantee_text | default: '30-day money-back guarantee' -%}
+
+{%- comment -%} Enrollment display {%- endcomment -%}
+{%- assign enrollment = section.settings.enrollment_display -%}
+{%- if enrollment == blank -%}
+  {%- assign enrollment = prog.enrollment_display.value -%}
+{%- endif -%}
+
+{%- comment -%} Features checklist — comma-separated string {%- endcomment -%}
+{%- assign features_raw = section.settings.features -%}
+{%- if features_raw == blank -%}
+  {%- assign features_raw = prog.features.value -%}
+{%- endif -%}
+{%- if features_raw != blank -%}
+  {%- assign features_list = features_raw | split: ',' -%}
+{%- endif -%}
+
+{%- assign bg_val   = section.settings.background | default: 'dark' -%}
+{%- assign bg_class = 'pgm-program-purchase--' | append: bg_val -%}
+
+<section
+  class="pgm-program-purchase {{ bg_class }} pgm-section"
+  id="pgm-program-purchase-{{ section.id }}"
+>
+  <div class="pgm-program-purchase__inner">
+
+    {%- comment -%} LEFT: What's included {%- endcomment -%}
+    <div class="pgm-program-purchase__left">
+
+      <span class="pgm-program-purchase__eyebrow">What's Included</span>
+
+      <h2 class="pgm-program-purchase__heading">{{ purchase_heading }}</h2>
+
+      {%- if features_list.size > 0 -%}
+        <ul class="pgm-program-purchase__checklist" role="list" aria-label="Program features">
+          {%- for feature in features_list -%}
+            {%- assign feature_text = feature | strip -%}
+            {%- if feature_text != blank -%}
+              <li class="pgm-program-purchase__check-item">
+                <div class="pgm-program-purchase__check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 7l3.5 3.5L12 3"/>
+                  </svg>
+                </div>
+                <span class="pgm-program-purchase__check-text">{{ feature_text }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        {%- comment -%} Default feature list if none provided {%- endcomment -%}
+        <ul class="pgm-program-purchase__checklist" role="list">
+          {%- assign default_features = 'Step-by-step video program,Daily guided exercise sessions,Progress tracking tools,Access on iOS, Android & desktop,Private member community,Live classes with Mike Boshnack,New content added every month,HSA/FSA eligible' | split: ',' -%}
+          {%- for feat in default_features -%}
+            <li class="pgm-program-purchase__check-item">
+              <div class="pgm-program-purchase__check-icon" aria-hidden="true">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 7l3.5 3.5L12 3"/>
+                </svg>
+              </div>
+              <span class="pgm-program-purchase__check-text">{{ feat | strip }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- comment -%} Social proof strip {%- endcomment -%}
+      <div class="pgm-program-purchase__social-proof" aria-label="Social proof">
+        {%- if enrollment != blank -%}
+          <div class="pgm-program-purchase__proof-item">
+            <span class="pgm-program-purchase__proof-number">{{ enrollment }}</span>
+            <span class="pgm-program-purchase__proof-label">Enrolled</span>
+          </div>
+        {%- else -%}
+          <div class="pgm-program-purchase__proof-item">
+            <span class="pgm-program-purchase__proof-number">2,400+</span>
+            <span class="pgm-program-purchase__proof-label">Enrolled</span>
+          </div>
+        {%- endif -%}
+        <div class="pgm-program-purchase__proof-item">
+          <span class="pgm-program-purchase__proof-number">4.9 ★</span>
+          <span class="pgm-program-purchase__proof-label">Average Rating</span>
+        </div>
+        <div class="pgm-program-purchase__proof-item">
+          <span class="pgm-program-purchase__proof-number">30-Day</span>
+          <span class="pgm-program-purchase__proof-label">Money-Back</span>
+        </div>
+      </div>
+
+    </div>
+
+    {%- comment -%} RIGHT: Price card {%- endcomment -%}
+    <div class="pgm-program-purchase__card">
+
+      <span class="pgm-program-purchase__card-label">Start Today</span>
+
+      <div class="pgm-program-purchase__price">{{ purchase_price }}</div>
+      {%- if purchase_price_sub != blank -%}
+        <span class="pgm-program-purchase__price-sub">{{ purchase_price_sub }}</span>
+      {%- endif -%}
+
+      <a href="{{ purchase_cta_url }}" class="pgm-program-purchase__cta">
+        {{ purchase_cta_label }}
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+        </svg>
+      </a>
+
+      <div class="pgm-program-purchase__guarantee">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 12.75 11.25 15 15 9.75M9.25 4.25a3.5 3.5 0 0 1 6.5 0L17 5l1.125.75a3.5 3.5 0 0 1 0 5.625L17 12.25l-.25 1.25a3.5 3.5 0 0 1-6.5 0L10 12.25l-1.125-.875a3.5 3.5 0 0 1 0-5.625L10 5l-.75-1.25z" fill="none"/>
+          <path d="M10 2.5 10.5 4h3L12 5.5l.5 3L10 7.25 7.5 8.5l.5-3L6.5 4h3L10 2.5z" fill="currentColor" opacity="0.8"/>
+        </svg>
+        {{ guarantee }}
+      </div>
+
+      <hr class="pgm-program-purchase__card-divider">
+
+      <ul class="pgm-program-purchase__card-includes" aria-label="Quick-look inclusions">
+        {%- assign card_includes = 'Instant access to full program,Works on phone, tablet, or desktop,Cancel anytime — no questions asked,HSA/FSA eligible' | split: ',' -%}
+        {%- for inc in card_includes -%}
+          <li class="pgm-program-purchase__card-include">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 8l3.5 3.5L14 3"/>
+            </svg>
+            {{ inc | strip }}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Program Purchase",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Metaobject Source"
+    },
+    {
+      "type": "text",
+      "id": "program_handle",
+      "label": "Program handle",
+      "info": "Handle of the `program` metaobject (e.g. forward-head-posture)"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get Full Access"
+    },
+    {
+      "type": "textarea",
+      "id": "features",
+      "label": "Features checklist",
+      "info": "Comma-separated list of features. Leave blank to use defaults.",
+      "default": "Step-by-step video program,Daily guided exercise sessions,Progress tracking tools,Access on iOS, Android & desktop,Private member community,Live classes with Mike Boshnack,New content added every month,HSA/FSA eligible"
+    },
+    {
+      "type": "header",
+      "content": "Price Card"
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Price label",
+      "default": "From $27/mo",
+      "info": "e.g. \"From $27/mo\" or \"$97 one-time\""
+    },
+    {
+      "type": "text",
+      "id": "price_subtext",
+      "label": "Price subtext",
+      "default": "Cancel anytime · No contracts"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Start Free Trial"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA button link"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Social Proof"
+    },
+    {
+      "type": "text",
+      "id": "enrollment_display",
+      "label": "Enrollment number",
+      "default": "2,400+",
+      "info": "Displayed in the social proof strip (e.g. \"2,400+\")"
+    },
+    {
+      "type": "header",
+      "content": "Design"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "dark",
+      "options": [
+        { "value": "dark", "label": "Dark" },
+        { "value": "light", "label": "Light gray" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Program Purchase"
+    }
+  ]
+}
+{% endschema %}
