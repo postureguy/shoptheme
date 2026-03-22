@@ -20,22 +20,43 @@
    HEADER
    ══════════════════════════════════════ */
 
-/* Layout: logo left · hamburger right · no search */
+/* Layout: logo left · nav links · CTA button — desktop */
 .section-header .header {
   display: flex !important;
   align-items: center;
   grid-template-areas: unset !important;
   grid-template-columns: unset !important;
 }
-/* Logo is the first DOM child after the drawer — push drawer to end */
-.section-header header-drawer {
-  order: 100;
-  margin-left: auto;
-  justify-self: unset;
+/* Logo: flush left, no grow */
+.section-header .header__heading {
+  flex-shrink: 0;
+  margin: 0;
 }
-/* Hide the icons container — search removed, cart/account already hidden */
+/* Inline nav: fills space between logo and CTA */
+.section-header .header__inline-menu {
+  flex: 1;
+  display: flex !important;
+  padding-left: 3.2rem;
+}
+/* Hide icons (cart/account/search) */
 .section-header .header__icons {
   display: none !important;
+}
+/* Desktop: hide the hamburger drawer entirely */
+.section-header header-drawer {
+  display: none !important;
+}
+
+/* Mobile (≤989px): hide inline nav, show hamburger on right */
+@media screen and (max-width: 989px) {
+  .section-header .header__inline-menu {
+    display: none !important;
+  }
+  .section-header header-drawer {
+    display: flex !important;
+    order: 100;
+    margin-left: auto;
+  }
 }
 
 .section-header .header-wrapper {
