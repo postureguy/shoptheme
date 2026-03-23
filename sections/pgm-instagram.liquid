@@ -1,7 +1,7 @@
 {{ 'pgm-home.css' | asset_url | stylesheet_tag }}
 
 {%- comment -%}
-  PGM — Home Instagram
+  PGM â Home Instagram
   Instagram feed placeholder section. Shows a 6-cell grid of placeholder tiles
   with an Instagram icon and a follow CTA, since Liquid cannot directly fetch
   live Instagram feed data. Connect a third-party Instagram feed app (e.g. Instafeed)
@@ -49,7 +49,7 @@
 
     </div>
 
-    {%- comment -%} Placeholder grid — 6 tiles {%- endcomment -%}
+    {%- comment -%} Placeholder grid â 6 tiles {%- endcomment -%}
     <div class="pgm-home-instagram__grid" aria-label="Instagram feed preview" role="list">
       {%- for i in (1..6) -%}
         <a
@@ -93,7 +93,7 @@
 
 {% schema %}
 {
-  "name": "PGM — Home Instagram",
+  "name": "PGM â Home Instagram",
   "tag": "section",
   "class": "pgm-section",
   "disabled_on": { "groups": ["header", "footer"] },
@@ -152,7 +152,7 @@
   "max_blocks": 12,
   "presets": [
     {
-      "name": "PGM — Instagram Feed"
+      "name": "PGM â Instagram Feed"
     }
   ]
 }

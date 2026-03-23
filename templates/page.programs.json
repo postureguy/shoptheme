@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "pgm_programs_hero": {
@@ -6,9 +15,9 @@
         "eyebrow": "The Program Library",
         "heading": "All Programs",
         "body": "<p>Expert-guided video programs for every posture problem — from forward head to rounded shoulders, chronic back pain to senior mobility.</p>",
-        "background": "dark",
         "cta_label": "",
-        "cta_url": ""
+        "cta_url": "",
+        "background": "dark"
       }
     },
     "pgm_programs_archive": {
@@ -22,12 +31,7 @@
     },
     "pgm_programs_sticky": {
       "type": "pgm-sticky-cta",
-      "settings": {
-        "title": "Not Sure Where to Start?",
-        "subtitle": "Take our free posture quiz",
-        "cta_label": "Take the Quiz",
-        "cta_url": "/pages/quiz"
-      }
+      "settings": {}
     }
   },
   "order": [

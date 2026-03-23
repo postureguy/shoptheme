@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "pgm_program_hero": {
@@ -68,12 +77,7 @@
     },
     "pgm_program_sticky": {
       "type": "pgm-sticky-cta",
-      "settings": {
-        "title": "Ready to Fix Your Posture?",
-        "subtitle": "Free trial · Cancel anytime",
-        "cta_label": "Start Free Trial",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
-      }
+      "settings": {}
     }
   },
   "order": [
