@@ -1,0 +1,73 @@
+{{ 'pgm-home.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Home Social Proof Bar
+  Horizontal scrolling stat bar showing social following + member count.
+{%- endcomment -%}
+
+{%- if section.settings.show_section == false -%}
+  {%- comment -%} Section hidden via schema toggle {%- endcomment -%}
+{%- else -%}
+
+<section
+  class="pgm-home-social"
+  id="pgm-home-social-{{ section.id }}"
+  aria-label="Social proof statistics"
+>
+  <div class="pgm-home-social__inner">
+
+    <div class="pgm-home-social__track" role="list" aria-label="Follower and member statistics">
+
+      <div class="pgm-home-social__item" role="listitem">
+        <span class="pgm-home-social__number">1.3M+</span>
+        <span class="pgm-home-social__label">Instagram Followers</span>
+      </div>
+
+      <div class="pgm-home-social__divider" aria-hidden="true"></div>
+
+      <div class="pgm-home-social__item" role="listitem">
+        <span class="pgm-home-social__number">594K</span>
+        <span class="pgm-home-social__label">TikTok Followers</span>
+      </div>
+
+      <div class="pgm-home-social__divider" aria-hidden="true"></div>
+
+      <div class="pgm-home-social__item" role="listitem">
+        <span class="pgm-home-social__number">222K</span>
+        <span class="pgm-home-social__label">YouTube Subscribers</span>
+      </div>
+
+      <div class="pgm-home-social__divider" aria-hidden="true"></div>
+
+      <div class="pgm-home-social__item" role="listitem">
+        <span class="pgm-home-social__number">2,400+</span>
+        <span class="pgm-home-social__label">Members Enrolled</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "PGM — Home Social Proof",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Home Social Proof"
+    }
+  ]
+}
+{% endschema %}

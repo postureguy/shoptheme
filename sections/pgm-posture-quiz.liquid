@@ -1,0 +1,317 @@
+{{ 'pgm-extras.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Posture Score Quiz
+  Self-contained 5-question multiple choice quiz.
+  Computes a score out of 20 and shows a result + email capture.
+  Klaviyo form ID is set via schema.
+{%- endcomment -%}
+
+<section
+  class="pgm-quiz pgm-section"
+  id="pgm-quiz-{{ section.id }}"
+  aria-label="Posture Score Quiz"
+>
+  <div class="pgm-quiz__inner">
+
+    {%- comment -%} ── Quiz shell (JS replaces content) ── {%- endcomment -%}
+    <div class="pgm-quiz__card" id="pgm-quiz-card-{{ section.id }}">
+
+      {%- comment -%} Progress bar {%- endcomment -%}
+      <div class="pgm-quiz__progress-wrap" aria-hidden="true">
+        <div class="pgm-quiz__progress-bar" id="pgm-quiz-progress-{{ section.id }}"></div>
+      </div>
+      <p class="pgm-quiz__progress-label" id="pgm-quiz-step-label-{{ section.id }}">Question 1 of 5</p>
+
+      {%- comment -%} Question area {%- endcomment -%}
+      <div id="pgm-quiz-body-{{ section.id }}">
+        {%- comment -%} Populated by JS {%- endcomment -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{%- comment -%} Hidden Klaviyo embed target (used on results screen) {%- endcomment -%}
+<div
+  id="pgm-quiz-email-capture"
+  data-klaviyo-form-id="{{ section.settings.klaviyo_form_id }}"
+  style="display:none;"
+></div>
+
+<script>
+(function () {
+  /* ─── Data ─────────────────────────────────────────────────── */
+  var SECTION_ID  = '{{ section.id }}';
+  var TRIAL_URL   = 'https://membership.postureguymike.com/checkout/new?o=151535';
+  var KLAVIYO_ID  = '{{ section.settings.klaviyo_form_id | escape }}';
+
+  var questions = [
+    {
+      text: 'Where do you feel the most tension or discomfort?',
+      answers: [
+        { label: 'Neck / shoulders',  score: 3 },
+        { label: 'Mid / upper back',  score: 2 },
+        { label: 'Lower back',        score: 3 },
+        { label: 'Hips / legs',       score: 2 }
+      ]
+    },
+    {
+      text: 'How many hours per day do you sit?',
+      answers: [
+        { label: 'Less than 4',  score: 1 },
+        { label: '4–6 hours',    score: 2 },
+        { label: '6–8 hours',    score: 3 },
+        { label: '8+ hours',     score: 4 }
+      ]
+    },
+    {
+      text: 'How would you describe your posture?',
+      answers: [
+        { label: 'Great — people compliment it', score: 1 },
+        { label: 'Pretty good',                  score: 2 },
+        { label: 'Could be better',              score: 3 },
+        { label: 'Pretty bad',                   score: 4 }
+      ]
+    },
+    {
+      text: 'Do you experience any of these regularly?',
+      answers: [
+        { label: 'Headaches',               score: 3 },
+        { label: 'Tight hips / hamstrings', score: 2 },
+        { label: 'Rounded shoulders',       score: 3 },
+        { label: 'All of the above',        score: 4 }
+      ]
+    },
+    {
+      text: "What's your main goal?",
+      answers: [
+        { label: 'Reduce pain',    score: 4 },
+        { label: 'Stand taller',   score: 3 },
+        { label: 'More energy',    score: 2 },
+        { label: 'All of the above', score: 4 }
+      ]
+    }
+  ];
+
+  /* score → result */
+  var results = [
+    {
+      range: [5, 9],
+      headline: 'Good Foundation',
+      description: "You have minor postural imbalances that are easy to address. A targeted maintenance routine will keep you feeling great and prevent future issues."
+    },
+    {
+      range: [10, 14],
+      headline: 'Moderate Misalignment',
+      description: "Your posture is noticeably affecting your daily comfort and energy levels. A structured program will help you correct imbalances and reduce pain."
+    },
+    {
+      range: [15, 20],
+      headline: 'Significant Posture Issues',
+      description: "Your body is under real postural stress. A guided, progressive program built specifically for your situation is the fastest path to relief and alignment."
+    }
+  ];
+
+  /* ─── State ─────────────────────────────────────────────────── */
+  var currentStep  = 0;
+  var scores       = [];   /* stores numeric score for each completed question */
+  var TOTAL_Q      = questions.length;
+
+  /* ─── DOM refs ─────────────────────────────────────────────── */
+  var card       = document.getElementById('pgm-quiz-card-'       + SECTION_ID);
+  var bodyEl     = document.getElementById('pgm-quiz-body-'       + SECTION_ID);
+  var progressEl = document.getElementById('pgm-quiz-progress-'   + SECTION_ID);
+  var stepLabel  = document.getElementById('pgm-quiz-step-label-' + SECTION_ID);
+  var captureEl  = document.getElementById('pgm-quiz-email-capture');
+
+  if (!card || !bodyEl) return;
+
+  /* ─── Helpers ───────────────────────────────────────────────── */
+  function setProgress(step) {
+    /* step is 0-indexed; show fraction of questions answered */
+    var pct = step / TOTAL_Q * 100;
+    progressEl.style.width = pct + '%';
+    if (step < TOTAL_Q) {
+      stepLabel.textContent = 'Question ' + (step + 1) + ' of ' + TOTAL_Q;
+    } else {
+      stepLabel.textContent = 'Your results';
+    }
+  }
+
+  function getResult(total) {
+    for (var i = 0; i < results.length; i++) {
+      if (total >= results[i].range[0] && total <= results[i].range[1]) {
+        return results[i];
+      }
+    }
+    return results[results.length - 1];
+  }
+
+  /* ─── Render question ───────────────────────────────────────── */
+  function renderQuestion(idx) {
+    var q = questions[idx];
+
+    var html = '<h2 class="pgm-quiz__question">' + escHtml(q.text) + '</h2>';
+    html += '<div class="pgm-quiz__answers" role="list">';
+
+    for (var a = 0; a < q.answers.length; a++) {
+      html += '<button'
+        + ' class="pgm-quiz__answer"'
+        + ' type="button"'
+        + ' data-score="' + q.answers[a].score + '"'
+        + ' data-step="' + idx + '"'
+        + ' role="listitem"'
+        + '>'
+        + escHtml(q.answers[a].label)
+        + '</button>';
+    }
+
+    html += '</div>';
+
+    if (idx > 0) {
+      html += '<button type="button" class="pgm-quiz__back" id="pgm-quiz-back-' + SECTION_ID + '">'
+        + '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M14.25 9H3.75M8.25 4.5 3.75 9l4.5 4.5"/></svg>'
+        + ' Back'
+        + '</button>';
+    }
+
+    bodyEl.innerHTML = html;
+    setProgress(idx);
+
+    /* Bind answer clicks */
+    var answerBtns = bodyEl.querySelectorAll('.pgm-quiz__answer');
+    for (var i = 0; i < answerBtns.length; i++) {
+      answerBtns[i].addEventListener('click', onAnswer);
+    }
+
+    /* Back button */
+    var backBtn = document.getElementById('pgm-quiz-back-' + SECTION_ID);
+    if (backBtn) {
+      backBtn.addEventListener('click', onBack);
+    }
+  }
+
+  /* ─── Answer handler ────────────────────────────────────────── */
+  function onAnswer(e) {
+    var btn   = e.currentTarget;
+    var score = parseInt(btn.getAttribute('data-score'), 10);
+    var step  = parseInt(btn.getAttribute('data-step'),  10);
+
+    /* Animate selected */
+    btn.classList.add('pgm-quiz__answer--selected');
+
+    /* Store or overwrite score for this step */
+    scores[step] = score;
+
+    setTimeout(function () {
+      if (step + 1 < TOTAL_Q) {
+        currentStep = step + 1;
+        renderQuestion(currentStep);
+      } else {
+        renderResults();
+      }
+    }, 240);
+  }
+
+  /* ─── Back handler ──────────────────────────────────────────── */
+  function onBack() {
+    if (currentStep > 0) {
+      currentStep -= 1;
+      renderQuestion(currentStep);
+    }
+  }
+
+  /* ─── Results screen ────────────────────────────────────────── */
+  function renderResults() {
+    var total  = 0;
+    for (var i = 0; i < scores.length; i++) { total += (scores[i] || 0); }
+    var result = getResult(total);
+
+    setProgress(TOTAL_Q);
+
+    /* Severity class for badge colour */
+    var severity = 'good';
+    if (total >= 10 && total <= 14) severity = 'moderate';
+    if (total >= 15) severity              = 'high';
+
+    var html = '<div class="pgm-quiz__results">'
+      + '<div class="pgm-quiz__score-badge pgm-quiz__score-badge--' + severity + '">'
+      + 'Your Score: ' + total + ' / 20'
+      + '</div>'
+      + '<h2 class="pgm-quiz__result-headline">' + escHtml(result.headline) + '</h2>'
+      + '<p class="pgm-quiz__result-desc">' + escHtml(result.description) + '</p>'
+      + '<div class="pgm-quiz__capture-area" id="pgm-quiz-capture-inner"></div>'
+      + '<div class="pgm-quiz__result-cta">'
+      + '<a href="' + TRIAL_URL + '" class="pgm-quiz__cta-btn">Start Free Trial</a>'
+      + '<p class="pgm-quiz__cta-note">Free trial &middot; Cancel anytime</p>'
+      + '</div>'
+      + '</div>';
+
+    bodyEl.innerHTML = html;
+
+    /* Inject Klaviyo embed if configured */
+    if (KLAVIYO_ID && captureEl) {
+      var cloneTarget = document.getElementById('pgm-quiz-capture-inner');
+      if (cloneTarget) {
+        /* Move the hidden Klaviyo target into view */
+        captureEl.style.display = 'block';
+        cloneTarget.appendChild(captureEl);
+
+        /* If Klaviyo JS is present, initialise the form */
+        if (window._klOnsite && window._klOnsite.push) {
+          window._klOnsite.push(['openForm', KLAVIYO_ID]);
+        }
+      }
+    }
+
+    /* Retake button */
+    var retakeWrap = document.createElement('div');
+    retakeWrap.className = 'pgm-quiz__retake-wrap';
+    retakeWrap.innerHTML = '<button type="button" class="pgm-quiz__retake" id="pgm-quiz-retake-' + SECTION_ID + '">Retake Quiz</button>';
+    bodyEl.appendChild(retakeWrap);
+
+    document.getElementById('pgm-quiz-retake-' + SECTION_ID).addEventListener('click', function () {
+      currentStep = 0;
+      scores      = [];
+      renderQuestion(0);
+    });
+  }
+
+  /* ─── XSS helper ────────────────────────────────────────────── */
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  /* ─── Boot ──────────────────────────────────────────────────── */
+  setProgress(0);
+  renderQuestion(0);
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "PGM — Posture Quiz",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo embedded form ID",
+      "info": "Paste the Klaviyo embedded form ID here. The form will appear on the results screen. Leave blank to show only the CTA button."
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Posture Quiz"
+    }
+  ]
+}
+{% endschema %}

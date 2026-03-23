@@ -1,0 +1,753 @@
+/* ============================================================
+   POSTURE GUY MIKE — Extras Styles
+   Covers: sticky CTA bar, posture quiz, work-with-mike section
+   Design system: --pgm-blue #2563eb · --pgm-dark #0f172a · white backgrounds
+   Mobile-first, breakpoints at 768px and 1024px
+   ============================================================ */
+
+/* ── CSS Custom Properties ──────────────────────────────────── */
+:root {
+  --pgm-blue:        #2563eb;
+  --pgm-blue-dark:   #1d4ed8;
+  --pgm-blue-light:  #eff6ff;
+  --pgm-dark:        #0f172a;
+  --pgm-text:        #1e293b;
+  --pgm-gray:        #f1f5f9;
+  --pgm-gray-mid:    #e2e8f0;
+  --pgm-muted:       #64748b;
+  --pgm-white:       #ffffff;
+  --pgm-radius:      12px;
+  --pgm-radius-lg:   20px;
+  --pgm-shadow:      0 4px 24px rgba(0, 0, 0, 0.10);
+  --pgm-shadow-md:   0 8px 40px rgba(0, 0, 0, 0.14);
+  --pgm-transition:  all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   SHARED UTILITY
+   ============================================================ */
+
+.pgm-section {
+  box-sizing: border-box;
+}
+
+.pgm-section *,
+.pgm-section *::before,
+.pgm-section *::after {
+  box-sizing: inherit;
+}
+
+
+/* ============================================================
+   STICKY CTA BAR
+   ============================================================ */
+
+.pgm-sticky-wrapper {
+  /* The section tag itself has no layout role */
+  display: contents;
+}
+
+.pgm-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--pgm-white);
+  border-top: 1px solid var(--pgm-gray-mid);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.10);
+  padding: 0.8rem 1.6rem calc(0.8rem + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  /* Slide up on appear */
+  transform: translateY(0);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.32s ease;
+}
+
+/* Dismissed animation */
+.pgm-sticky--dismissed {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hidden on desktop by default */
+@media (min-width: 1024px) {
+  .pgm-sticky:not(.pgm-sticky--show-desktop) {
+    display: none !important;
+  }
+}
+
+.pgm-sticky__trust {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--pgm-muted);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.pgm-sticky__buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 42rem;
+}
+
+.pgm-sticky__btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.6rem;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: var(--pgm-transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  line-height: 1;
+}
+
+.pgm-sticky__btn--primary {
+  background: var(--pgm-blue);
+  color: var(--pgm-white);
+  border-color: var(--pgm-blue);
+}
+
+.pgm-sticky__btn--primary:hover,
+.pgm-sticky__btn--primary:focus-visible {
+  background: var(--pgm-blue-dark);
+  border-color: var(--pgm-blue-dark);
+}
+
+.pgm-sticky__btn--secondary {
+  background: transparent;
+  color: var(--pgm-blue);
+  border-color: var(--pgm-blue);
+}
+
+.pgm-sticky__btn--secondary:hover,
+.pgm-sticky__btn--secondary:focus-visible {
+  background: var(--pgm-blue-light);
+}
+
+.pgm-sticky__dismiss {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--pgm-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pgm-sticky__dismiss:hover {
+  color: var(--pgm-text);
+}
+
+@media (min-width: 768px) {
+  .pgm-sticky {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.6rem;
+    padding: 1.2rem 2.4rem calc(1.2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .pgm-sticky__trust {
+    font-size: 1.3rem;
+  }
+
+  .pgm-sticky__buttons {
+    width: auto;
+    max-width: none;
+  }
+
+  .pgm-sticky__btn {
+    font-size: 1.5rem;
+    padding: 1.2rem 2.4rem;
+  }
+}
+
+
+/* ============================================================
+   POSTURE QUIZ
+   ============================================================ */
+
+.pgm-quiz {
+  background: var(--pgm-gray);
+  padding: 4rem 1.6rem 6rem;
+  min-height: 60vh;
+}
+
+.pgm-quiz__inner {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.pgm-quiz__card {
+  background: var(--pgm-white);
+  border-radius: var(--pgm-radius-lg);
+  box-shadow: var(--pgm-shadow-md);
+  overflow: hidden;
+  padding: 0 0 3.2rem;
+}
+
+/* ── Progress bar ── */
+.pgm-quiz__progress-wrap {
+  height: 5px;
+  background: var(--pgm-gray-mid);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.pgm-quiz__progress-bar {
+  height: 100%;
+  background: var(--pgm-blue);
+  border-radius: 0 3px 3px 0;
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pgm-quiz__progress-label {
+  margin: 0;
+  padding: 1.2rem 2.4rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pgm-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Question ── */
+.pgm-quiz__question {
+  margin: 0;
+  padding: 2rem 2.4rem 2.4rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--pgm-dark);
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+  .pgm-quiz__question {
+    font-size: 2.4rem;
+    padding: 2.4rem 3.2rem 2.8rem;
+  }
+}
+
+/* ── Answer buttons ── */
+.pgm-quiz__answers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .pgm-quiz__answers {
+    padding: 0 3.2rem;
+    gap: 1.2rem;
+  }
+}
+
+.pgm-quiz__answer {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1.4rem 1.8rem;
+  border: 2px solid var(--pgm-gray-mid);
+  border-radius: var(--pgm-radius);
+  background: var(--pgm-white);
+  color: var(--pgm-text);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--pgm-transition);
+  line-height: 1.4;
+}
+
+.pgm-quiz__answer:hover {
+  border-color: var(--pgm-blue);
+  background: var(--pgm-blue-light);
+  color: var(--pgm-blue);
+}
+
+.pgm-quiz__answer:focus-visible {
+  outline: 3px solid var(--pgm-blue);
+  outline-offset: 2px;
+}
+
+.pgm-quiz__answer--selected {
+  border-color: var(--pgm-blue);
+  background: var(--pgm-blue);
+  color: var(--pgm-white);
+  transform: scale(0.99);
+}
+
+/* ── Back button ── */
+.pgm-quiz__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2rem 2.4rem 0;
+  padding: 0.8rem 1.4rem;
+  border: none;
+  background: none;
+  color: var(--pgm-muted);
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: var(--pgm-transition);
+}
+
+.pgm-quiz__back:hover {
+  color: var(--pgm-text);
+  background: var(--pgm-gray);
+}
+
+@media (min-width: 768px) {
+  .pgm-quiz__back {
+    margin: 2rem 3.2rem 0;
+  }
+}
+
+/* ── Results ── */
+.pgm-quiz__results {
+  padding: 0 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .pgm-quiz__results {
+    padding: 0 3.2rem;
+  }
+}
+
+/* Score badge */
+.pgm-quiz__score-badge {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-top: 0.8rem;
+}
+
+.pgm-quiz__score-badge--good {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.pgm-quiz__score-badge--moderate {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.pgm-quiz__score-badge--high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pgm-quiz__result-headline {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--pgm-dark);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .pgm-quiz__result-headline {
+    font-size: 3.2rem;
+  }
+}
+
+.pgm-quiz__result-desc {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--pgm-muted);
+  line-height: 1.7;
+  max-width: 48rem;
+}
+
+/* Klaviyo / email capture area */
+.pgm-quiz__capture-area {
+  width: 100%;
+  max-width: 48rem;
+}
+
+/* Result CTA */
+.pgm-quiz__result-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.pgm-quiz__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3.2rem;
+  background: var(--pgm-blue);
+  color: var(--pgm-white);
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: var(--pgm-transition);
+  width: 100%;
+  max-width: 36rem;
+}
+
+.pgm-quiz__cta-btn:hover {
+  background: var(--pgm-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.pgm-quiz__cta-note {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--pgm-muted);
+}
+
+/* Retake */
+.pgm-quiz__retake-wrap {
+  text-align: center;
+  padding-top: 0.4rem;
+}
+
+.pgm-quiz__retake {
+  background: none;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.3rem;
+  color: var(--pgm-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.pgm-quiz__retake:hover {
+  color: var(--pgm-text);
+}
+
+
+/* ============================================================
+   WORK WITH MIKE
+   ============================================================ */
+
+/* ── Hero ── */
+.pgm-work__hero {
+  background: var(--pgm-dark);
+  padding: 6rem 2rem 5rem;
+}
+
+.pgm-work__hero-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pgm-work__hero-heading {
+  margin: 0 0 1.6rem;
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--pgm-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .pgm-work__hero-heading {
+    font-size: 5.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pgm-work__hero-heading {
+    font-size: 6.4rem;
+  }
+}
+
+.pgm-work__hero-sub {
+  margin: 0;
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+/* ── Stats strip ── */
+.pgm-work__stats {
+  background: var(--pgm-blue);
+  padding: 2rem 2rem;
+}
+
+.pgm-work__stats-inner {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0rem;
+}
+
+.pgm-work__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 2rem;
+  flex: 1;
+  min-width: 12rem;
+}
+
+.pgm-work__stat-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--pgm-white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .pgm-work__stat-num {
+    font-size: 3rem;
+  }
+}
+
+.pgm-work__stat--total .pgm-work__stat-num {
+  color: #bfdbfe;
+}
+
+.pgm-work__stat-platform {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pgm-work__stat-divider {
+  width: 1px;
+  height: 3.2rem;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .pgm-work__stat-divider {
+    display: block;
+  }
+}
+
+/* ── Audience callout ── */
+.pgm-work__audience {
+  background: var(--pgm-blue-light);
+  border-top: 1px solid #bfdbfe;
+  border-bottom: 1px solid #bfdbfe;
+  padding: 1.6rem 2rem;
+}
+
+.pgm-work__audience-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  font-size: 1.5rem;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
+.pgm-work__audience-icon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--pgm-blue);
+}
+
+.pgm-work__audience-inner p {
+  margin: 0;
+}
+
+/* ── Partnership grid ── */
+.pgm-work__grid {
+  background: var(--pgm-white);
+  padding: 5.6rem 2rem;
+}
+
+.pgm-work__grid-inner {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+
+@media (min-width: 640px) {
+  .pgm-work__grid-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pgm-work__grid-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pgm-work__card {
+  background: var(--pgm-gray);
+  border-radius: var(--pgm-radius-lg);
+  padding: 3.2rem 2.4rem;
+  transition: var(--pgm-transition);
+  border: 2px solid transparent;
+}
+
+.pgm-work__card:hover {
+  border-color: var(--pgm-blue);
+  background: var(--pgm-white);
+  box-shadow: var(--pgm-shadow-md);
+  transform: translateY(-3px);
+}
+
+.pgm-work__card-icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background: var(--pgm-blue);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: var(--pgm-white);
+}
+
+.pgm-work__card-icon svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.pgm-work__card-title {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--pgm-dark);
+  line-height: 1.25;
+}
+
+.pgm-work__card-desc {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--pgm-muted);
+  line-height: 1.7;
+}
+
+/* ── Contact CTA ── */
+.pgm-work__contact {
+  background: var(--pgm-dark);
+  padding: 6.4rem 2rem;
+}
+
+.pgm-work__contact-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.pgm-work__contact-heading {
+  margin: 0;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--pgm-white);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .pgm-work__contact-heading {
+    font-size: 4rem;
+  }
+}
+
+.pgm-work__contact-body {
+  margin: 0;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  max-width: 52rem;
+}
+
+.pgm-work__contact-email {
+  margin: 0;
+}
+
+.pgm-work__contact-email a {
+  color: #93c5fd;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.pgm-work__contact-email a:hover {
+  color: var(--pgm-white);
+}
+
+.pgm-work__contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.6rem 3.6rem;
+  background: var(--pgm-blue);
+  color: var(--pgm-white);
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: var(--pgm-transition);
+  margin-top: 0.8rem;
+}
+
+.pgm-work__contact-btn:hover {
+  background: var(--pgm-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(37, 99, 235, 0.4);
+}

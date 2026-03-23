@@ -1,0 +1,121 @@
+{{ 'pgm-home.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Home Email Capture
+  Centered quiz lead-magnet section with optional Klaviyo embed.
+{%- endcomment -%}
+
+{%- assign email_eyebrow = section.settings.eyebrow | default: 'Free Posture Assessment' -%}
+{%- assign email_heading = section.settings.heading | default: "What's Your Posture Score?" -%}
+{%- assign email_body    = section.settings.body    | default: "Take our free 60-second posture quiz and get a personalised score with actionable tips to start fixing your posture today. No equipment, no experience needed." -%}
+{%- assign email_cta     = section.settings.cta_label | default: 'Take the Free Quiz' -%}
+
+<section
+  class="pgm-home-email"
+  id="pgm-home-email-{{ section.id }}"
+  aria-labelledby="pgm-home-email-heading-{{ section.id }}"
+>
+  <div class="pgm-home-email__inner">
+
+    {%- if email_eyebrow != blank -%}
+      <p class="pgm-home-email__eyebrow">{{ email_eyebrow }}</p>
+    {%- endif -%}
+
+    <h2 class="pgm-home-email__heading" id="pgm-home-email-heading-{{ section.id }}">
+      {{ email_heading }}
+    </h2>
+
+    {%- if email_body != blank -%}
+      <p class="pgm-home-email__body">{{ email_body }}</p>
+    {%- endif -%}
+
+    {%- comment -%}
+      Klaviyo embed placeholder — rendered only when a form ID is set.
+      The Klaviyo embed script will target this div automatically.
+    {%- endcomment -%}
+    {%- if section.settings.klaviyo_form_id != blank -%}
+      <div
+        class="pgm-home-email__klaviyo"
+        id="klaviyo-email-capture"
+        data-form-id="{{ section.settings.klaviyo_form_id }}"
+        aria-label="Email signup form"
+      ></div>
+    {%- else -%}
+      {%- comment -%} Fallback: direct CTA button to quiz page {%- endcomment -%}
+      <a
+        href="/pages/posture-quiz"
+        class="pgm-home-email__cta"
+        aria-label="{{ email_cta }}"
+      >
+        {{ email_cta }}
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+          <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+        </svg>
+      </a>
+    {%- endif -%}
+
+    <p class="pgm-home-email__reassurance">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14">
+        <path d="M8 1.5L3 4v4.5c0 2.761 2.088 5.192 5 5.5 2.912-.308 5-2.739 5-5.5V4L8 1.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M5.5 8.25l1.75 1.75 3.25-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      100% free · Takes under 60 seconds · No spam, ever
+    </p>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Home Email Capture",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Free Posture Assessment"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What's Your Posture Score?"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body paragraph",
+      "default": "Take our free 60-second posture quiz and get a personalised score with actionable tips to start fixing your posture today. No equipment, no experience needed."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Take the Free Quiz",
+      "info": "Used when no Klaviyo form ID is set."
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Integration"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo form ID",
+      "info": "Optional. Enter your Klaviyo embed form ID to show an inline signup form instead of the quiz button. Leave blank to show the CTA button."
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Home Email Capture"
+    }
+  ]
+}
+{% endschema %}

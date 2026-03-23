@@ -1,257 +1,90 @@
-{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+{{ 'pgm-home.css' | asset_url | stylesheet_tag }}
 
-{%- assign _dalign = section.settings.desktop_text_align | default: 'left' -%}
-{%- assign _mpos   = section.settings.mobile_text_position | default: 'bottom' -%}
-{%- assign _mlay   = section.settings.mobile_layout | default: 'overlay' -%}
+{%- comment -%}
+  PGM — Home Hero
+  Full-bleed hero with background image overlay, headline, dual CTAs, and trust note.
+{%- endcomment -%}
+
+{%- assign hero_eyebrow   = section.settings.eyebrow | default: '1.3M+ People Fixed Their Posture' -%}
+{%- assign hero_heading   = section.settings.heading | default: 'Fix Your Posture. Feel Better. Move Better.' -%}
+{%- assign hero_sub       = section.settings.subheading | default: 'Join over 2,400 members inside the Posture Guy Mike membership and get step-by-step programs built around your body.' -%}
+{%- assign primary_label  = section.settings.primary_cta_label | default: 'Start Free Trial' -%}
+{%- assign primary_url    = section.settings.primary_cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' -%}
+{%- assign secondary_label = section.settings.secondary_cta_label | default: 'Take the Posture Quiz' -%}
+
 <section
-  class="pgm-hero pgm-section pgm-hero--align-{{ _dalign }} pgm-hero--mob-{{ _mlay }}{% if _mlay == 'overlay' %} pgm-hero--mobile-{{ _mpos }}{% endif %}"
-  id="pgm-hero-{{ section.id }}"
+  class="pgm-home-hero"
+  id="pgm-home-hero-{{ section.id }}"
+  aria-label="{{ hero_heading }}"
 >
 
-  <!-- Full-bleed background image — supports separate mobile image -->
-  <div class="pgm-hero__bg">
-    <picture>
-      {%- if section.settings.mobile_image != blank -%}
-        <source
-          media="(max-width: 749px)"
-          srcset="{{ section.settings.mobile_image | image_url: width: 900 }}"
-        >
-      {%- else -%}
-        <source
-          media="(max-width: 749px)"
-          srcset="{{ 'pgm-hero-mobile.png' | asset_url }}"
-        >
-      {%- endif -%}
-      {%- if section.settings.bg_image != blank -%}
-        {{
-          section.settings.bg_image
-          | image_url: width: 2400
-          | image_tag:
-            loading: 'eager',
-            fetchpriority: 'high',
-            alt: section.settings.bg_image.alt | default: 'Posture Guy Mike coaching session'
-        }}
-      {%- else -%}
-        <img
-          src="{{ 'pgm-hero-desktop.png' | asset_url }}"
-          alt="Mike Boshnack — Posture Guy Mike coaching session"
-          loading="eager"
-          fetchpriority="high"
-          width="2400"
-          height="1600"
-        >
-      {%- endif -%}
-    </picture>
+  {%- comment -%} Background {%- endcomment -%}
+  <div class="pgm-home-hero__bg" aria-hidden="true">
+    {%- if section.settings.hero_image != blank -%}
+      {{
+        section.settings.hero_image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          alt: '',
+          width: 2400,
+          height: 1350,
+          class: 'pgm-home-hero__bg-img'
+      }}
+    {%- else -%}
+      <div class="pgm-home-hero__bg-fallback" aria-hidden="true"></div>
+    {%- endif -%}
   </div>
 
-  <!-- Gradient overlay so left-side text stays readable -->
-  <div class="pgm-hero__overlay" aria-hidden="true"></div>
+  <div class="pgm-home-hero__overlay" aria-hidden="true"></div>
 
-  <!-- Content overlaid on top-left -->
-  <div class="pgm-hero__content">
-    <div class="pgm-hero__content-inner">
+  <div class="pgm-home-hero__content">
 
-      <!-- Eyebrow chip -->
-      <div class="pgm-hero__chip">
-        <span class="pgm-hero__chip-dot"></span>
-        {{ section.settings.eyebrow | default: 'Certified Postural Alignment Specialist' }}
-      </div>
+    {%- if hero_eyebrow != blank -%}
+      <p class="pgm-home-hero__eyebrow">{{ hero_eyebrow }}</p>
+    {%- endif -%}
 
-      <!-- H1 Headline -->
-      <h1 class="pgm-hero__h1">
-        {{ section.settings.headline }}
-      </h1>
+    <h1 class="pgm-home-hero__heading">{{ hero_heading }}</h1>
 
-      <!-- Subheadline -->
-      <p class="pgm-hero__sub">
-        {{ section.settings.subheadline | default: 'Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.' }}
-      </p>
+    {%- if hero_sub != blank -%}
+      <p class="pgm-home-hero__subheading">{{ hero_sub }}</p>
+    {%- endif -%}
 
-      <!-- CTAs -->
-      <div class="pgm-hero__ctas">
-        <a
-          href="{{ section.settings.primary_cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}"
-          class="pgm-btn pgm-btn--primary"
-          target="_blank"
-          rel="noopener"
-          aria-label="{{ section.settings.primary_cta_label | default: 'Start Your Free Trial' }}"
-        >
-          {{ section.settings.primary_cta_label | default: 'Start Your Free Trial' }}
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        {%- if section.settings.secondary_cta_label != blank -%}
-          <button
-            type="button"
-            class="pgm-btn pgm-hero__watch-btn"
-            data-video-id="{{ section.settings.video_id | default: 'b6Yt1JtvUH0' }}"
-            aria-label="{{ section.settings.secondary_cta_label | default: 'Watch How It Works' }}"
-          >
-            <span class="pgm-hero__play-ring" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                <path d="M3.5 2.5l8 4.5-8 4.5z"/>
-              </svg>
-            </span>
-            {{ section.settings.secondary_cta_label | default: 'Watch How It Works' }}
-          </button>
-        {%- endif -%}
-      </div>
-
-      <!-- Trust signals -->
-      <div class="pgm-hero__trust" aria-label="Social proof">
-        <div class="pgm-hero__trust-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-            <path d="M9 1l2.2 4.5L16 6.4l-3.5 3.4.8 4.8L9 12.3l-4.3 2.3.8-4.8L2 6.4l4.8-.9L9 1z"/>
-          </svg>
-          2.5M+ Social Followers
-        </div>
-        <span class="pgm-hero__trust-sep" aria-hidden="true"></span>
-        <div class="pgm-hero__trust-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-            <path d="M9 1l2.2 4.5L16 6.4l-3.5 3.4.8 4.8L9 12.3l-4.3 2.3.8-4.8L2 6.4l4.8-.9L9 1z"/>
-          </svg>
-          Free Trial · Cancel Anytime
-        </div>
-        <span class="pgm-hero__trust-sep" aria-hidden="true"></span>
-        <div class="pgm-hero__trust-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-            <path d="M9 1l2.2 4.5L16 6.4l-3.5 3.4.8 4.8L9 12.3l-4.3 2.3.8-4.8L2 6.4l4.8-.9L9 1z"/>
-          </svg>
-          HSA/FSA Eligible
-        </div>
-        <span class="pgm-hero__trust-sep" aria-hidden="true"></span>
-        <div class="pgm-hero__trust-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-            <path d="M9 1l2.2 4.5L16 6.4l-3.5 3.4.8 4.8L9 12.3l-4.3 2.3.8-4.8L2 6.4l4.8-.9L9 1z"/>
-          </svg>
-          1M+ People Helped
-        </div>
-      </div>
-
+    <div class="pgm-home-hero__cta-wrap">
+      <a
+        href="{{ primary_url }}"
+        class="pgm-home-hero__cta pgm-home-hero__cta--primary"
+        aria-label="{{ primary_label }}"
+      >
+        {{ primary_label }}
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+          <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+        </svg>
+      </a>
+      <a
+        href="/pages/posture-quiz"
+        class="pgm-home-hero__cta pgm-home-hero__cta--secondary"
+        aria-label="{{ secondary_label }}"
+      >
+        {{ secondary_label }}
+      </a>
     </div>
+
+    <p class="pgm-home-hero__trust-note">
+      Free trial available&nbsp;·&nbsp;Cancel anytime&nbsp;·&nbsp;HSA/FSA eligible
+    </p>
+
   </div>
-
-
 </section>
-
-<!-- ── Video Modal ─────────────────────────────────── -->
-<div
-  class="pgm-vmodal"
-  id="pgm-vmodal-{{ section.id }}"
-  role="dialog"
-  aria-modal="true"
-  aria-label="How It Works video"
-  hidden
->
-  <div class="pgm-vmodal__backdrop"></div>
-  <div class="pgm-vmodal__dialog">
-    <button class="pgm-vmodal__close" aria-label="Close video">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-        <path d="M15 5 5 15M5 5l10 10"/>
-      </svg>
-    </button>
-    <div class="pgm-vmodal__video-wrap">
-      <div class="pgm-vmodal__embed" id="pgm-vmodal-embed-{{ section.id }}"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function () {
-  var sectionId = '{{ section.id }}';
-  var modal     = document.getElementById('pgm-vmodal-' + sectionId);
-  var embed     = document.getElementById('pgm-vmodal-embed-' + sectionId);
-  var trigger   = document.querySelector('#pgm-hero-' + sectionId + ' [data-video-id]');
-
-  if (!trigger || !modal) return;
-
-  function openModal() {
-    var vid = trigger.getAttribute('data-video-id');
-    embed.innerHTML =
-      '<iframe src="https://www.youtube-nocookie.com/embed/' + vid +
-      '?autoplay=1&rel=0&modestbranding=1" frameborder="0" ' +
-      'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
-    modal.removeAttribute('hidden');
-    document.body.classList.add('pgm-modal-open');
-    modal.querySelector('.pgm-vmodal__close').focus();
-  }
-
-  function closeModal() {
-    modal.setAttribute('hidden', '');
-    embed.innerHTML = '';
-    document.body.classList.remove('pgm-modal-open');
-    trigger.focus();
-  }
-
-  trigger.addEventListener('click', openModal);
-  modal.querySelector('.pgm-vmodal__backdrop').addEventListener('click', closeModal);
-  modal.querySelector('.pgm-vmodal__close').addEventListener('click', closeModal);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
-  });
-})();
-</script>
 
 {% schema %}
 {
-  "name": "PGM — Hero",
+  "name": "PGM — Home Hero",
   "tag": "section",
   "class": "pgm-section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    {
-      "type": "header",
-      "content": "Images"
-    },
-    {
-      "type": "image_picker",
-      "id": "bg_image",
-      "label": "Desktop image",
-      "info": "Landscape or wide crop. Subject should be on the right side so text on left stays readable."
-    },
-    {
-      "type": "image_picker",
-      "id": "mobile_image",
-      "label": "Mobile image (optional)",
-      "info": "Portrait crop for phones. If blank, desktop image is used on all sizes."
-    },
-    {
-      "type": "header",
-      "content": "Text Position"
-    },
-    {
-      "type": "select",
-      "id": "desktop_text_align",
-      "label": "Desktop — horizontal alignment",
-      "default": "left",
-      "options": [
-        { "value": "left",   "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right",  "label": "Right" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "mobile_layout",
-      "label": "Mobile — image style",
-      "default": "overlay",
-      "options": [
-        { "value": "stacked", "label": "Stacked (image above, text below)" },
-        { "value": "overlay", "label": "Overlay (text over image)" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_position",
-      "label": "Mobile — vertical position (overlay only)",
-      "default": "bottom",
-      "options": [
-        { "value": "top",    "label": "Top" },
-        { "value": "middle", "label": "Middle" },
-        { "value": "bottom", "label": "Bottom" }
-      ]
-    },
     {
       "type": "header",
       "content": "Content"
@@ -259,21 +92,20 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow label",
-      "default": "Certified Postural Alignment Specialist"
+      "label": "Eyebrow text",
+      "default": "1.3M+ People Fixed Their Posture"
     },
     {
-      "type": "richtext",
-      "id": "headline",
-      "label": "Headline (wrap words in <em> for blue text)",
-      "default": "<p>Your Pain Has a<br><em>Root Cause.</em><br>Let's Fix It.</p>",
-      "info": "Wrap words in <em> tags to colour them blue."
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "Fix Your Posture. Feel Better. Move Better."
     },
     {
       "type": "textarea",
-      "id": "subheadline",
+      "id": "subheading",
       "label": "Subheadline",
-      "default": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments."
+      "default": "Join over 2,400 members inside the Posture Guy Mike membership and get step-by-step programs built around your body."
     },
     {
       "type": "header",
@@ -282,36 +114,38 @@
     {
       "type": "text",
       "id": "primary_cta_label",
-      "label": "Button label",
-      "default": "Start Your Free Trial"
+      "label": "Primary button label",
+      "default": "Start Free Trial"
     },
     {
       "type": "url",
       "id": "primary_cta_url",
-      "label": "Button link",
-      "info": "Link to UScreen free trial checkout"
+      "label": "Primary button link"
     },
     {
       "type": "header",
-      "content": "Watch Video CTA"
+      "content": "Secondary CTA"
     },
     {
       "type": "text",
       "id": "secondary_cta_label",
-      "label": "Button label",
-      "default": "Watch How It Works"
+      "label": "Secondary button label",
+      "default": "Take the Posture Quiz"
     },
     {
-      "type": "text",
-      "id": "video_id",
-      "label": "YouTube Video ID",
-      "default": "b6Yt1JtvUH0",
-      "info": "The ID from the YouTube URL — e.g. for youtube.com/watch?v=b6Yt1JtvUH0 enter b6Yt1JtvUH0"
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image",
+      "info": "Wide landscape, 2400×1350px recommended. Dark gradient used if blank."
     }
   ],
   "presets": [
     {
-      "name": "PGM — Hero"
+      "name": "PGM — Home Hero"
     }
   ]
 }

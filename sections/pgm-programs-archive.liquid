@@ -1,0 +1,295 @@
+{{ 'pgm-programs.css' | asset_url | stylesheet_tag }}
+
+{%- assign programs = shop.metaobjects.program.values -%}
+{%- assign show_filters = section.settings.show_filters -%}
+{%- assign cols = section.settings.programs_per_row | default: '3' -%}
+
+{%- comment -%} Build category list for filter tabs {%- endcomment -%}
+{%- assign all_categories = '' -%}
+{%- for program in programs -%}
+  {%- assign cat = program.category.value -%}
+  {%- if cat != blank -%}
+    {%- unless all_categories contains cat -%}
+      {%- if all_categories == '' -%}
+        {%- assign all_categories = cat -%}
+      {%- else -%}
+        {%- assign all_categories = all_categories | append: ',' | append: cat -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign category_list = all_categories | split: ',' -%}
+
+{%- comment -%} Count per category for filter badges {%- endcomment -%}
+
+{%- if show_filters and category_list.size > 0 -%}
+<div class="pgm-programs-filter" id="pgm-archive-filter-{{ section.id }}">
+  <div class="pgm-programs-filter__inner">
+    <button
+      class="pgm-programs-filter__btn is-active"
+      data-filter="all"
+      aria-pressed="true"
+      aria-label="Show all programs"
+    >
+      All Programs
+      <span class="pgm-programs-filter__count">{{ programs.size }}</span>
+    </button>
+    {%- for cat in category_list -%}
+      {%- assign cat_count = 0 -%}
+      {%- for p in programs -%}
+        {%- if p.category.value == cat -%}
+          {%- assign cat_count = cat_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <button
+        class="pgm-programs-filter__btn"
+        data-filter="{{ cat | handle }}"
+        aria-pressed="false"
+        aria-label="Filter by {{ cat }}"
+      >
+        {{ cat }}
+        <span class="pgm-programs-filter__count">{{ cat_count }}</span>
+      </button>
+    {%- endfor -%}
+  </div>
+</div>
+{%- endif -%}
+
+<section
+  class="pgm-programs-archive pgm-section"
+  id="pgm-programs-archive-{{ section.id }}"
+  aria-label="{{ section.settings.heading | default: 'All Programs' }}"
+>
+  <div class="pgm-programs-archive__inner">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="pgm-programs-archive__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="pgm-programs-archive__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="pgm-programs-archive__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div
+      class="pgm-programs-archive__grid{% if cols == '2' %} pgm-programs-archive__grid--2col{% endif %}"
+      id="pgm-archive-grid-{{ section.id }}"
+      role="list"
+      aria-live="polite"
+    >
+      {%- if programs.size > 0 -%}
+        {%- for program in programs -%}
+          {%- assign prog_title    = program.title.value -%}
+          {%- assign prog_tagline  = program.tagline.value -%}
+          {%- assign prog_category = program.category.value -%}
+          {%- assign prog_image    = program.hero_image.value -%}
+          {%- assign prog_videos   = program.video_count.value | default: 0 -%}
+          {%- assign prog_diff     = program.difficulty.value | downcase | default: 'all-levels' -%}
+          {%- assign prog_price    = program.price_label.value -%}
+          {%- assign prog_price_sub = program.price_subtext.value -%}
+          {%- assign prog_url      = '/pages/' | append: program.system.handle -%}
+          {%- assign is_popular    = program.is_popular.value -%}
+          {%- assign is_new        = program.is_new.value -%}
+          {%- assign is_featured   = program.is_featured.value -%}
+
+          <article
+            class="pgm-program-card"
+            data-category="{{ prog_category | handle }}"
+            role="listitem"
+          >
+            {%- comment -%} Image area {%- endcomment -%}
+            <a href="{{ prog_url }}" class="pgm-program-card__img-wrap" tabindex="-1" aria-hidden="true">
+              {%- if prog_image != blank -%}
+                {{
+                  prog_image
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: prog_title,
+                    width: 800,
+                    height: 450
+                }}
+              {%- else -%}
+                <div class="pgm-program-card__img-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 28.5v-17l12 8.5-12 8.5z" fill="currentColor" opacity="0.4"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Badges {%- endcomment -%}
+              {%- if is_popular or is_new or is_featured -%}
+                <div class="pgm-program-card__badges" aria-label="Program highlights">
+                  {%- if is_featured -%}
+                    <span class="pgm-program-card__badge pgm-program-card__badge--featured">Featured</span>
+                  {%- endif -%}
+                  {%- if is_popular -%}
+                    <span class="pgm-program-card__badge pgm-program-card__badge--popular">Popular</span>
+                  {%- endif -%}
+                  {%- if is_new -%}
+                    <span class="pgm-program-card__badge pgm-program-card__badge--new">New</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Video count badge {%- endcomment -%}
+              {%- if prog_videos != blank and prog_videos != 0 -%}
+                <div class="pgm-program-card__video-count" aria-label="{{ prog_videos }} videos">
+                  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 12.5v-9zM6.5 5.75v4.5L11 8l-4.5-2.25z"/>
+                  </svg>
+                  {{ prog_videos }} Videos
+                </div>
+              {%- endif -%}
+            </a>
+
+            {%- comment -%} Card body {%- endcomment -%}
+            <div class="pgm-program-card__body">
+              {%- if prog_category != blank -%}
+                <span class="pgm-program-card__category">{{ prog_category }}</span>
+              {%- endif -%}
+
+              <h3 class="pgm-program-card__title">
+                <a href="{{ prog_url }}" style="text-decoration:none;color:inherit;">{{ prog_title }}</a>
+              </h3>
+
+              {%- if prog_tagline != blank -%}
+                <p class="pgm-program-card__tagline">{{ prog_tagline }}</p>
+              {%- endif -%}
+
+              {%- if prog_diff != blank -%}
+                <div class="pgm-program-card__meta">
+                  <span class="pgm-program-card__difficulty pgm-program-card__difficulty--{{ prog_diff | replace: ' ', '-' | downcase }}">
+                    {{ prog_diff | capitalize }}
+                  </span>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} Card footer: price + CTA {%- endcomment -%}
+            <div class="pgm-program-card__footer">
+              <div>
+                {%- if prog_price != blank -%}
+                  <div class="pgm-program-card__price">{{ prog_price }}</div>
+                {%- endif -%}
+                {%- if prog_price_sub != blank -%}
+                  <span class="pgm-program-card__price-sub">{{ prog_price_sub }}</span>
+                {%- endif -%}
+              </div>
+              <a href="{{ prog_url }}" class="pgm-program-card__cta" aria-label="Start {{ prog_title }}">
+                Start Program
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        {%- endfor -%}
+
+        <div class="pgm-programs-archive__empty" id="pgm-archive-empty-{{ section.id }}" style="display:none;" aria-live="polite">
+          No programs found in this category.
+        </div>
+
+      {%- else -%}
+        <div class="pgm-programs-archive__empty">
+          Programs coming soon. Check back shortly.
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sectionId = '{{ section.id }}';
+  var filterBar = document.getElementById('pgm-archive-filter-' + sectionId);
+  var grid      = document.getElementById('pgm-archive-grid-' + sectionId);
+  var emptyMsg  = document.getElementById('pgm-archive-empty-' + sectionId);
+
+  if (!filterBar || !grid) return;
+
+  var buttons = filterBar.querySelectorAll('.pgm-programs-filter__btn');
+  var cards   = grid.querySelectorAll('.pgm-program-card');
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = btn.getAttribute('data-filter');
+
+      // Update button states
+      buttons.forEach(function (b) {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Filter cards
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        var show = (filter === 'all') || (cat === filter);
+        if (show) {
+          card.removeAttribute('data-hidden');
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.setAttribute('data-hidden', '');
+          card.style.display = 'none';
+        }
+      });
+
+      // Show/hide empty state
+      if (emptyMsg) {
+        emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "PGM — Programs Archive",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "All Programs"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Expert-guided video programs for every posture problem"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "Show filter tabs",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "programs_per_row",
+      "label": "Programs per row",
+      "default": "3",
+      "options": [
+        { "value": "2", "label": "2 per row" },
+        { "value": "3", "label": "3 per row" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Programs Archive"
+    }
+  ]
+}
+{% endschema %}

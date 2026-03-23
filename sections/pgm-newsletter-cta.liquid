@@ -1,0 +1,302 @@
+{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+
+<style>
+.pgm-nl {
+  background: var(--pgm-dark);
+  padding: 8rem 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.pgm-nl__inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  text-align: center;
+}
+.pgm-nl__eyebrow {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 1.6rem;
+}
+.pgm-nl__heading {
+  font-family: var(--pgm-head);
+  font-size: clamp(2.8rem, 4vw, 4.8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.pgm-nl__sub {
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 60rem;
+  margin: 0 auto 4rem;
+}
+.pgm-nl__field {
+  display: flex;
+  gap: 1.2rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+.pgm-nl__field input[type="email"] {
+  flex: 1;
+  height: 5.2rem;
+  padding: 0 2rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  border-radius: 0.8rem;
+  color: #fff;
+  font-size: 1.6rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.pgm-nl__field input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+.pgm-nl__field input[type="email"]:focus { border-color: var(--pgm-blue); }
+.pgm-nl__btn {
+  height: 5.2rem;
+  padding: 0 2.8rem;
+  background: var(--pgm-blue);
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.01em;
+}
+.pgm-nl__btn:hover:not(:disabled) { background: #1565c0; transform: translateY(-1px); }
+.pgm-nl__btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.pgm-nl__privacy {
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.35);
+}
+.pgm-nl__success {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  justify-content: center;
+  padding: 2.4rem 3.2rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.2rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: left;
+}
+.pgm-nl__success-icon {
+  font-size: 2.4rem;
+  color: #4caf50;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.pgm-nl__success strong {
+  display: block;
+  color: #fff;
+  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+}
+.pgm-nl__success span { color: rgba(255,255,255,0.6); font-size: 1.5rem; }
+.pgm-nl__error {
+  max-width: 52rem;
+  margin: 1.2rem auto 0;
+  padding: 1.2rem 1.6rem;
+  background: rgba(244,67,54,0.12);
+  border: 1px solid rgba(244,67,54,0.3);
+  border-radius: 0.8rem;
+  color: #ff8a80;
+  font-size: 1.4rem;
+}
+@media (max-width: 749px) {
+  .pgm-nl { padding: 6.4rem 0; }
+  .pgm-nl__field { flex-direction: column; }
+  .pgm-nl__btn { height: 5.2rem; width: 100%; }
+}
+</style>
+
+<section class="pgm-nl pgm-section">
+  <div class="pgm-nl__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="pgm-nl__eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="pgm-nl__heading">{{ section.settings.heading }}</h2>
+    <p class="pgm-nl__sub">{{ section.settings.subtext }}</p>
+
+    <form class="pgm-nl__form" id="pgm-nl-form-{{ section.id }}" novalidate>
+      <div class="pgm-nl__field">
+        <input
+          type="email"
+          id="pgm-nl-email-{{ section.id }}"
+          name="email"
+          placeholder="{{ section.settings.placeholder }}"
+          aria-label="Email address"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          required
+        >
+        <button type="submit" class="pgm-nl__btn">
+          <span class="pgm-nl__btn-label">{{ section.settings.cta }}</span>
+          <span class="pgm-nl__btn-loading" aria-hidden="true" style="display:none">···</span>
+        </button>
+      </div>
+      {%- if section.settings.privacy != blank -%}
+        <p class="pgm-nl__privacy">{{ section.settings.privacy }}</p>
+      {%- endif -%}
+    </form>
+
+    <div class="pgm-nl__success" id="pgm-nl-success-{{ section.id }}" style="display:none" role="alert" aria-live="polite">
+      <span class="pgm-nl__success-icon" aria-hidden="true">✓</span>
+      <div>
+        <strong>{{ section.settings.success_heading }}</strong>
+        <span>{{ section.settings.success_body }}</span>
+      </div>
+    </div>
+
+    <div class="pgm-nl__error" id="pgm-nl-error-{{ section.id }}" style="display:none" role="alert" aria-live="polite">
+      <span id="pgm-nl-error-msg-{{ section.id }}">Something went wrong. Please try again.</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var sectionId  = {{ section.id | json }};
+  var publicKey  = {{ section.settings.klaviyo_public_key | default: '' | json }};
+  var listId     = {{ section.settings.klaviyo_list_id    | default: '' | json }};
+
+  var form       = document.getElementById('pgm-nl-form-'    + sectionId);
+  var emailInput = document.getElementById('pgm-nl-email-'   + sectionId);
+  var successEl  = document.getElementById('pgm-nl-success-' + sectionId);
+  var errorEl    = document.getElementById('pgm-nl-error-'   + sectionId);
+  var errorMsg   = document.getElementById('pgm-nl-error-msg-' + sectionId);
+  var btnLabel   = form && form.querySelector('.pgm-nl__btn-label');
+  var btnLoading = form && form.querySelector('.pgm-nl__btn-loading');
+  var btn        = form && form.querySelector('button[type="submit"]');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailInput.focus();
+      return;
+    }
+
+    // Loading state
+    btnLabel.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    btn.disabled = true;
+    errorEl.style.display = 'none';
+
+    if (publicKey && listId) {
+      // Klaviyo Client Subscriptions API (v2024)
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(publicKey), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'revision': '2024-02-15'
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              custom_source: 'Footer Newsletter',
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email,
+                    properties: { signup_source: 'footer' }
+                  }
+                }
+              }
+            },
+            relationships: {
+              list: { data: { type: 'list', id: listId } }
+            }
+          }
+        })
+      })
+      .then(function(res) {
+        // 202 Accepted is the success response from Klaviyo
+        if (res.status === 202 || res.status === 200) {
+          onSuccess(email);
+        } else {
+          return res.json().then(function(data) {
+            var detail = data.errors && data.errors[0] && data.errors[0].detail;
+            throw new Error(detail || 'Unable to subscribe. Please try again.');
+          });
+        }
+      })
+      .catch(function(err) {
+        onError(err.message);
+      });
+    } else {
+      // Fallback: Klaviyo identify via JS snippet (no list subscribe)
+      try {
+        var _learnq = window._learnq || [];
+        _learnq.push(['identify', { '$email': email }]);
+        _learnq.push(['track', 'Newsletter Signup', { source: 'footer' }]);
+      } catch(e) {}
+      onSuccess(email);
+    }
+  });
+
+  function onSuccess(email) {
+    try {
+      var _learnq = window._learnq || [];
+      _learnq.push(['identify', { '$email': email }]);
+    } catch(e) {}
+    form.style.display = 'none';
+    successEl.style.display = 'flex';
+  }
+
+  function onError(msg) {
+    btnLabel.style.display = 'inline';
+    btnLoading.style.display = 'none';
+    btn.disabled = false;
+    errorMsg.textContent = msg || 'Something went wrong. Please try again.';
+    errorEl.style.display = 'block';
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "PGM — Newsletter CTA",
+  "tag": "section",
+  "class": "pgm-section",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",         "label": "Eyebrow",           "default": "Free Weekly Tips" },
+    { "type": "text",     "id": "heading",          "label": "Heading",           "default": "Your Posture, Upgraded Weekly." },
+    { "type": "textarea", "id": "subtext",          "label": "Subtext",           "default": "Join 500,000+ people getting free posture exercises, pain-relief strategies, and expert tips from certified specialist Mike Boshnack — delivered every Tuesday." },
+    { "type": "text",     "id": "placeholder",      "label": "Input placeholder", "default": "Enter your email" },
+    { "type": "text",     "id": "cta",              "label": "Button label",      "default": "Get Free Tips" },
+    { "type": "text",     "id": "privacy",          "label": "Privacy note",      "default": "No spam. Unsubscribe anytime." },
+    { "type": "text",     "id": "success_heading",  "label": "Success heading",   "default": "You're in!" },
+    { "type": "text",     "id": "success_body",     "label": "Success body",      "default": "Check your inbox for Mike's first tip." },
+    { "type": "header",   "content": "Klaviyo" },
+    {
+      "type": "text",
+      "id": "klaviyo_public_key",
+      "label": "Klaviyo Public API Key",
+      "info": "Found in Klaviyo → Account → API Keys → Public API key (6-character code, e.g. RY86tU)"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID",
+      "info": "Found in Klaviyo → Lists & Segments → your newsletter list → Settings → List ID"
+    }
+  ],
+  "presets": [{ "name": "PGM — Newsletter CTA" }]
+}
+{% endschema %}

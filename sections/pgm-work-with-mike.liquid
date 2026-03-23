@@ -1,0 +1,257 @@
+{{ 'pgm-extras.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Work With Mike
+  Brand partnerships / collaborations section.
+  Blocks: partnership type cards (icon, title, description).
+{%- endcomment -%}
+
+<section
+  class="pgm-work pgm-section"
+  id="pgm-work-{{ section.id }}"
+  aria-label="Work With Mike"
+>
+
+  {%- comment -%} ── Hero ── {%- endcomment -%}
+  <div class="pgm-work__hero">
+    <div class="pgm-work__hero-inner">
+      <h1 class="pgm-work__hero-heading">
+        {{ section.settings.heading | default: 'Work With Mike' }}
+      </h1>
+      {%- if section.settings.subheading != blank -%}
+        <p class="pgm-work__hero-sub">{{ section.settings.subheading }}</p>
+      {%- else -%}
+        <p class="pgm-work__hero-sub">Posture Guy Mike partners with wellness, fitness, and lifestyle brands to create authentic content that reaches millions of health-conscious consumers. Let&rsquo;s build something together.</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- comment -%} ── Stats strip ── {%- endcomment -%}
+  <div class="pgm-work__stats" aria-label="Social media reach">
+    <div class="pgm-work__stats-inner">
+      <div class="pgm-work__stat">
+        <span class="pgm-work__stat-num">1.3M</span>
+        <span class="pgm-work__stat-platform">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </span>
+      </div>
+      <div class="pgm-work__stat-divider" aria-hidden="true"></div>
+      <div class="pgm-work__stat">
+        <span class="pgm-work__stat-num">594K</span>
+        <span class="pgm-work__stat-platform">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.8a4.85 4.85 0 0 1-1.07-.11z"/></svg>
+          TikTok
+        </span>
+      </div>
+      <div class="pgm-work__stat-divider" aria-hidden="true"></div>
+      <div class="pgm-work__stat">
+        <span class="pgm-work__stat-num">222K</span>
+        <span class="pgm-work__stat-platform">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </span>
+      </div>
+      <div class="pgm-work__stat-divider" aria-hidden="true"></div>
+      <div class="pgm-work__stat pgm-work__stat--total">
+        <span class="pgm-work__stat-num">2.4M+</span>
+        <span class="pgm-work__stat-platform">Total Reach</span>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ── Audience callout ── {%- endcomment -%}
+  <div class="pgm-work__audience">
+    <div class="pgm-work__audience-inner">
+      <svg class="pgm-work__audience-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <p><strong>Audience:</strong> Health-conscious adults 25–54, primarily female, interested in wellness, fitness, and pain relief</p>
+    </div>
+  </div>
+
+  {%- comment -%} ── Partnership type cards ── {%- endcomment -%}
+  {%- if section.blocks.size > 0 -%}
+    <div class="pgm-work__grid">
+      <div class="pgm-work__grid-inner">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'partnership' -%}
+            <div class="pgm-work__card" {{ block.shopify_attributes }}>
+
+              <div class="pgm-work__card-icon" aria-hidden="true">
+                {%- case block.settings.icon_choice -%}
+                  {%- when 'megaphone' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+                  {%- when 'star' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  {%- when 'heart' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  {%- when 'video' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+                {%- endcase -%}
+              </div>
+
+              <h3 class="pgm-work__card-title">{{ block.settings.title }}</h3>
+              {%- if block.settings.description != blank -%}
+                <p class="pgm-work__card-desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} ── Contact CTA ── {%- endcomment -%}
+  <div class="pgm-work__contact">
+    <div class="pgm-work__contact-inner">
+      {%- if section.settings.contact_heading != blank -%}
+        <h2 class="pgm-work__contact-heading">{{ section.settings.contact_heading }}</h2>
+      {%- else -%}
+        <h2 class="pgm-work__contact-heading">Let&rsquo;s Work Together</h2>
+      {%- endif -%}
+
+      {%- if section.settings.contact_body != blank -%}
+        <p class="pgm-work__contact-body">{{ section.settings.contact_body }}</p>
+      {%- else -%}
+        <p class="pgm-work__contact-body">Ready to partner with one of the most trusted voices in postural wellness? Reach out directly and we&rsquo;ll get back to you within 48 hours.</p>
+      {%- endif -%}
+
+      {%- assign email = section.settings.contact_email | default: 'partnerships@postureguymike.com' -%}
+      <p class="pgm-work__contact-email">
+        <a href="mailto:{{ email }}">{{ email }}</a>
+      </p>
+
+      <a
+        href="mailto:{{ email }}"
+        class="pgm-work__contact-btn"
+        aria-label="Send partnership inquiry"
+      >
+        Send Inquiry
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M2.25 9h13.5M9.75 4.5 14.25 9l-4.5 4.5"/></svg>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Work With Mike",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page heading",
+      "default": "Work With Mike"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Short intro about brand partnerships. Leave blank for default text."
+    },
+    {
+      "type": "header",
+      "content": "Contact CTA"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact section heading",
+      "default": "Let's Work Together"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_body",
+      "label": "Contact section body",
+      "info": "Leave blank for default text."
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email address",
+      "default": "partnerships@postureguymike.com"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partnership",
+      "name": "Partnership Type",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_choice",
+          "label": "Icon",
+          "options": [
+            { "value": "megaphone", "label": "Megaphone (Broadcast)" },
+            { "value": "star",      "label": "Star (Featured)" },
+            { "value": "heart",     "label": "Heart (Wellness)" },
+            { "value": "video",     "label": "Video (Content)" }
+          ],
+          "default": "megaphone"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Partnership title",
+          "default": "Brand Partnerships"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Long-term collaborations with wellness brands that align with Mike's postural health mission and audience values."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Work With Mike",
+      "blocks": [
+        {
+          "type": "partnership",
+          "settings": {
+            "icon_choice": "megaphone",
+            "title": "Brand Partnerships",
+            "description": "Long-term collaborations with wellness brands that align with Mike's postural health mission and audience values."
+          }
+        },
+        {
+          "type": "partnership",
+          "settings": {
+            "icon_choice": "star",
+            "title": "Sponsored Content",
+            "description": "Dedicated Reels, TikToks, YouTube integrations, and blog posts that showcase your product authentically."
+          }
+        },
+        {
+          "type": "partnership",
+          "settings": {
+            "icon_choice": "heart",
+            "title": "Product Collaborations",
+            "description": "Co-created or affiliate products in the posture, ergonomics, and wellness space endorsed by Mike."
+          }
+        },
+        {
+          "type": "partnership",
+          "settings": {
+            "icon_choice": "video",
+            "title": "Speaking & Events",
+            "description": "Corporate wellness talks, live events, podcast appearances, and virtual keynotes on postural health."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

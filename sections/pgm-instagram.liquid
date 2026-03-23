@@ -1,230 +1,126 @@
-{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+{{ 'pgm-home.css' | asset_url | stylesheet_tag }}
 
-<section class="pgm-ig pgm-section" aria-labelledby="pgm-ig-heading">
-  <div class="pgm-ig__inner">
+{%- comment -%}
+  PGM — Home Instagram
+  Instagram feed placeholder section. Shows a 6-cell grid of placeholder tiles
+  with an Instagram icon and a follow CTA, since Liquid cannot directly fetch
+  live Instagram feed data. Connect a third-party Instagram feed app (e.g. Instafeed)
+  and replace the placeholder grid with the app embed if desired.
+{%- endcomment -%}
 
-    <div class="pgm-ig__header">
-      <div class="pgm-ig__heading-group">
-        <span class="pgm-eyebrow pgm-ig__eyebrow">{{ section.settings.eyebrow }}</span>
-        <h2 class="pgm-ig__h2" id="pgm-ig-heading">
-          {{ section.settings.heading }}
+{%- assign ig_heading  = section.settings.heading | default: 'Follow Along' -%}
+{%- assign ig_handle   = section.settings.handle  | default: '@postureguymike' -%}
+{%- assign ig_url      = 'https://www.instagram.com/postureguymike/' -%}
+{%- assign ig_followers = section.settings.follower_count | default: '1.3M+' -%}
+
+<section
+  class="pgm-home-instagram"
+  id="pgm-home-instagram-{{ section.id }}"
+  aria-labelledby="pgm-home-instagram-heading-{{ section.id }}"
+>
+  <div class="pgm-home-instagram__inner">
+
+    <div class="pgm-home-instagram__header">
+
+      <div class="pgm-home-instagram__header-text">
+        <h2 class="pgm-home-instagram__heading" id="pgm-home-instagram-heading-{{ section.id }}">
+          {{ ig_heading }}
         </h2>
+        <a
+          href="{{ ig_url }}"
+          class="pgm-home-instagram__handle"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow {{ ig_handle }} on Instagram"
+        >
+          <svg class="pgm-home-instagram__ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          {{ ig_handle }}
+        </a>
       </div>
-      <a
-        href="{{ section.settings.ig_url }}"
-        class="pgm-ig__follow"
-        target="_blank" rel="noopener"
-        aria-label="Follow @postureguymike on Instagram"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        Follow @postureguymike
-      </a>
+
+      <div class="pgm-home-instagram__header-meta">
+        <span class="pgm-home-instagram__follower-count">{{ ig_followers }}</span>
+        <span class="pgm-home-instagram__follower-label">Followers</span>
+      </div>
+
     </div>
 
-    <!-- ── LIVE INSTAGRAM FEED ─────────────────────────────────────────────
-         If you've connected an Instagram app (Instafeed, Elfsight, etc.),
-         paste its embed code into the "Live feed embed code" setting below.
-         That code will render here instead of the placeholder grid.
-    ──────────────────────────────────────────────────────────────────────── -->
-    {%- if section.settings.embed_code != blank -%}
-      <div class="pgm-ig__live-feed">
-        {{ section.settings.embed_code }}
-      </div>
-    {%- else -%}
-      <!-- Placeholder grid — replaced once Instagram app is connected -->
-      <div class="pgm-ig__grid" aria-label="Recent Instagram posts">
-        {%- for block in section.blocks -%}
-          <a
-            href="{{ block.settings.link | default: section.settings.ig_url }}"
-            class="pgm-ig__cell"
-            target="_blank" rel="noopener"
-            aria-label="View on Instagram"
-            {{ block.shopify_attributes }}
-          >
-            {%- if block.settings.is_reel -%}
-              <div class="pgm-ig__reel-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M17.77 10.32l-1.2-.5L18 7.5c.28-.5.1-1.13-.4-1.41l-1.7-.98c-.5-.29-1.14-.1-1.42.4l-1.58 2.74-1.2-.5C9.77 7.09 8 8.3 8 9.87V18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-5.3c0-1.17-.75-2.2-2.23-2.38zM10 11l1.87.77L10 15.14V11zm4 7h-2v-3.23L14 13v5zm2 0h-1v-7.12l.46.19C15.81 11.29 16 11.63 16 12v6zm-9-1H5c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1v11zm-2-4H4V9h1v4z"/></svg>
-              </div>
-            {%- endif -%}
-            {%- if block.settings.image != blank -%}
-              {{
-                block.settings.image
-                | image_url: width: 400
-                | image_tag:
-                  loading: 'lazy',
-                  alt: block.settings.image.alt | default: 'Posture Guy Mike on Instagram'
-              }}
-            {%- else -%}
-              {%- assign _ig_index = forloop.index -%}
-              {%- case _ig_index -%}
-                {%- when 1 -%}{%- assign _ig_src = 'pgm-ig-1.jpg' | asset_url -%}
-                {%- when 2 -%}{%- assign _ig_src = 'pgm-ig-2.jpg' | asset_url -%}
-                {%- when 3 -%}{%- assign _ig_src = 'pgm-ig-3.jpg' | asset_url -%}
-                {%- when 4 -%}{%- assign _ig_src = 'pgm-ig-4.jpg' | asset_url -%}
-                {%- when 5 -%}{%- assign _ig_src = 'pgm-ig-5.jpg' | asset_url -%}
-                {%- when 6 -%}{%- assign _ig_src = 'pgm-ig-6.jpg' | asset_url -%}
-                {%- else -%}{%- assign _ig_src = nil -%}
-              {%- endcase -%}
-              {%- if _ig_src -%}
-                <img
-                  src="{{ _ig_src }}"
-                  alt="Posture Guy Mike on Instagram"
-                  loading="lazy"
-                  width="400"
-                  height="400"
-                >
-              {%- else -%}
-                <div class="pgm-ig__placeholder-cell" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" width="40" height="40">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                    <circle cx="12" cy="12" r="4"/>
-                    <circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.2)" stroke="none"/>
-                  </svg>
-                  <span>Connect Instagram</span>
-                </div>
-              {%- endif -%}
-            {%- endif -%}
-            {%- if block.settings.likes != blank or block.settings.comments != blank -%}
-              <div class="pgm-ig__overlay" aria-hidden="true">
-                {%- if block.settings.likes != blank -%}
-                  <span class="pgm-ig__overlay-stat">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    {{ block.settings.likes }}
-                  </span>
-                {%- endif -%}
-                {%- if block.settings.comments != blank -%}
-                  <span class="pgm-ig__overlay-stat">
-                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                    {{ block.settings.comments }}
-                  </span>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-          </a>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+    {%- comment -%} Placeholder grid — 6 tiles {%- endcomment -%}
+    <div class="pgm-home-instagram__grid" aria-label="Instagram feed preview" role="list">
+      {%- for i in (1..6) -%}
+        <a
+          href="{{ ig_url }}"
+          class="pgm-home-instagram__tile"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="listitem"
+          aria-label="View post {{ i }} on Instagram"
+        >
+          <div class="pgm-home-instagram__tile-inner" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.5)"/>
+            </svg>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
 
-    <!-- Platform follow buttons -->
-    <div class="pgm-ig__platforms" aria-label="Follow on social media">
-      <a href="{{ section.settings.ig_url }}" class="pgm-ig__platform" target="_blank" rel="noopener" aria-label="Follow on Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Instagram · {{ section.settings.ig_count }}
-      </a>
-      <a href="{{ section.settings.tt_url }}" class="pgm-ig__platform" target="_blank" rel="noopener" aria-label="Follow on TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.26 8.26 0 004.84 1.56V6.87a4.85 4.85 0 01-1.07-.18z"/></svg>
-        TikTok · {{ section.settings.tt_count }}
-      </a>
-      <a href="{{ section.settings.yt_url }}" class="pgm-ig__platform" target="_blank" rel="noopener" aria-label="Subscribe on YouTube">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        YouTube · {{ section.settings.yt_count }}
-      </a>
-      <a href="{{ section.settings.fb_url }}" class="pgm-ig__platform" target="_blank" rel="noopener" aria-label="Follow on Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Facebook · {{ section.settings.fb_count }}
+    <div class="pgm-home-instagram__follow-wrap">
+      <a
+        href="{{ ig_url }}"
+        class="pgm-home-instagram__follow-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow {{ ig_handle }} on Instagram"
+      >
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" height="18">
+          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        Follow on Instagram
       </a>
     </div>
 
   </div>
 </section>
 
-<style>
-  .pgm-ig__placeholder-cell {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 10px; min-height: 180px;
-    background: rgba(255,255,255,0.04);
-    color: rgba(255,255,255,0.25);
-    font-size: 1.1rem; font-weight: 600;
-    letter-spacing: 0.05em; text-transform: uppercase;
-  }
-.pgm-ig__live-feed {
-    width: 100%;
-  }
-</style>
-
 {% schema %}
 {
-  "name": "PGM — Instagram Feed",
+  "name": "PGM — Home Instagram",
   "tag": "section",
   "class": "pgm-section",
-  "max_blocks": 6,
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "eyebrow",  "label": "Eyebrow", "default": "Follow Along" },
-    { "type": "text", "id": "heading",  "label": "Heading", "default": "@postureguymike on Instagram" },
     {
-      "type": "header",
-      "content": "Live Instagram Feed"
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Follow Along"
     },
     {
-      "type": "html",
-      "id": "embed_code",
-      "label": "Live feed embed code",
-      "info": "Paste embed code from Instafeed, Elfsight, or LightWidget here. This replaces the placeholder grid with your real Instagram posts automatically."
+      "type": "text",
+      "id": "handle",
+      "label": "Instagram handle",
+      "default": "@postureguymike"
     },
     {
-      "type": "header",
-      "content": "Social Links & Follower Counts"
-    },
-    { "type": "url",  "id": "ig_url",    "label": "Instagram URL" },
-    { "type": "text", "id": "ig_count",  "label": "Instagram followers", "default": "1.3M" },
-    { "type": "url",  "id": "tt_url",    "label": "TikTok URL" },
-    { "type": "text", "id": "tt_count",  "label": "TikTok followers", "default": "594K" },
-    { "type": "url",  "id": "yt_url",    "label": "YouTube URL" },
-    { "type": "text", "id": "yt_count",  "label": "YouTube subscribers", "default": "222K" },
-    { "type": "url",  "id": "fb_url",    "label": "Facebook URL" },
-    { "type": "text", "id": "fb_count",  "label": "Facebook followers", "default": "651K" }
-  ],
-  "blocks": [
-    {
-      "type": "post",
-      "name": "Instagram Post",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Post image",
-          "info": "Only used when no live embed code is set above."
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Post link",
-          "info": "Direct URL to this Instagram post or reel."
-        },
-        {
-          "type": "checkbox",
-          "id": "is_reel",
-          "label": "Is a Reel",
-          "default": false,
-          "info": "Shows the reel icon in the top-right corner."
-        },
-        {
-          "type": "text",
-          "id": "likes",
-          "label": "Like count",
-          "info": "e.g. 1.2K or 4587"
-        },
-        {
-          "type": "text",
-          "id": "comments",
-          "label": "Comment count",
-          "info": "e.g. 42"
-        }
-      ]
+      "type": "text",
+      "id": "follower_count",
+      "label": "Follower count display",
+      "default": "1.3M+",
+      "info": "Displayed next to the heading. Update manually as needed."
     }
   ],
   "presets": [
     {
-      "name": "PGM — Instagram Feed",
-      "blocks": [
-        { "type": "post" }, { "type": "post" }, { "type": "post" },
-        { "type": "post" }, { "type": "post" }, { "type": "post" }
-      ]
+      "name": "PGM — Home Instagram"
     }
   ]
 }

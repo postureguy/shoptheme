@@ -1,47 +1,128 @@
-{{ 'pgm-homepage.css' | asset_url | stylesheet_tag }}
+{{ 'pgm-extras.css' | asset_url | stylesheet_tag }}
 
-<!-- Mobile sticky CTA bar — fixed to bottom of viewport on mobile only -->
+{%- comment -%}
+  PGM — Sticky Mobile CTA Bar
+  Fixed bottom bar on mobile with primary trial CTA + quiz CTA.
+  Optional dismiss button. Dismissed state stored in sessionStorage.
+{%- endcomment -%}
+
+{%- assign show_desktop = section.settings.show_on_desktop -%}
+
 <div
-  class="pgm-sticky"
+  class="pgm-sticky{% if show_desktop %} pgm-sticky--show-desktop{% endif %}"
+  id="pgm-sticky-{{ section.id }}"
   role="complementary"
-  aria-label="Start your free posture program trial"
+  aria-label="Quick action bar"
 >
-  <div class="pgm-sticky__text">
-    <strong>{{ section.settings.title | default: 'Fix Your Posture Today' }}</strong>
-    <span>{{ section.settings.subtitle | default: 'Free trial · Cancel anytime' }}</span>
+  <p class="pgm-sticky__trust">Free trial &middot; Cancel anytime</p>
+
+  <div class="pgm-sticky__buttons">
+    <a
+      href="{{ section.settings.trial_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}"
+      class="pgm-sticky__btn pgm-sticky__btn--primary"
+    >
+      {{ section.settings.trial_label | default: 'Start Free Trial' }}
+    </a>
+    <a
+      href="{{ section.settings.quiz_url | default: '/pages/posture-quiz' }}"
+      class="pgm-sticky__btn pgm-sticky__btn--secondary"
+    >
+      {{ section.settings.quiz_label | default: 'Take the Quiz' }}
+    </a>
   </div>
-  <a
-    href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}"
-    class="pgm-sticky__btn"
-    target="_blank" rel="noopener"
-    aria-label="{{ section.settings.cta_label | default: 'Start Free Trial' }}"
-  >
-    {{ section.settings.cta_label | default: 'Start Free Trial' }}
-  </a>
+
+  <button
+    class="pgm-sticky__dismiss"
+    id="pgm-sticky-dismiss-{{ section.id }}"
+    aria-label="Dismiss this bar"
+    type="button"
+  >&times;</button>
 </div>
 
 <script>
-  // Add padding to body so content doesn't hide behind sticky bar on mobile
-  (function() {
-    if (window.innerWidth <= 749) {
-      document.body.classList.add('pgm-has-sticky');
-    }
-  })();
+(function () {
+  var BAR_ID  = 'pgm-sticky-{{ section.id }}';
+  var BTN_ID  = 'pgm-sticky-dismiss-{{ section.id }}';
+  var SK      = 'pgm_sticky_dismissed';
+
+  var bar = document.getElementById(BAR_ID);
+  var btn = document.getElementById(BTN_ID);
+
+  if (!bar) return;
+
+  /* Already dismissed this session — hide immediately */
+  if (sessionStorage.getItem(SK) === '1') {
+    bar.style.display = 'none';
+    return;
+  }
+
+  /* Dismiss button handler */
+  if (btn) {
+    btn.addEventListener('click', function () {
+      sessionStorage.setItem(SK, '1');
+      bar.classList.add('pgm-sticky--dismissed');
+      /* Remove from layout after CSS transition */
+      setTimeout(function () { bar.style.display = 'none'; }, 340);
+    });
+  }
+})();
 </script>
 
 {% schema %}
 {
-  "name": "PGM — Sticky Mobile CTA",
+  "name": "PGM — Sticky CTA Bar",
   "tag": "section",
-  "class": "pgm-section",
+  "class": "pgm-section pgm-sticky-wrapper",
   "limit": 1,
-  "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "title",     "label": "Title",    "default": "Fix Your Posture Today" },
-    { "type": "text", "id": "subtitle",  "label": "Subtitle", "default": "Free trial · Cancel anytime" },
-    { "type": "text", "id": "cta_label", "label": "Button",   "default": "Start Free Trial" },
-    { "type": "url",  "id": "cta_url",   "label": "Button link" }
+    {
+      "type": "header",
+      "content": "Button URLs"
+    },
+    {
+      "type": "url",
+      "id": "trial_url",
+      "label": "Free trial URL",
+      "info": "Default: UScreen checkout link"
+    },
+    {
+      "type": "url",
+      "id": "quiz_url",
+      "label": "Quiz page URL",
+      "info": "Default: /pages/posture-quiz"
+    },
+    {
+      "type": "header",
+      "content": "Button Labels"
+    },
+    {
+      "type": "text",
+      "id": "trial_label",
+      "label": "Free trial button label",
+      "default": "Start Free Trial"
+    },
+    {
+      "type": "text",
+      "id": "quiz_label",
+      "label": "Quiz button label",
+      "default": "Take the Quiz"
+    },
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_desktop",
+      "label": "Show on desktop (≥1024px)",
+      "default": false,
+      "info": "By default the bar is hidden on screens 1024px and wider."
+    }
   ],
-  "presets": [{ "name": "PGM — Sticky Mobile CTA" }]
+  "presets": [
+    {
+      "name": "PGM — Sticky CTA Bar"
+    }
+  ]
 }
 {% endschema %}

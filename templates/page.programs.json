@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "pgm_programs_hero": {
+      "type": "pgm-rich-text",
+      "settings": {
+        "eyebrow": "The Program Library",
+        "heading": "All Programs",
+        "body": "<p>Expert-guided video programs for every posture problem — from forward head to rounded shoulders, chronic back pain to senior mobility.</p>",
+        "background": "dark",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "pgm_programs_archive": {
+      "type": "pgm-programs-archive",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "show_filters": true,
+        "programs_per_row": "3"
+      }
+    },
+    "pgm_programs_sticky": {
+      "type": "pgm-sticky-cta",
+      "settings": {
+        "title": "Not Sure Where to Start?",
+        "subtitle": "Take our free posture quiz",
+        "cta_label": "Take the Quiz",
+        "cta_url": "/pages/quiz"
+      }
+    }
+  },
+  "order": [
+    "pgm_programs_hero",
+    "pgm_programs_archive",
+    "pgm_programs_sticky"
+  ]
+}
