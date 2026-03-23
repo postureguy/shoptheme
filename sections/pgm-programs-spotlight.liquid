@@ -1,0 +1,256 @@
+{{ 'pgm-programs.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  PGM — Programs Spotlight
+  3-column grid pulling live data from program metaobjects.
+  Each card shows: hero image thumbnail, category pill, title, tagline, difficulty, and CTA.
+  Add to any page via the theme editor. Defaults to Forward Head Posture,
+  Rounded Shoulders, and Hip Alignment but fully overridable per-instance.
+{%- endcomment -%}
+
+{%- assign h1 = section.settings.handle_1 | default: 'forward-head-posture' -%}
+{%- assign h2 = section.settings.handle_2 | default: 'rounded-shoulders' -%}
+{%- assign h3 = section.settings.handle_3 | default: 'hip-alignment' -%}
+
+{%- assign p1 = shop.metaobjects.program[h1] -%}
+{%- assign p2 = shop.metaobjects.program[h2] -%}
+{%- assign p3 = shop.metaobjects.program[h3] -%}
+
+<section
+  class="pgm-programs-spotlight pgm-section"
+  id="pgm-programs-spotlight-{{ section.id }}"
+>
+  <div class="pgm-programs-spotlight__inner">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="pgm-programs-spotlight__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="pgm-programs-spotlight__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="pgm-programs-spotlight__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="pgm-programs-spotlight__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="pgm-programs-spotlight__grid" role="list">
+
+      {%- for i in (1..3) -%}
+        {%- if i == 1 -%}{%- assign prog = p1 -%}{%- assign prog_override_desc = section.settings.desc_1 -%}{%- endif -%}
+        {%- if i == 2 -%}{%- assign prog = p2 -%}{%- assign prog_override_desc = section.settings.desc_2 -%}{%- endif -%}
+        {%- if i == 3 -%}{%- assign prog = p3 -%}{%- assign prog_override_desc = section.settings.desc_3 -%}{%- endif -%}
+
+        {%- if prog != blank -%}
+          {%- assign prog_title    = prog.title.value -%}
+          {%- assign prog_tagline  = prog_override_desc | default: prog.tagline.value -%}
+          {%- assign prog_category = prog.category.value -%}
+          {%- assign prog_image    = prog.hero_image.value -%}
+          {%- assign prog_diff     = prog.difficulty.value | downcase | default: 'all-levels' -%}
+          {%- assign prog_videos   = prog.video_count.value | default: 0 -%}
+          {%- assign prog_price    = prog.price_label.value -%}
+          {%- assign prog_url      = '/pages/' | append: prog.system.handle -%}
+          {%- assign is_featured   = prog.is_featured.value -%}
+          {%- assign is_popular    = prog.is_popular.value -%}
+          {%- assign is_new        = prog.is_new.value -%}
+
+          <article class="pgm-program-card pgm-programs-spotlight__card" role="listitem">
+
+            <a href="{{ prog_url }}" class="pgm-program-card__img-wrap" tabindex="-1" aria-hidden="true">
+              {%- if prog_image != blank -%}
+                {{
+                  prog_image
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: prog_title,
+                    width: 800,
+                    height: 450,
+                    class: 'pgm-program-card__img'
+                }}
+              {%- else -%}
+                <div class="pgm-program-card__img-placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 28.5v-17l12 8.5-12 8.5z" fill="currentColor" opacity="0.4"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+
+              {%- if is_featured or is_popular or is_new -%}
+                <div class="pgm-program-card__badges" aria-label="Program highlights">
+                  {%- if is_featured -%}<span class="pgm-program-card__badge pgm-program-card__badge--featured">Featured</span>{%- endif -%}
+                  {%- if is_popular -%}<span class="pgm-program-card__badge pgm-program-card__badge--popular">Popular</span>{%- endif -%}
+                  {%- if is_new -%}<span class="pgm-program-card__badge pgm-program-card__badge--new">New</span>{%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if prog_videos != blank and prog_videos != 0 -%}
+                <div class="pgm-program-card__video-count" aria-label="{{ prog_videos }} videos">
+                  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 12.5v-9zM6.5 5.75v4.5L11 8l-4.5-2.25z"/>
+                  </svg>
+                  {{ prog_videos }} Videos
+                </div>
+              {%- endif -%}
+            </a>
+
+            <div class="pgm-program-card__body">
+              {%- if prog_category != blank -%}
+                <span class="pgm-program-card__category">{{ prog_category }}</span>
+              {%- endif -%}
+
+              <h3 class="pgm-program-card__title">
+                <a href="{{ prog_url }}" style="text-decoration:none;color:inherit;">{{ prog_title }}</a>
+              </h3>
+
+              {%- if prog_tagline != blank -%}
+                <p class="pgm-program-card__tagline">{{ prog_tagline }}</p>
+              {%- endif -%}
+
+              {%- if prog_diff != blank -%}
+                <div class="pgm-program-card__meta">
+                  <span class="pgm-program-card__difficulty pgm-program-card__difficulty--{{ prog_diff | replace: ' ', '-' | downcase }}">
+                    {{ prog_diff | capitalize }}
+                  </span>
+                </div>
+              {%- endif -%}
+            </div>
+
+            <div class="pgm-program-card__footer">
+              <div>
+                {%- if prog_price != blank -%}
+                  <div class="pgm-program-card__price">{{ prog_price }}</div>
+                {%- endif -%}
+              </div>
+              <a href="{{ prog_url }}" class="pgm-program-card__cta" aria-label="Start {{ prog_title }}">
+                Learn More
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4"/>
+                </svg>
+              </a>
+            </div>
+
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div class="pgm-programs-spotlight__footer">
+        <a href="{{ section.settings.view_all_url | default: '/pages/programs' }}" class="pgm-programs-spotlight__view-all">
+          View All Programs
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PGM — Programs Spotlight",
+  "tag": "section",
+  "class": "pgm-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Start Improving Your Posture Today"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Most Popular Programs"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Expert-guided video programs targeting the most common posture problems. Start free, cancel anytime."
+    },
+    {
+      "type": "header",
+      "content": "Program 1"
+    },
+    {
+      "type": "text",
+      "id": "handle_1",
+      "label": "Metaobject handle",
+      "default": "forward-head-posture",
+      "info": "Handle of the program metaobject (e.g. forward-head-posture)"
+    },
+    {
+      "type": "textarea",
+      "id": "desc_1",
+      "label": "Description override",
+      "info": "Short description shown on the card. Leave blank to use the program's tagline."
+    },
+    {
+      "type": "header",
+      "content": "Program 2"
+    },
+    {
+      "type": "text",
+      "id": "handle_2",
+      "label": "Metaobject handle",
+      "default": "rounded-shoulders",
+      "info": "Handle of the program metaobject"
+    },
+    {
+      "type": "textarea",
+      "id": "desc_2",
+      "label": "Description override"
+    },
+    {
+      "type": "header",
+      "content": "Program 3"
+    },
+    {
+      "type": "text",
+      "id": "handle_3",
+      "label": "Metaobject handle",
+      "default": "hip-alignment",
+      "info": "Handle of the program metaobject"
+    },
+    {
+      "type": "textarea",
+      "id": "desc_3",
+      "label": "Description override"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All Programs' link",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All link",
+      "info": "Defaults to /pages/programs"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PGM — Programs Spotlight"
+    }
+  ]
+}
+{% endschema %}
