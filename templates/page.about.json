@@ -12,8 +12,8 @@
     "pgm_about_hero": {
       "type": "pgm-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/about-mike.jpg",
-        "mobile_image": "shopify://shop_images/about-mike.jpg",
+        "bg_image": "shopify://shop_images/about-mike-desktop.jpg",
+        "mobile_image": "shopify://shop_images/about-mike-mobile.jpg",
         "desktop_text_align": "left",
         "mobile_layout": "overlay",
         "mobile_text_position": "bottom",
@@ -73,7 +73,7 @@
         "l5"
       ],
       "settings": {
-        "label": "As Featured In"
+        "label": "As Seen On"
       }
     },
     "pgm_origin_story": {
@@ -85,6 +85,141 @@
         "heading": "A Lifetime of Sports. A Body That Broke Down. And Doctors Who Had No Answers.",
         "body": "<p>Mike Boshnack grew up as an athlete. Skateboarding, competitive sports, pushing his body hard — it was his identity. But years of athletic wear and hard living caught up with him. Injuries piled up. A torn ACL led to surgery. The surgery didn't fix it. More doctors. More dead ends. More \"learn to live with it.\"</p><p>He refused to accept that. If conventional medicine couldn't help him — a young, active guy who just wanted to move without pain — something was fundamentally wrong with the approach.</p><p>That search led him to the Egoscue Method, and it changed everything. The premise was simple but profound: most chronic pain isn't about where you hurt. It's about structural misalignment throughout your entire body. Fix the structure, and the pain resolves itself.</p><p>Mike enrolled at Egoscue University in Irvine, California — the same institution that trains practitioners who work with professional athletes and Olympians — and became a Certified Postural Alignment Specialist. He fixed himself. Then he made it his mission to share what he'd found with the world.</p>",
         "background": "white"
+      }
+    },
+    "pgm_credentials": {
+      "type": "pgm-dark-cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "cert",
+            "title": "Egoscue Certified",
+            "body": "Mike completed his certification at Egoscue University in Irvine, CA — the only institution in the world that trains Egoscue Postural Alignment Specialists. The same method used by professional sports teams and elite athletes worldwide."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "people",
+            "title": "1M+ People Helped",
+            "body": "Over a million people have used Mike's programs to reduce chronic pain, improve posture, and move without restriction. Many had tried surgery, medication, and physical therapy before finding the Egoscue Method."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "star",
+            "title": "2.5M Social Followers",
+            "body": "Mike's free content has reached more than 2.5 million people across Instagram, TikTok, YouTube, and Facebook — making him the most-followed postural alignment specialist on social media."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "eyebrow": "Credentials",
+        "heading": "The Credentials Behind the Movement"
+      }
+    },
+    "pgm_method": {
+      "type": "pgm-rich-text",
+      "settings": {
+        "eyebrow": "Why It Works",
+        "heading": "Most Pain Treatment Addresses Where You Hurt. The Egoscue Method Addresses Why.",
+        "body": "<p>If you've seen a chiropractor, done physical therapy, or tried stretching and massage, you already know that temporary relief isn't the same as fixing the problem. Those approaches work on symptoms — the tight muscle, the inflamed joint, the compressed disc.</p><p>The Egoscue Method works differently. It starts with a full-body postural assessment to identify where your skeleton has drifted from its ideal position. When your hips are tilted forward, your pelvis is uneven, or your head sits in front of your shoulders, the rest of your body compensates. That compensation — held over years — is what creates chronic pain.</p><p>Mike's program uses targeted, non-impact exercises called \"e-cises\" to retrain your body's position from the ground up. No equipment. No gym. No prescription. Just precise movements that restore your structural alignment and allow your body to stop compensating — and start healing.</p><p>This is what professional athletes use to extend their careers. It's what celebrities use to maintain performance under pressure. And now it's available to you, from home, for less than a dollar a day.</p>",
+        "cta_label": "",
+        "cta_url": "",
+        "background": "light"
+      }
+    },
+    "pgm_about_testimonials": {
+      "type": "pgm-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "name": "Sarah M.",
+            "location": "Member since 2023 · Denver, CO",
+            "result": "Pain-free in 3 weeks"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "name": "Robert T.",
+            "location": "Member since 2022 · Phoenix, AZ",
+            "result": "Back to hiking at 67"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "name": "Jessica L.",
+            "location": "Remote worker · Austin, TX",
+            "result": "Neck pain gone in 2 weeks"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "name": "Marcus K.",
+            "location": "Member since 2023 · Chicago, IL",
+            "result": "Complete posture transformation"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
+            "name": "Linda H.",
+            "location": "Member since 2022 · Seattle, WA",
+            "result": "3 months pain-free"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "name": "David R.",
+            "location": "Member · Nashville, TN",
+            "result": "HSA covered, fully pain-free"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
+      "settings": {
+        "eyebrow": "Real People. Real Results.",
+        "heading": "Thousands Have Fixed Their Posture. Here's What They Say.",
+        "show_trust_bar": true,
+        "trust_bar_rating": "4.9 / 5 Rating",
+        "trust_bar_members": "2,000+ Members",
+        "trust_bar_guarantee": "30-Day Guarantee"
+      }
+    },
+    "pgm_mid_cta": {
+      "type": "pgm-rich-text",
+      "settings": {
+        "eyebrow": "Ready to Fix Yours?",
+        "heading": "Start your free trial today. See results in as little as 2 weeks.",
+        "body": "<p>No equipment. No gym. No appointments. Just 15–20 minutes a day from your phone or computer. Cancel anytime. HSA/FSA eligible.</p>",
+        "cta_label": "Start My Free Trial →",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "background": "dark"
       }
     },
     "pgm_celeb_gallery": {
@@ -141,63 +276,123 @@
       "settings": {
         "eyebrow": "In Good Company",
         "heading": "Mike With Celebrities, Athletes & Public Figures",
-        "subheading": ""
+        "subheading": "The same Egoscue Method used by professional athletes, celebrities, and coaches is now available to everyone."
       }
     },
-    "pgm_credentials": {
-      "type": "pgm-dark-cards",
+    "pgm_about_membership": {
+      "type": "pgm-membership",
       "blocks": {
-        "c1": {
-          "type": "card",
+        "feat_1": {
+          "type": "feature",
           "settings": {
-            "icon": "cert",
-            "title": "Egoscue Certified",
-            "body": "Mike completed his certification at Egoscue University in Irvine, CA — the only institution in the world that trains Egoscue Postural Alignment Specialists. The same method used by professional sports teams and elite athletes worldwide."
+            "icon_name": "programs",
+            "title": "On-Demand Programs",
+            "description": "Structured posture programs — beginner to advanced — available on iOS, Android, and desktop. Work at your own pace."
           }
         },
-        "c2": {
-          "type": "card",
+        "feat_2": {
+          "type": "feature",
           "settings": {
-            "icon": "people",
-            "title": "1M+ People Helped",
-            "body": "Over a million people have used Mike's programs to reduce chronic pain, improve posture, and move without restriction. Many had tried surgery, medication, and physical therapy before finding the Egoscue Method."
+            "icon_name": "live",
+            "title": "Live Classes with Mike",
+            "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
           }
         },
-        "c3": {
-          "type": "card",
+        "feat_3": {
+          "type": "feature",
           "settings": {
-            "icon": "star",
-            "title": "2.5M Social Followers",
-            "body": "Mike's free content has reached more than 2.5 million people across Instagram, TikTok, YouTube, and Facebook — making him the most-followed postural alignment specialist on social media."
+            "icon_name": "community",
+            "title": "Private Community",
+            "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
+          }
+        },
+        "feat_4": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "analysis",
+            "title": "Posture Analysis Tools",
+            "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
+          }
+        },
+        "feat_5": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "hsa",
+            "title": "HSA/FSA Eligible",
+            "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
+          }
+        },
+        "feat_6": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "start",
+            "title": "Start Here Path",
+            "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3"
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6"
       ],
       "settings": {
-        "eyebrow": "Credentials",
-        "heading": "Trained to the Same Standard as Elite Athletic Programs"
+        "eyebrow": "The Membership Program",
+        "heading": "Everything You Need to Fix Your Posture — In One Place",
+        "subheading": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.",
+        "cta_heading": "Ready to get out of pain? Start free today.",
+        "cta_label": "Start My Free Trial",
+        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "apple_url": "",
+        "android_url": ""
       }
     },
-    "pgm_method": {
-      "type": "pgm-rich-text",
+    "pgm_about_quiz": {
+      "type": "pgm-quiz-cta",
       "settings": {
-        "eyebrow": "Why It Works When Everything Else Has Failed",
-        "heading": "Most Pain Treatment Addresses Where You Hurt. The Egoscue Method Addresses Why.",
-        "body": "<p>If you've seen a chiropractor, done physical therapy, or tried stretching and massage, you already know that temporary relief isn't the same as fixing the problem. Those approaches work on symptoms — the tight muscle, the inflamed joint, the compressed disc.</p><p>The Egoscue Method works differently. It starts with a full-body postural assessment to identify where your skeleton has drifted from its ideal position. When your hips are tilted forward, your pelvis is uneven, or your head sits in front of your shoulders, the rest of your body compensates. That compensation — held over years — is what creates chronic pain.</p><p>Mike's program uses targeted, non-impact exercises called \"e-cises\" to retrain your body's position from the ground up. No equipment. No gym. No prescription. Just precise movements that restore your structural alignment and allow your body to stop compensating — and start healing.</p><p>This is what professional athletes use to extend their careers. It's what celebrities use to maintain performance under pressure. And now it's available to you, from home, for less than a dollar a day.</p>",
-        "background": "light"
+        "bg_image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_22_39_PM.png",
+        "mobile_image": "shopify://shop_images/ChatGPT_Image_Mar_21_2026_03_22_39_PM.png",
+        "desktop_text_align": "left",
+        "mobile_layout": "overlay",
+        "mobile_text_position": "bottom",
+        "heading": "What's Your Posture Score?",
+        "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
+        "placeholder": "Enter your email address",
+        "cta_label": "Get My Free Score →",
+        "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers.",
+        "trial_url": "",
+        "result_cta_label": "Start My Free Trial — Fix This Now",
+        "klaviyo_id": "RY86tU",
+        "klaviyo_list_id": ""
       }
     },
-    "pgm_trusted_by": {
-      "type": "pgm-rich-text",
+    "pgm_about_collab": {
+      "type": "pgm-collab",
       "settings": {
-        "eyebrow": "Elite-Level Access, Everyday Pricing",
-        "heading": "The Method Trusted by Celebrities, Athletes, and Professional Teams",
-        "body": "<p>The Egoscue Method has been used by professional athletes across the NFL, NBA, and PGA Tour, as well as Hollywood celebrities who need to perform at the highest level. Mike brings this same structural alignment expertise to everyday people through his membership program — for a fraction of the cost of a single private session.</p>",
-        "background": "white"
+        "eyebrow": "Work With Mike",
+        "heading": "Let's Work Together",
+        "body": "Whether you're looking for private 1:1 posture coaching, a corporate wellness program for your team, a speaking engagement, or a brand partnership — Mike's team reviews every inquiry. Fill out the form and we'll be in touch within 2 business days.",
+        "form_heading": "Get in Touch With Mike's Team",
+        "submit_label": "Send Inquiry"
+      }
+    },
+    "pgm_about_newsletter": {
+      "type": "pgm-newsletter-cta",
+      "disabled": true,
+      "settings": {
+        "eyebrow": "Free Weekly Tips",
+        "heading": "Your Posture, Upgraded Weekly.",
+        "subtext": "Join 500,000+ people getting free posture exercises, pain-relief strategies, and expert tips from certified specialist Mike Boshnack — delivered every Tuesday.",
+        "placeholder": "Enter your email",
+        "cta": "Get Free Tips",
+        "privacy": "No spam. Unsubscribe anytime.",
+        "success_heading": "You're in!",
+        "success_body": "Check your inbox for Mike's first tip.",
+        "klaviyo_public_key": "",
+        "klaviyo_list_id": ""
       }
     },
     "pgm_about_sticky": {
@@ -212,12 +407,17 @@
   },
   "order": [
     "pgm_about_hero",
-    "pgm_origin_story",
-    "pgm_trusted_by",
-    "pgm_celeb_gallery",
     "pgm_press_bar",
+    "pgm_origin_story",
     "pgm_credentials",
     "pgm_method",
+    "pgm_about_testimonials",
+    "pgm_mid_cta",
+    "pgm_celeb_gallery",
+    "pgm_about_membership",
+    "pgm_about_quiz",
+    "pgm_about_collab",
+    "pgm_about_newsletter",
     "pgm_about_sticky"
   ]
 }
