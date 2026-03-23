@@ -33,7 +33,7 @@
           class: 'pgm-home-hero__bg-img'
       }}
     {%- else -%}
-      <div class="pgm-home-hero__bg-fallback" aria-hidden="true"></div>
+      <img src="{{ 'pgm-hero-desktop.png' | asset_url }}" alt="" class="pgm-home-hero__bg-img" loading="eager" fetchpriority="high" width="2400" height="1350">
     {%- endif -%}
   </div>
 

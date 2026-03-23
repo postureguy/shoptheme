@@ -37,11 +37,8 @@
           }}
         </div>
       {%- else -%}
-        <div class="pgm-home-about__image-placeholder" aria-hidden="true">
-          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="50" cy="38" r="24" fill="rgba(255,255,255,0.12)"/>
-            <path d="M8 112c0-23.196 18.804-42 42-42s42 18.804 42 42" fill="rgba(255,255,255,0.08)"/>
-          </svg>
+        <div class="pgm-home-about__image-wrap">
+          <img src="{{ 'about-mike.jpg' | asset_url }}" alt="{{ about_heading }}" class="pgm-home-about__image" loading="lazy" width="900" height="1100">
         </div>
       {%- endif -%}
     </div>

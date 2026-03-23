@@ -1251,3 +1251,123 @@
     transition: none;
   }
 }
+
+/* Instagram tile image styles */
+.pgm-home-instagram__tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  background: #1a2030;
+}
+
+.pgm-home-instagram__tile-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.pgm-home-instagram__tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pgm-home-instagram__tile:hover .pgm-home-instagram__tile-img {
+  transform: scale(1.06);
+}
+
+.pgm-home-instagram__reel-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pgm-home-instagram__tile-stats {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pgm-home-instagram__tile:hover .pgm-home-instagram__tile-stats {
+  opacity: 1;
+}
+
+.pgm-home-instagram__tile-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+}
+
+/* Social counts header */
+.pgm-home-instagram__social-counts {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pgm-home-instagram__social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.pgm-home-instagram__social-item:hover {
+  color: var(--pgm-white);
+}
+
+.pgm-home-instagram__social-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pgm-white);
+}
+
+/* Eyebrow on instagram section */
+.pgm-home-instagram__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pgm-blue);
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .pgm-home-instagram__social-counts {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .pgm-home-instagram__social-item span:last-child {
+    display: none;
+  }
+}
