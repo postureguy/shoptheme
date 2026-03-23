@@ -12,18 +12,10 @@
     "pgm_hero": {
       "type": "pgm-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/2ec94009-015c-41b9-a27a-824a257e9945.png",
-        "mobile_image": "shopify://shop_images/pgm-hero-mobile_4c6c7edc-0d19-4082-98fa-ddf230dc296e.jpg",
-        "desktop_text_align": "left",
-        "mobile_layout": "overlay",
-        "mobile_text_position": "bottom",
         "eyebrow": "Certified Postural Alignment Specialist",
-        "headline": "<p>Your Pain Has a<br/><em>Root Cause.</em><br/>Let's Fix It.</p>",
-        "subheadline": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.",
         "primary_cta_label": "Start Your Free Trial",
         "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
-        "secondary_cta_label": "Watch How It Works",
-        "video_id": "b6Yt1JtvUH0"
+        "secondary_cta_label": "Watch How It Works"
       }
     },
     "pgm_social_bar": {
@@ -46,55 +38,37 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
-            "name": "Sarah M.",
-            "location": "Member since 2023 · Denver, CO",
-            "result": "Pain-free in 3 weeks"
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life."
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
-            "name": "Robert T.",
-            "location": "Member since 2022 · Phoenix, AZ",
-            "result": "Back to hiking at 67"
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago."
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
-            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
-            "name": "Jessica L.",
-            "location": "Remote worker · Austin, TX",
-            "result": "Neck pain gone in 2 weeks"
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this."
           }
         },
         "t4": {
           "type": "testimonial",
           "settings": {
-            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
-            "name": "Marcus K.",
-            "location": "Member since 2023 · Chicago, IL",
-            "result": "Complete posture transformation"
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed."
           }
         },
         "t5": {
           "type": "testimonial",
           "settings": {
-            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
-            "name": "Linda H.",
-            "location": "Member since 2022 · Seattle, WA",
-            "result": "3 months pain-free"
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too."
           }
         },
         "t6": {
           "type": "testimonial",
           "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
-            "name": "David R.",
-            "location": "Member · Nashville, TN",
-            "result": "HSA covered, fully pain-free"
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some."
           }
         }
       },
@@ -107,27 +81,17 @@
         "t6"
       ],
       "settings": {
-        "eyebrow": "Real People. Real Results.",
-        "heading": "Thousands Have Fixed Their Posture. You're Next.",
-        "show_trust_bar": true,
-        "trust_bar_rating": "4.9 / 5 Rating",
-        "trust_bar_members": "2,000+ Members",
-        "trust_bar_guarantee": "30-Day Guarantee"
+        "heading": "Thousands Have Fixed Their Posture. You're Next."
       }
     },
     "pgm_about": {
       "type": "pgm-about",
       "settings": {
-        "badge_title": "Egoscue Certified",
-        "badge_sub": "Postural Alignment Specialist",
         "eyebrow": "The Coach Behind the Movement",
         "heading": "Meet Mike — The Posture Expert Trusted by Millions",
         "body": "",
-        "cred_label": "Certified Postural Alignment Specialist",
-        "cred_desc": "Trained at Egoscue University · Irvine, CA",
         "cta_label": "Learn More About Mike →",
-        "cta_url": "/pages/about",
-        "celeb_label": "Trusted by celebrities, athletes & professional teams"
+        "cta_url": "/pages/about"
       }
     },
     "pgm_membership": {
@@ -303,17 +267,7 @@
         "p6"
       ],
       "settings": {
-        "eyebrow": "Follow Along",
-        "heading": "@postureguymike on Instagram",
-        "embed_code": "",
-        "ig_url": "https://www.instagram.com/postureguymike",
-        "ig_count": "1.4M",
-        "tt_url": "https://www.tiktok.com/@postureguy",
-        "tt_count": "607K",
-        "yt_url": "https://www.youtube.com/@postureguy",
-        "yt_count": "236K",
-        "fb_url": "https://www.facebook.com/posturestrongofficial",
-        "fb_count": "690K"
+        "heading": "@postureguymike on Instagram"
       }
     },
     "pgm_collab": {
@@ -328,12 +282,7 @@
     },
     "pgm_sticky": {
       "type": "pgm-sticky-cta",
-      "settings": {
-        "title": "Fix Your Posture Today",
-        "subtitle": "Free trial · Cancel anytime",
-        "cta_label": "Start Free Trial",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
-      }
+      "settings": {}
     }
   },
   "order": [
