@@ -34,7 +34,7 @@
 {%- assign purchase_cta_label = section.settings.cta_label | default: 'Start Free Trial' -%}
 {%- assign purchase_cta_url   = section.settings.cta_url -%}
 {%- if purchase_cta_url == blank -%}
-  {%- assign purchase_cta_url = prog.checkout_url.value | default: prog.page_url.value | default: '#' -%}
+  {%- assign purchase_cta_url = prog.program_url.value | default: '#' -%}
 {%- endif -%}
 
 {%- comment -%} Guarantee text {%- endcomment -%}

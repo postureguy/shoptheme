@@ -65,7 +65,7 @@
 {%- assign locked_count = section.settings.locked_video_count | default: 40 -%}
 {%- assign program_url  = section.settings.program_url -%}
 {%- if program_url == blank -%}
-  {%- assign program_url = prog.page_url.value | default: '#' -%}
+  {%- assign program_url = prog.program_url.value | default: '#' -%}
 {%- endif -%}
 
 <section

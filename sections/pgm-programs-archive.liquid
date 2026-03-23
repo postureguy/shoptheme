@@ -7,7 +7,7 @@
 {%- comment -%} Build category list for filter tabs {%- endcomment -%}
 {%- assign all_categories = '' -%}
 {%- for program in programs -%}
-  {%- assign cat = program.condition_category.value -%}
+  {%- assign cat = program.category.value -%}
   {%- if cat != blank -%}
     {%- unless all_categories contains cat -%}
       {%- if all_categories == '' -%}
@@ -37,7 +37,7 @@
     {%- for cat in category_list -%}
       {%- assign cat_count = 0 -%}
       {%- for p in programs -%}
-        {%- if p.condition_category.value == cat -%}
+        {%- if p.category.value == cat -%}
           {%- assign cat_count = cat_count | plus: 1 -%}
         {%- endif -%}
       {%- endfor -%}
@@ -83,13 +83,13 @@
         {%- for program in programs -%}
           {%- assign prog_title    = program.title.value -%}
           {%- assign prog_tagline  = program.tagline.value -%}
-          {%- assign prog_category = program.condition_category.value -%}
+          {%- assign prog_category = program.category.value -%}
           {%- assign prog_image    = program.hero_image.value -%}
           {%- assign prog_videos   = program.video_count.value | default: 0 -%}
           {%- assign prog_diff     = program.difficulty.value | downcase | default: 'all-levels' -%}
           {%- assign prog_price    = program.price_label.value -%}
           {%- assign prog_price_sub = program.price_subtext.value -%}
-          {%- assign prog_url      = program.page_url.value | default: '#' -%}
+          {%- assign prog_url      = '/pages/' | append: program.system.handle -%}
           {%- assign is_popular    = program.is_popular.value -%}
           {%- assign is_new        = program.is_new.value -%}
           {%- assign is_featured   = program.is_featured.value -%}

@@ -52,13 +52,13 @@
 {%- endif -%}
 
 {%- comment -%} Category {%- endcomment -%}
-{%- assign hero_category = prog.condition_category.value -%}
+{%- assign hero_category = prog.category.value -%}
 
 {%- comment -%} CTA {%- endcomment -%}
 {%- assign cta_label = section.settings.cta_label | default: 'Start This Program' -%}
 {%- assign cta_url   = section.settings.cta_url -%}
-{%- if cta_url == blank and prog.page_url.value != blank -%}
-  {%- assign cta_url = prog.page_url.value -%}
+{%- if cta_url == blank and prog.program_url.value != blank -%}
+  {%- assign cta_url = prog.program_url.value -%}
 {%- endif -%}
 
 <section

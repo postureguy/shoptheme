@@ -56,13 +56,13 @@
           {%- if rel_prog != blank -%}
             {%- assign rel_title    = rel_prog.title.value -%}
             {%- assign rel_tagline  = rel_prog.tagline.value -%}
-            {%- assign rel_category = rel_prog.condition_category.value -%}
+            {%- assign rel_category = rel_prog.category.value -%}
             {%- assign rel_image    = rel_prog.hero_image.value -%}
             {%- assign rel_videos   = rel_prog.video_count.value | default: 0 -%}
             {%- assign rel_diff     = rel_prog.difficulty.value | downcase | default: 'all-levels' -%}
             {%- assign rel_price    = rel_prog.price_label.value -%}
             {%- assign rel_price_sub = rel_prog.price_subtext.value -%}
-            {%- assign rel_url      = rel_prog.page_url.value | default: '#' -%}
+            {%- assign rel_url      = '/pages/' | append: rel_prog.system.handle -%}
             {%- assign rel_popular  = rel_prog.is_popular.value -%}
             {%- assign rel_new      = rel_prog.is_new.value -%}
             {%- assign rel_featured = rel_prog.is_featured.value -%}
