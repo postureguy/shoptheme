@@ -6,11 +6,11 @@
 {%- endcomment -%}
 
 {%- assign about_eyebrow     = section.settings.eyebrow | default: 'Meet Your Coach' -%}
-{%- assign about_heading     = section.settings.heading | default: 'Hi, I\'m Mike — The Posture Guy' -%}
+{%- assign about_heading     = section.settings.heading | default: "Hi, I'm Mike - The Posture Guy" -%}
 {%- assign about_cta_label   = section.settings.cta_label | default: 'Learn More About Mike' -%}
 {%- assign about_cta_url     = section.settings.cta_url | default: '/pages/about' -%}
 
-{%- assign default_creds = 'Certified Postural Alignment Specialist,Trained at Egoscue University,Featured in Forbes & Men\'s Health,Helped 2,400+ people fix their posture' -%}
+{%- assign default_creds = "Certified Postural Alignment Specialist,Trained at Egoscue University,Featured in Forbes and Men's Health,Helped 2,400+ people fix their posture" -%}
 {%- assign creds_raw = section.settings.credentials | default: default_creds -%}
 {%- assign credentials = creds_raw | split: ',' -%}
 

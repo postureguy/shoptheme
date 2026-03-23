@@ -118,9 +118,41 @@
       "info": "Displayed next to the heading. Update manually as needed."
     }
   ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Instagram Post",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Post URL",
+          "info": "Full URL to the Instagram post or reel"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_reel",
+          "label": "Is this a Reel?",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "likes",
+          "label": "Like count",
+          "info": "Display only, e.g. 1.6K"
+        },
+        {
+          "type": "text",
+          "id": "comments",
+          "label": "Comment count"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
   "presets": [
     {
-      "name": "PGM — Home Instagram"
+      "name": "PGM — Instagram Feed"
     }
   ]
 }
