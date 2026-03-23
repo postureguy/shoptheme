@@ -15,7 +15,6 @@
         "program_handle": "",
         "title": "",
         "tagline": "",
-        "hero_image": "",
         "video_count": 0,
         "program_duration": "",
         "difficulty": "",
@@ -39,9 +38,9 @@
         "program_handle": "",
         "section_heading": "Watch Free Sample Videos",
         "section_subheading": "See exactly what's inside the program before you commit.",
-        "video_1_url": "",
+        "video_1_url": "https://youtu.be/AKnvmqW-7Lg?si=4J8BHnpo6Sy7Vszm",
         "video_1_title": "",
-        "video_2_url": "",
+        "video_2_url": "https://youtu.be/wldRIP6Nh7Y?si=uP4ydOsClGbvdayB",
         "video_2_title": "",
         "video_3_url": "",
         "video_3_title": "",
@@ -77,7 +76,13 @@
     },
     "pgm_program_sticky": {
       "type": "pgm-sticky-cta",
-      "settings": {}
+      "settings": {
+        "trial_url": "",
+        "quiz_url": "",
+        "trial_label": "Start Free Trial",
+        "quiz_label": "Take the Quiz",
+        "show_on_desktop": false
+      }
     }
   },
   "order": [
