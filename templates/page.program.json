@@ -15,7 +15,7 @@
         "program_handle": "",
         "title": "",
         "tagline": "",
-        "hero_image": "shopify://shop_images/about-mike-desktop.jpg",
+        "hero_image": "{{ metaobjects.program[\"back-pain\"].hero_image.value }}",
         "video_count": 0,
         "program_duration": "",
         "difficulty": "",
