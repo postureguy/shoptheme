@@ -1622,6 +1622,8 @@
 
 .pgm-programs-spotlight__view-all svg {
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
   transition: transform 0.2s ease;
 }
 
