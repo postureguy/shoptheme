@@ -220,45 +220,20 @@
         "klaviyo_list_id": ""
       }
     },
-    "pgm_tips": {
-      "type": "pgm-posture-tips",
-      "blocks": {
-        "tip1": {
-          "type": "tip",
-          "settings": {
-            "image": "shopify://shop_images/Copy_of_posture_masters_updated_program_thumbnail.png",
-            "category": "Neck Relief",
-            "title": "Stack Your Ears Over Shoulders",
-            "body": "Forward head posture is the #1 driver of neck pain. Your head weighs 10-12 lbs — every inch it drifts forward doubles the load on your spine. Gently tuck your chin and lift the crown of your head."
-          }
-        },
-        "tip2": {
-          "type": "tip",
-          "settings": {
-            "category": "Neck Relief",
-            "title": "Level Your Hips First",
-            "body": "Most back pain starts at the pelvis, not the back. A tilted pelvis throws your entire spine out of alignment. The Egoscue method works from the ground up — correcting hip position changes everything above it."
-          }
-        },
-        "tip3": {
-          "type": "tip",
-          "settings": {
-            "category": "Neck Relief",
-            "title": "Move Every 30 Minutes",
-            "body": "Sitting is not the problem — staying still is. Set a timer and do 2 minutes of posture exercises every 30 minutes. This resets muscle firing patterns and prevents the stiffness that leads to chronic pain."
-          }
-        }
-      },
-      "block_order": [
-        "tip1",
-        "tip2",
-        "tip3"
-      ],
+    "pgm_spotlight": {
+      "type": "pgm-programs-spotlight",
       "settings": {
         "eyebrow": "Free Posture Education",
         "heading": "Start Improving Your Posture Today",
-        "cta_label": "Get the Full Program Free →",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+        "subheading": "Expert-guided video programs targeting the most common posture problems. Start free, cancel anytime.",
+        "handle_1": "forward-head-posture",
+        "desc_1": "Forward head posture is the #1 driver of neck and shoulder pain. Fix it in just 10 minutes a day with this step-by-step program.",
+        "handle_2": "rounded-shoulders",
+        "desc_2": "Rounded shoulders compress your chest and cause chronic upper back tension. This program restores proper alignment fast.",
+        "handle_3": "hip-alignment",
+        "desc_3": "Uneven hips are the hidden cause of back pain, knee pain, and poor posture from the ground up. Start here.",
+        "show_view_all": true,
+        "view_all_url": "/pages/programs"
       }
     },
     "pgm_instagram": {
@@ -368,7 +343,7 @@
     "pgm_about",
     "pgm_membership",
     "pgm_quiz",
-    "pgm_tips",
+    "pgm_spotlight",
     "pgm_instagram",
     "pgm_collab",
     "pgm_sticky"
