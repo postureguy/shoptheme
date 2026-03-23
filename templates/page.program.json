@@ -15,7 +15,6 @@
         "program_handle": "",
         "title": "",
         "tagline": "",
-        "hero_image": "{{ metaobjects.program[\"back-pain\"].hero_image.value }}",
         "video_count": 0,
         "program_duration": "",
         "difficulty": "",
