@@ -70,7 +70,7 @@
 
     {%- if section.settings.cta_label != blank -%}
       <div class="pgm-tips__cta">
-        <a href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/checkout/new?o=151535' }}" class="pgm-btn pgm-btn--primary" target="_blank" rel="noopener">
+        <a href="{{ section.settings.cta_url | default: 'https://membership.postureguymike.com/join' }}" class="pgm-btn pgm-btn--primary" target="_blank" rel="noopener">
           {{ section.settings.cta_label | default: 'Unlock the Full Library Free →' }}
         </a>
         <p class="pgm-tips__cta-note">200+ exercises &amp; programs · New content every week</p>

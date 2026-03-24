@@ -17,7 +17,7 @@
         "headline": "<p>Your Pain Has a<br/><em>Root Cause.</em><br/>Let's Fix It.</p>",
         "subheadline": "Mike Boshnack has helped over a million people relieve chronic pain and fix their posture at home — without surgery, medication, or expensive appointments.",
         "primary_cta_label": "Start Your Free Trial",
-        "primary_cta_url": "https://membership.postureguymike.com/checkout/new?o=151535",
+        "primary_cta_url": "https://membership.postureguymike.com/join",
         "secondary_cta_label": "Watch How It Works",
         "video_id": "b6Yt1JtvUH0"
       }
@@ -116,7 +116,7 @@
         "subheading": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.",
         "cta_heading": "Ready to get out of pain? Start free today.",
         "cta_label": "Start My Free Trial",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+        "cta_url": "https://membership.postureguymike.com/join"
       }
     },
     "pgm_testimonials": {
@@ -245,7 +245,7 @@
         "eyebrow": "Free Posture Education",
         "heading": "Start Improving Your Posture Today",
         "cta_label": "Get the Full Program Free →",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+        "cta_url": "https://membership.postureguymike.com/join"
       }
     },
     "pgm_collab": {
@@ -344,7 +344,7 @@
         "title": "Fix Your Posture Today",
         "subtitle": "Free trial · Cancel anytime",
         "cta_label": "Start Free Trial",
-        "cta_url": "https://membership.postureguymike.com/checkout/new?o=151535"
+        "cta_url": "https://membership.postureguymike.com/join"
       }
     }
   },
