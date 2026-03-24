@@ -54,11 +54,11 @@
       "settings": {
         "program_handle": "",
         "heading": "Get Full Access",
-        "features": "Step-by-step video program,Daily guided exercise sessions,Progress tracking tools,Access on iOS, Android & desktop,Private member community,Live classes with Mike Boshnack,New content added every month,HSA/FSA eligible",
-        "price_label": "From $27/mo",
+        "features": "Step-by-step video program, Daily guided exercise sessions, Access anytime on iOS Android & desktop, Start relieving chronic pain naturally, Restore full-body alignment from head to toe, Build strength, Mobility & long-term posture correction, HSA/FSA eligible",
+        "price_label": "One-Time Payment",
         "price_subtext": "Cancel anytime · No contracts",
-        "cta_label": "Start Free Trial",
-        "cta_url": "",
+        "cta_label": "View Programs",
+        "cta_url": "https://www.postureguymike.com/pages/programs",
         "guarantee_text": "30-day money-back guarantee",
         "enrollment_display": "2,400+",
         "background": "dark"
