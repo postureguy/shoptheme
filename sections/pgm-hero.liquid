@@ -63,9 +63,11 @@
         </svg>
       </a>
       <a
-        href="/pages/posture-quiz"
+        href="{{ section.settings.secondary_cta_url | default: 'https://www.youtube.com/watch?v=b6Yt1JtvUH0' }}"
         class="pgm-home-hero__cta pgm-home-hero__cta--secondary"
         aria-label="{{ secondary_label }}"
+        target="_blank"
+        rel="noopener"
       >
         {{ secondary_label }}
       </a>
@@ -131,6 +133,12 @@
       "id": "secondary_cta_label",
       "label": "Secondary button label",
       "default": "Take the Posture Quiz"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary button link",
+      "info": "e.g. a YouTube URL for 'Watch How It Works'"
     },
     {
       "type": "header",
