@@ -32,35 +32,21 @@
         "l1": {
           "type": "logo",
           "settings": {
-            "name": "ESPN",
+            "name": "USA Today",
             "url": ""
           }
         },
         "l2": {
           "type": "logo",
           "settings": {
-            "name": "Men's Health",
+            "name": "LADbible",
             "url": ""
           }
         },
         "l3": {
           "type": "logo",
           "settings": {
-            "name": "The Today Show",
-            "url": ""
-          }
-        },
-        "l4": {
-          "type": "logo",
-          "settings": {
-            "name": "Muscle & Fitness",
-            "url": ""
-          }
-        },
-        "l5": {
-          "type": "logo",
-          "settings": {
-            "name": "Fox News",
+            "name": "Preferred Health Magazine",
             "url": ""
           }
         }
@@ -68,9 +54,7 @@
       "block_order": [
         "l1",
         "l2",
-        "l3",
-        "l4",
-        "l5"
+        "l3"
       ],
       "settings": {
         "label": "As Seen On"
