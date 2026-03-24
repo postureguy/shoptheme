@@ -189,13 +189,13 @@
       "settings": {
         "eyebrow": "Free Posture Education",
         "heading": "Start Improving Your Posture Today",
-        "subheading": "Expert-guided video programs targeting the most common posture problems. Start free, cancel anytime.",
+        "subheading": "Expert-guided video programs targeting the most common posture problems. One-time payment, lifetime access.",
         "handle_1": "forward-head-posture",
-        "desc_1": "Forward head posture is the #1 driver of neck and shoulder pain. Fix it in just 10 minutes a day with this step-by-step program.",
+        "benefit_1": "Relieve Neck and Shoulder Stress",
         "handle_2": "rounded-shoulders",
-        "desc_2": "Rounded shoulders compress your chest and cause chronic upper back tension. This program restores proper alignment fast.",
+        "benefit_2": "Correct Rounded Shoulders & Open Your Chest",
         "handle_3": "hip-alignment",
-        "desc_3": "Uneven hips are the hidden cause of back pain, knee pain, and poor posture from the ground up. Start here.",
+        "benefit_3": "Balance Your Hips & Relieve Back Pain",
         "show_view_all": true,
         "view_all_url": "/pages/programs"
       }
