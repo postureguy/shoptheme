@@ -127,6 +127,9 @@
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
+                      {% if link.url contains 'http' %}
+                        target="_blank" rel="noopener"
+                      {% endif %}
                     >
                       {{ link.title | escape }}
                     </a>
