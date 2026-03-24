@@ -62,15 +62,19 @@
           <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
         </svg>
       </a>
-      <a
-        href="{{ section.settings.secondary_cta_url | default: 'https://www.youtube.com/watch?v=b6Yt1JtvUH0' }}"
+      <button
+        type="button"
         class="pgm-home-hero__cta pgm-home-hero__cta--secondary"
+        data-video-id="{{ section.settings.video_id | default: 'b6Yt1JtvUH0' }}"
         aria-label="{{ secondary_label }}"
-        target="_blank"
-        rel="noopener"
       >
+        <span class="pgm-hero__play-ring" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+            <path d="M3.5 2.5l8 4.5-8 4.5z"/>
+          </svg>
+        </span>
         {{ secondary_label }}
-      </a>
+      </button>
     </div>
 
     <p class="pgm-home-hero__trust-note">
@@ -79,6 +83,64 @@
 
   </div>
 </section>
+
+{%- comment -%} Video Modal {%- endcomment -%}
+<div
+  class="pgm-vmodal"
+  id="pgm-vmodal-{{ section.id }}"
+  role="dialog"
+  aria-modal="true"
+  aria-label="How It Works video"
+  hidden
+>
+  <div class="pgm-vmodal__backdrop"></div>
+  <div class="pgm-vmodal__dialog">
+    <button class="pgm-vmodal__close" aria-label="Close video">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M15 5 5 15M5 5l10 10"/>
+      </svg>
+    </button>
+    <div class="pgm-vmodal__video-wrap">
+      <div class="pgm-vmodal__embed" id="pgm-vmodal-embed-{{ section.id }}"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var sectionId = '{{ section.id }}';
+  var modal     = document.getElementById('pgm-vmodal-' + sectionId);
+  var embed     = document.getElementById('pgm-vmodal-embed-' + sectionId);
+  var trigger   = document.querySelector('#pgm-home-hero-' + sectionId + ' [data-video-id]');
+
+  if (!trigger || !modal) return;
+
+  function openModal() {
+    var vid = trigger.getAttribute('data-video-id');
+    embed.innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + vid +
+      '?autoplay=1&rel=0&modestbranding=1" frameborder="0" ' +
+      'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+    modal.removeAttribute('hidden');
+    document.body.classList.add('pgm-modal-open');
+    modal.querySelector('.pgm-vmodal__close').focus();
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+    embed.innerHTML = '';
+    document.body.classList.remove('pgm-modal-open');
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', openModal);
+  modal.querySelector('.pgm-vmodal__backdrop').addEventListener('click', closeModal);
+  modal.querySelector('.pgm-vmodal__close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+})();
+</script>
 
 {% schema %}
 {
@@ -135,10 +197,11 @@
       "default": "Take the Posture Quiz"
     },
     {
-      "type": "url",
-      "id": "secondary_cta_url",
-      "label": "Secondary button link",
-      "info": "e.g. a YouTube URL for 'Watch How It Works'"
+      "type": "text",
+      "id": "video_id",
+      "label": "YouTube Video ID",
+      "default": "b6Yt1JtvUH0",
+      "info": "The ID from the YouTube URL — e.g. for youtube.com/watch?v=b6Yt1JtvUH0 enter b6Yt1JtvUH0"
     },
     {
       "type": "header",
