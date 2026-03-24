@@ -54,10 +54,10 @@
       "settings": {
         "program_handle": "",
         "heading": "Get Full Access",
-        "features": "Step-by-step video program,Daily guided exercise sessions,Progress tracking tools,Access on iOS, Android & desktop,Private member community,Live classes with Mike Boshnack,New content added every month,HSA/FSA eligible",
-        "price_label": "From $27/mo",
-        "price_subtext": "Cancel anytime · No contracts",
-        "cta_label": "Start Free Trial",
+        "features": "Step-by-step video program,20-week structured plan,Lifetime access — yours forever,Works on iOS, Android & desktop,No equipment needed,15–20 minutes per day,HSA/FSA eligible",
+        "price_label": "",
+        "price_subtext": "One-time payment · Lifetime access",
+        "cta_label": "Get Instant Access",
         "cta_url": "",
         "guarantee_text": "30-day money-back guarantee",
         "enrollment_display": "2,400+",
@@ -79,7 +79,7 @@
       "settings": {
         "trial_url": "",
         "quiz_url": "",
-        "trial_label": "Start Free Trial",
+        "trial_label": "Get Instant Access",
         "quiz_label": "Take the Quiz",
         "show_on_desktop": false
       }
