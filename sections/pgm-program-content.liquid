@@ -58,6 +58,10 @@
           {%- assign _has_mid_image = true -%}
           {%- assign _mid_image_src = 'spine-photo.jpg' | asset_url -%}
           {%- assign _split_at = 2 -%}
+        {%- elsif page.handle == 'kyphosis' -%}
+          {%- assign _has_mid_image = true -%}
+          {%- assign _mid_image_src = 'kyphosis-photo.jpg' | asset_url -%}
+          {%- assign _split_at = 2 -%}
         {%- endif -%}
 
         {%- if content_is_richtext -%}
