@@ -61,48 +61,22 @@
         {%- endif -%}
 
         {%- if content_is_richtext -%}
-          {%- if _has_mid_image -%}
-            {%- assign _parts = content_body | split: '</p>' -%}
-            {%- for _part in _parts -%}
-              {%- unless _part == blank -%}
-                {{ _part }}</p>
-                {%- if forloop.index == _split_at -%}
-                  <figure class="pgm-program-content__mid-image">
-                    <img
-                      src="{{ _mid_image_src }}"
-                      alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
-                      loading="lazy"
-                      width="960"
-                    >
-                  </figure>
-                {%- endif -%}
-              {%- endunless -%}
-            {%- endfor -%}
-          {%- else -%}
-            {{ content_body }}
-          {%- endif -%}
+          {{ content_body }}
         {%- else -%}
-          {%- if _has_mid_image -%}
-            {%- assign _paragraphs = content_body | split: "\n\n" -%}
-            {%- for _para in _paragraphs -%}
-              <span class="pgm-program-content__para">{{ _para | newline_to_br }}</span>
-              {%- unless forloop.last -%}<br><br>{%- endunless -%}
-              {%- if forloop.index == _split_at -%}
-                <figure class="pgm-program-content__mid-image">
-                  <img
-                    src="{{ _mid_image_src }}"
-                    alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
-                    loading="lazy"
-                    width="960"
-                  >
-                </figure>
-              {%- endif -%}
-            {%- endfor -%}
-          {%- else -%}
-            {{ content_body | newline_to_br }}
-          {%- endif -%}
+          {{ content_body | newline_to_br }}
         {%- endif -%}
       </div>
+
+      {%- if _has_mid_image -%}
+        <figure class="pgm-program-content__mid-image">
+          <img
+            src="{{ _mid_image_src }}"
+            alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
+            loading="lazy"
+            width="960"
+          >
+        </figure>
+      {%- endif -%}
     {%- endif -%}
 
   </div>
