@@ -733,7 +733,7 @@
 .pgm-program-content__mid-image img {
   display: block;
   margin: 0 auto;
-  max-width: 480px;
+  max-width: 320px;
   width: 100%;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
