@@ -48,10 +48,53 @@
 
     {%- if content_body != blank -%}
       <div class="pgm-program-content__prose">
+        {%- assign _has_mid_image = false -%}
+        {%- if section.settings.mid_image != blank -%}
+          {%- assign _has_mid_image = true -%}
+          {%- assign _split_at = section.settings.split_paragraph | default: 2 -%}
+        {%- endif -%}
+
         {%- if content_is_richtext -%}
-          {{ content_body }}
+          {%- if _has_mid_image -%}
+            {%- assign _parts = content_body | split: '</p>' -%}
+            {%- for _part in _parts -%}
+              {%- unless _part == blank -%}
+                {{ _part }}</p>
+                {%- if forloop.index == _split_at -%}
+                  <figure class="pgm-program-content__mid-image">
+                    <img
+                      src="{{ section.settings.mid_image | image_url: width: 960 }}"
+                      alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
+                      loading="lazy"
+                      width="960"
+                    >
+                  </figure>
+                {%- endif -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- else -%}
+            {{ content_body }}
+          {%- endif -%}
         {%- else -%}
-          {{ content_body | newline_to_br }}
+          {%- if _has_mid_image -%}
+            {%- assign _paragraphs = content_body | split: "\n\n" -%}
+            {%- for _para in _paragraphs -%}
+              <span class="pgm-program-content__para">{{ _para | newline_to_br }}</span>
+              {%- unless forloop.last -%}<br><br>{%- endunless -%}
+              {%- if forloop.index == _split_at -%}
+                <figure class="pgm-program-content__mid-image">
+                  <img
+                    src="{{ section.settings.mid_image | image_url: width: 960 }}"
+                    alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
+                    loading="lazy"
+                    width="960"
+                  >
+                </figure>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {{ content_body | newline_to_br }}
+          {%- endif -%}
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -97,6 +140,32 @@
       "id": "content",
       "label": "Content override",
       "info": "Rich text body. If blank, loads seo_description from metaobject."
+    },
+    {
+      "type": "header",
+      "content": "Mid-Content Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mid_image",
+      "label": "Image",
+      "info": "Displayed between paragraphs to break up the text"
+    },
+    {
+      "type": "text",
+      "id": "mid_image_alt",
+      "label": "Image alt text",
+      "default": "Posture Guy Mike"
+    },
+    {
+      "type": "range",
+      "id": "split_paragraph",
+      "label": "Insert after paragraph #",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "info": "Image appears after this paragraph number"
     },
     {
       "type": "header",
