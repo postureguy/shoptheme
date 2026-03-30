@@ -426,7 +426,7 @@
 
 .pgm-program-hero {
   position: relative;
-  min-height: 72vh;
+  min-height: 52vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1398,7 +1398,7 @@
 
   /* Program hero */
   .pgm-program-hero {
-    min-height: 80vh;
+    min-height: 58vh;
   }
 
   .pgm-program-hero__content {
@@ -1499,7 +1499,7 @@
 
   /* Hero */
   .pgm-program-hero {
-    min-height: 90svh;
+    min-height: 62svh;
   }
 
   .pgm-program-hero__content {
