@@ -62,7 +62,7 @@
 
 .pgm-home-hero {
   position: relative;
-  min-height: clamp(560px, 90vh, 900px);
+  min-height: clamp(420px, 65vh, 650px);
   display: flex;
   align-items: center;
   overflow: hidden;
