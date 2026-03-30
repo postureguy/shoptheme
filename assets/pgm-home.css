@@ -74,6 +74,8 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #0a1628;
+  overflow: hidden;
 }
 
 .pgm-home-hero__bg-img {
@@ -82,6 +84,8 @@
   object-fit: cover;
   object-position: center top;
   display: block;
+  transform: scale(0.75);
+  transform-origin: center center;
 }
 
 .pgm-home-hero__bg-fallback {
