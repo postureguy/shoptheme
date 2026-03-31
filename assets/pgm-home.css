@@ -62,7 +62,7 @@
 
 .pgm-home-hero {
   position: relative;
-  min-height: clamp(300px, 44vh, 460px);
+  min-height: clamp(240px, 36vh, 380px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -110,7 +110,7 @@
   width: 100%;
   max-width: var(--pgm-container);
   margin: 0 auto;
-  padding: clamp(40px, 5vw, 70px) 2.4rem clamp(30px, 4vw, 55px);
+  padding: clamp(20px, 2.5vw, 36px) 2.4rem clamp(16px, 2vw, 28px);
   animation: pgmFadeUp 0.8s ease-out both;
 }
 
