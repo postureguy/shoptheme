@@ -316,7 +316,7 @@
       "type": "pgm-sticky-cta",
       "settings": {
         "trial_url": "",
-        "quiz_url": "",
+        "quiz_url": "#pgm-quiz-pgm_quiz",
         "trial_label": "Start Free Trial",
         "quiz_label": "Take the Quiz",
         "show_on_desktop": false
