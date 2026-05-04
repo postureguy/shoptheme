@@ -13,6 +13,8 @@
       "type": "pgm-hero",
       "settings": {
         "eyebrow": "Certified Postural Alignment Specialist",
+        "heading": "Fix Your Posture. Feel Better. Move Better.",
+        "subheading": "Join over 2,400 members inside the Posture Guy Mike membership and get step-by-step programs built around your body.",
         "primary_cta_label": "Start Your Free Trial",
         "primary_cta_url": "https://membership.postureguymike.com/join",
         "secondary_cta_label": "Watch How It Works",
@@ -39,37 +41,55 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life."
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago."
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
-            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this."
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         },
         "t4": {
           "type": "testimonial",
           "settings": {
-            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed."
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         },
         "t5": {
           "type": "testimonial",
           "settings": {
-            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too."
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         },
         "t6": {
           "type": "testimonial",
           "settings": {
-            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some."
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some.",
+            "author_name": "Sarah M.",
+            "author_title": "Member since 2023",
+            "rating": 5
           }
         }
       },
@@ -82,7 +102,8 @@
         "t6"
       ],
       "settings": {
-        "heading": "Thousands Have Fixed Their Posture. You're Next."
+        "heading": "Thousands Have Fixed Their Posture. You're Next.",
+        "subheading": "Real people. Real results. Real posture transformations."
       }
     },
     "pgm_about": {
@@ -91,6 +112,7 @@
         "eyebrow": "The Coach Behind the Movement",
         "heading": "Meet Mike — The Posture Expert Trusted by Millions",
         "body": "",
+        "credentials": "Certified Postural Alignment Specialist,Trained at Egoscue University,Featured in Forbes & Men's Health,Helped 2,400+ people fix their posture",
         "cta_label": "Learn More About Mike →",
         "cta_url": "/pages/about"
       }
@@ -182,7 +204,7 @@
         "trial_url": "",
         "result_cta_label": "Start My Free Trial — Fix This Now",
         "klaviyo_id": "RY86tU",
-        "klaviyo_list_id": ""
+        "klaviyo_list_id": "S7DCaR"
       }
     },
     "pgm_spotlight": {
@@ -268,7 +290,16 @@
         "p6"
       ],
       "settings": {
-        "heading": "@postureguymike on Instagram"
+        "eyebrow": "Follow Along",
+        "heading": "@postureguymike on Instagram",
+        "ig_url": "",
+        "ig_count": "1.4M",
+        "tt_url": "",
+        "tt_count": "607K",
+        "yt_url": "",
+        "yt_count": "236K",
+        "fb_url": "",
+        "fb_count": "690K"
       }
     },
     "pgm_collab": {
@@ -283,7 +314,13 @@
     },
     "pgm_sticky": {
       "type": "pgm-sticky-cta",
-      "settings": {}
+      "settings": {
+        "trial_url": "",
+        "quiz_url": "",
+        "trial_label": "Start Free Trial",
+        "quiz_label": "Take the Quiz",
+        "show_on_desktop": false
+      }
     }
   },
   "order": [
