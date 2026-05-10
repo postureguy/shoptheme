@@ -13,9 +13,9 @@
 >
 
   {%- comment -%} ── Hero ── {%- endcomment -%}
-  <div class="pgm-work__hero{% if section.settings.hero_image != blank %} pgm-work__hero--has-image{% endif %}">
-    {%- if section.settings.hero_image != blank -%}
-      <div class="pgm-work__hero-media" aria-hidden="true">
+  <div class="pgm-work__hero pgm-work__hero--has-image">
+    <div class="pgm-work__hero-media" aria-hidden="true">
+      {%- if section.settings.hero_image != blank -%}
         {{- section.settings.hero_image | image_url: width: 2400 | image_tag:
           loading: 'eager',
           alt: '',
@@ -23,9 +23,18 @@
           width: section.settings.hero_image.width,
           height: section.settings.hero_image.height
         -}}
-      </div>
-      <div class="pgm-work__hero-overlay" aria-hidden="true"></div>
-    {%- endif -%}
+      {%- else -%}
+        <img
+          src="{{ 'pgm-work-with-mike.jpg' | asset_url }}"
+          alt=""
+          class="pgm-work__hero-img"
+          loading="eager"
+          width="1512"
+          height="756"
+        >
+      {%- endif -%}
+    </div>
+    <div class="pgm-work__hero-overlay" aria-hidden="true"></div>
     <div class="pgm-work__hero-inner">
       <p class="pgm-work__hero-eyebrow">Brand Partnerships &amp; Collaborations</p>
       <h1 class="pgm-work__hero-heading">
