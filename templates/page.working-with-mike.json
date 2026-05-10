@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pgm_wwm_main": {
+      "type": "pgm-work-with-mike",
+      "settings": {
+        "hero_image": "",
+        "heading": "Working With Mike",
+        "subheading": "Partner with one of the most trusted voices in postural wellness. 2.9M+ followers across four platforms. Authentic content that converts.",
+        "ig_count": "1.4M",
+        "ig_url": "https://www.instagram.com/postureguymike",
+        "tt_count": "607K",
+        "tt_url": "https://www.tiktok.com/@postureguy",
+        "yt_count": "236K",
+        "yt_url": "https://www.youtube.com/@postureguy",
+        "fb_count": "690K",
+        "fb_url": "https://www.facebook.com/posturestrongofficial",
+        "mailing_name": "Posture Guy Mike",
+        "mailing_address": "",
+        "form_heading": "Let's Work Together"
+      }
+    }
+  },
+  "order": ["pgm_wwm_main"]
+}
