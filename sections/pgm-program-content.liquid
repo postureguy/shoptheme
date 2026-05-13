@@ -69,6 +69,10 @@
         {%- else -%}
           {{ content_body | newline_to_br }}
         {%- endif -%}
+
+        {%- if page.content != blank -%}
+          {{ page.content }}
+        {%- endif -%}
       </div>
 
       {%- if _has_mid_image -%}
