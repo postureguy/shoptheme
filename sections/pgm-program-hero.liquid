@@ -69,7 +69,9 @@
 
   {%- comment -%} Background image {%- endcomment -%}
   <div class="pgm-program-hero__bg" aria-hidden="true">
-    {%- if page.handle == 'neck-hump' -%}
+    {%- if page.handle == 'forward-head-posture' -%}
+      <img src="{{ 'pgm-hero-forward-head-posture.jpg' | asset_url }}" alt="" loading="eager" fetchpriority="high" width="1920" height="425">
+    {%- elsif page.handle == 'neck-hump' -%}
       <img src="{{ 'neck-hump-header.jpg' | asset_url }}" alt="" loading="eager" fetchpriority="high" width="2560" height="650">
     {%- elsif page.handle == 'kyphosis' -%}
       <img src="{{ 'kyphosis-header.jpg' | asset_url }}" alt="" loading="eager" fetchpriority="high" width="2560" height="650">
