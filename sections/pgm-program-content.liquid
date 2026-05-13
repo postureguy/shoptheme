@@ -74,21 +74,22 @@
           {{ content_body | newline_to_br }}
         {%- endif -%}
 
+        {%- if _has_mid_image -%}
+          <figure class="pgm-program-content__mid-image">
+            <img
+              src="{{ _mid_image_src }}"
+              alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
+              loading="lazy"
+              width="960"
+              style="width:100%;height:auto;border-radius:8px;"
+            >
+          </figure>
+        {%- endif -%}
+
         {%- if page.content != blank -%}
           {{ page.content }}
         {%- endif -%}
       </div>
-
-      {%- if _has_mid_image -%}
-        <figure class="pgm-program-content__mid-image">
-          <img
-            src="{{ _mid_image_src }}"
-            alt="{{ section.settings.mid_image_alt | default: 'Posture Guy Mike' }}"
-            loading="lazy"
-            width="960"
-          >
-        </figure>
-      {%- endif -%}
     {%- endif -%}
 
   </div>
