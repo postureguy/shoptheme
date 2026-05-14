@@ -74,12 +74,7 @@
   pointer-events: none;
 }
 
-/* Hidden on desktop by default */
-@media (min-width: 1024px) {
-  .pgm-sticky:not(.pgm-sticky--show-desktop) {
-    display: none !important;
-  }
-}
+/* Show on all screen sizes; pgm-sticky--show-desktop class kept for backward compat */
 
 .pgm-sticky__trust {
   margin: 0;
