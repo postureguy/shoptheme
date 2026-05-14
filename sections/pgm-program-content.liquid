@@ -86,23 +86,33 @@
           </figure>
         {%- endif -%}
 
-        {%- if page.handle == 'forward-head-posture' -%}
-          <div class="pgm-program-content__img-divider">
-            <span>What Does Corrected Posture Look Like?</span>
-          </div>
-          <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
-            <img
-              src="{{ 'fhp-comparison.jpg' | asset_url }}"
-              alt="Forward Head Posture vs Neutral Head Posture comparison"
-              loading="lazy"
-              width="1536"
-              height="1024"
-            >
-          </figure>
-        {%- endif -%}
-
         {%- if page.content != blank -%}
-          {{ page.content }}
+          {%- if page.handle == 'forward-head-posture' -%}
+            {%- comment -%} Split page content at each <h2 and inject comparison image after the 3rd chunk (after "What Causes FHP?") {%- endcomment -%}
+            {%- assign _pc_parts = page.content | split: '<h2' -%}
+            {%- for _part in _pc_parts -%}
+              {%- unless forloop.first -%}
+                {%- assign _part = '<h2' | append: _part -%}
+              {%- endunless -%}
+              {{ _part }}
+              {%- if forloop.index == 3 -%}
+                <div class="pgm-program-content__img-divider">
+                  <span>What Does Corrected Posture Look Like?</span>
+                </div>
+                <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
+                  <img
+                    src="{{ 'fhp-comparison.jpg' | asset_url }}"
+                    alt="Forward Head Posture vs Neutral Head Posture comparison"
+                    loading="lazy"
+                    width="1536"
+                    height="1024"
+                  >
+                </figure>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {{ page.content }}
+          {%- endif -%}
         {%- endif -%}
       </div>
     {%- endif -%}
