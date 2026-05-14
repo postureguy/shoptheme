@@ -88,28 +88,39 @@
 
         {%- if page.content != blank -%}
           {%- if page.handle == 'forward-head-posture' -%}
-            {%- comment -%} Split page content at each <h2 and inject comparison image after the 3rd chunk (after "What Causes FHP?") {%- endcomment -%}
+            {%- comment -%} Inject comparison image after H2 #2 "What Causes FHP?" {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
-              {%- unless forloop.first -%}
-                {%- assign _part = '<h2' | append: _part -%}
-              {%- endunless -%}
+              {%- unless forloop.first -%}{%- assign _part = '<h2' | append: _part -%}{%- endunless -%}
               {{ _part }}
               {%- if forloop.index == 3 -%}
-                <div class="pgm-program-content__img-divider">
-                  <span>What Does Corrected Posture Look Like?</span>
-                </div>
+                <div class="pgm-program-content__img-divider"><span>What Does Corrected Posture Look Like?</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
-                  <img
-                    src="{{ 'fhp-comparison.jpg' | asset_url }}"
-                    alt="Forward Head Posture vs Neutral Head Posture comparison"
-                    loading="lazy"
-                    width="1536"
-                    height="1024"
-                  >
+                  <img src="{{ 'fhp-comparison.jpg' | asset_url }}" alt="Forward Head Posture vs Neutral Head Posture comparison" loading="lazy" width="1536" height="1024">
                 </figure>
               {%- endif -%}
             {%- endfor -%}
+
+          {%- elsif page.handle == 'kyphosis' -%}
+            {%- comment -%} Inject spine overlay after H2 #2, comparison after H2 #3 {%- endcomment -%}
+            {%- assign _pc_parts = page.content | split: '<h2' -%}
+            {%- for _part in _pc_parts -%}
+              {%- unless forloop.first -%}{%- assign _part = '<h2' | append: _part -%}{%- endunless -%}
+              {{ _part }}
+              {%- if forloop.index == 3 -%}
+                <div class="pgm-program-content__img-divider"><span>What Kyphosis Does to Your Spine</span></div>
+                <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
+                  <img src="{{ 'kyphosis-spine-overlay.jpg' | asset_url }}" alt="Kyphosis spinal curvature diagram" loading="lazy" width="1536" height="1024">
+                </figure>
+              {%- endif -%}
+              {%- if forloop.index == 4 -%}
+                <div class="pgm-program-content__img-divider"><span>Good Posture vs Kyphosis</span></div>
+                <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
+                  <img src="{{ 'kyphosis-comparison.jpg' | asset_url }}" alt="Good posture vs kyphosis comparison" loading="lazy" width="1536" height="1024">
+                </figure>
+              {%- endif -%}
+            {%- endfor -%}
+
           {%- else -%}
             {{ page.content }}
           {%- endif -%}
