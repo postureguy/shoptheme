@@ -91,8 +91,7 @@
             {%- comment -%} Inject comparison image after H2 #2 "What Causes FHP?" {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
-              {%- unless forloop.first -%}{%- assign _part = '<h2' | append: _part -%}{%- endunless -%}
-              {{ _part }}
+              {%- if forloop.first -%}{{ _part }}{%- else -%}{{ '<h2' | append: _part }}{%- endif -%}
               {%- if forloop.index == 3 -%}
                 <div class="pgm-program-content__img-divider"><span>What Does Corrected Posture Look Like?</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
@@ -105,8 +104,7 @@
             {%- comment -%} Inject spine overlay after H2 #2, comparison after H2 #3 {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
-              {%- unless forloop.first -%}{%- assign _part = '<h2' | append: _part -%}{%- endunless -%}
-              {{ _part }}
+              {%- if forloop.first -%}{{ _part }}{%- else -%}{{ '<h2' | append: _part }}{%- endif -%}
               {%- if forloop.index == 3 -%}
                 <div class="pgm-program-content__img-divider"><span>What Kyphosis Does to Your Spine</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
