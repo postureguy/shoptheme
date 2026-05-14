@@ -284,7 +284,7 @@
     "pgm_sticky": {
       "type": "pgm-sticky-cta",
       "settings": {
-        "quiz_url": "#pgm-quiz-pgm_quiz"
+        "quiz_url": "#posture-quiz"
       }
     }
   },

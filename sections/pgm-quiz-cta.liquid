@@ -4,6 +4,7 @@
 {%- assign _dalign = section.settings.desktop_text_align | default: 'left' -%}
 {%- assign _mpos   = section.settings.mobile_text_position | default: 'bottom' -%}
 {%- assign _mlay   = section.settings.mobile_layout | default: 'overlay' -%}
+<div id="posture-quiz"></div>
 <section
   class="pgm-quiz pgm-section pgm-quiz--align-{{ _dalign }} pgm-quiz--mob-{{ _mlay }}{% if _mlay == 'overlay' %} pgm-quiz--mobile-{{ _mpos }}{% endif %}"
   id="pgm-quiz-{{ section.id }}"

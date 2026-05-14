@@ -26,8 +26,9 @@
       {{ section.settings.trial_label | default: 'Start Free Trial' }}
     </a>
     <a
-      href="{{ section.settings.quiz_url | default: '/pages/posture-quiz' }}"
+      href="{{ section.settings.quiz_url | default: '/#posture-quiz' }}"
       class="pgm-sticky__btn pgm-sticky__btn--secondary"
+      id="pgm-sticky-quiz-{{ section.id }}"
     >
       {{ section.settings.quiz_label | default: 'Take the Quiz' }}
     </a>
@@ -65,6 +66,19 @@
       bar.classList.add('pgm-sticky--dismissed');
       /* Remove from layout after CSS transition */
       setTimeout(function () { bar.style.display = 'none'; }, 340);
+    });
+  }
+
+  /* Quiz button — smooth-scroll to quiz section if it exists on this page */
+  var quizBtn = document.getElementById('pgm-sticky-quiz-{{ section.id }}');
+  if (quizBtn) {
+    quizBtn.addEventListener('click', function (e) {
+      var quizSection = document.querySelector('.pgm-quiz');
+      if (quizSection) {
+        e.preventDefault();
+        quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      /* If no quiz section on this page, the href navigates normally */
     });
   }
 })();
