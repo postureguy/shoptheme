@@ -741,6 +741,13 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
+/* Full-width variant for comparison / hero-style images */
+.pgm-program-content__mid-image--wide img {
+  max-width: 100%;
+  max-height: none;
+  width: 100%;
+}
+
 /* ============================================================
    PROGRAM VIDEOS — FREE TEASER SECTION
    ============================================================ */
