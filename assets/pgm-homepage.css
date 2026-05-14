@@ -1263,33 +1263,7 @@
   .pgm-ig__platforms { gap:1rem; }
 }
 
-/* ── COMPONENT: STICKY MOBILE CTA ──────────────── */
-.pgm-sticky { display:none; }
-@media (max-width:749px) {
-  .pgm-sticky {
-    display:flex;
-    position:fixed; bottom:0; left:0; right:0; z-index:1000;
-    background:var(--pgm-dark);
-    border-top:1px solid rgba(255,255,255,.1);
-    padding:1.2rem 1.6rem;
-    gap:1.2rem; align-items:center;
-    box-shadow:0 -8px 32px rgba(0,0,0,.45);
-  }
-  .pgm-sticky__text { flex:1; }
-  .pgm-sticky__text strong { display:block; font-size:1.4rem; color:#fff; font-weight:800; }
-  .pgm-sticky__text span   { font-size:1.2rem; color:rgba(255,255,255,.55); }
-  .pgm-sticky__btn {
-    flex-shrink:0;
-    background:var(--pgm-blue); color:#fff;
-    padding:1.2rem 2rem; border-radius:50px;
-    font-size:1.4rem; font-weight:800;
-    text-decoration:none; white-space:nowrap;
-    transition:var(--pgm-ease);
-  }
-  .pgm-sticky__btn:hover { background:var(--pgm-blue-hover); color:#fff; }
-  /* Push page content above sticky bar */
-  body.pgm-has-sticky { padding-bottom:72px; }
-}
+/* ── COMPONENT: STICKY MOBILE CTA — managed by pgm-extras.css ──────────────── */
 
 /* ── VIDEO MODAL ────────────────────────────────── */
 .pgm-vmodal {
