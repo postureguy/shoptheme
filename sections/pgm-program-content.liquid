@@ -120,16 +120,15 @@
             {%- endfor -%}
 
           {%- elsif page.handle == 'neck-hump' -%}
-            {%- comment -%} Inject neck hump photo after H2 #1, comparison after H2 #3 {%- endcomment -%}
+            {%- comment -%} Image 1 before H2 content — breaks up intro text {%- endcomment -%}
+            <div class="pgm-program-content__img-divider"><span>What Neck Hump Poor Posture Looks Like</span></div>
+            <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
+              <img src="{{ 'neck-hump-image-1.jpg' | asset_url }}" alt="Neck hump poor posture demonstrated" loading="lazy" width="1536" height="1024">
+            </figure>
+            {%- comment -%} Image 2 after H2 #3 "Why a Neck Hump Gets Worse" {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
               {%- if forloop.first -%}{{ _part }}{%- else -%}{{ '<h2' | append: _part }}{%- endif -%}
-              {%- if forloop.index == 2 -%}
-                <div class="pgm-program-content__img-divider"><span>What Neck Hump Poor Posture Looks Like</span></div>
-                <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
-                  <img src="{{ 'neck-hump-image-1.jpg' | asset_url }}" alt="Neck hump poor posture demonstrated" loading="lazy" width="1536" height="1024">
-                </figure>
-              {%- endif -%}
               {%- if forloop.index == 4 -%}
                 <div class="pgm-program-content__img-divider"><span>Good Posture vs Neck Hump</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
