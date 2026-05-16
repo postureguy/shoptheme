@@ -120,11 +120,11 @@
             {%- endfor -%}
 
           {%- elsif page.handle == 'neck-hump' -%}
-            {%- comment -%} Inject neck hump photo after H2 #2, comparison after H2 #3 {%- endcomment -%}
+            {%- comment -%} Inject neck hump photo after H2 #1, comparison after H2 #3 {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
               {%- if forloop.first -%}{{ _part }}{%- else -%}{{ '<h2' | append: _part }}{%- endif -%}
-              {%- if forloop.index == 3 -%}
+              {%- if forloop.index == 2 -%}
                 <div class="pgm-program-content__img-divider"><span>What Neck Hump Poor Posture Looks Like</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
                   <img src="{{ 'neck-hump-image-1.jpg' | asset_url }}" alt="Neck hump poor posture demonstrated" loading="lazy" width="1536" height="1024">
