@@ -138,18 +138,18 @@
             {%- endfor -%}
 
           {%- elsif page.handle == 'hip-alignment' -%}
-            {%- comment -%} Image 1 after H2 #2 "The 4 Most Common Causes" {%- endcomment -%}
-            {%- comment -%} Image 2 after H2 #4 "How Misaligned Hips Affect Your Entire Body" {%- endcomment -%}
+            {%- comment -%} Image 1 after H2 #1 "What Is Hip Alignment?" {%- endcomment -%}
+            {%- comment -%} Image 2 after H2 #5 "Can You Fix Hip Misalignment?" {%- endcomment -%}
             {%- assign _pc_parts = page.content | split: '<h2' -%}
             {%- for _part in _pc_parts -%}
               {%- if forloop.first -%}{{ _part }}{%- else -%}{{ '<h2' | append: _part }}{%- endif -%}
-              {%- if forloop.index == 3 -%}
+              {%- if forloop.index == 2 -%}
                 <div class="pgm-program-content__img-divider"><span>What Hip Misalignment Looks Like</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
                   <img src="{{ 'hip-alignment-image-1.jpg' | asset_url }}" alt="Hip misalignment posture diagram" loading="lazy" width="1536" height="1024">
                 </figure>
               {%- endif -%}
-              {%- if forloop.index == 5 -%}
+              {%- if forloop.index == 6 -%}
                 <div class="pgm-program-content__img-divider"><span>How Hip Misalignment Affects Your Whole Body</span></div>
                 <figure class="pgm-program-content__mid-image pgm-program-content__mid-image--wide">
                   <img src="{{ 'hip-alignment-image-2.jpg' | asset_url }}" alt="Hip alignment body impact diagram" loading="lazy" width="1536" height="1024">
