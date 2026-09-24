@@ -1,0 +1,303 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pgm_hero": {
+      "type": "pgm-hero",
+      "settings": {
+        "eyebrow": "Certified Postural Alignment Specialist",
+        "primary_cta_label": "Start Your Free Trial",
+        "primary_cta_url": "https:\/\/membership.postureguymike.com\/join",
+        "secondary_cta_label": "Watch How It Works",
+        "video_id": "b6Yt1JtvUH0"
+      }
+    },
+    "pgm_social_bar": {
+      "type": "pgm-social-bar",
+      "settings": {
+        "label": "Join millions who follow along",
+        "ig_count": "1.4M",
+        "ig_url": "https:\/\/www.instagram.com\/postureguymike",
+        "tt_count": "607K",
+        "tt_url": "https:\/\/www.tiktok.com\/@postureguy",
+        "yt_count": "236K",
+        "yt_url": "https:\/\/www.youtube.com\/@postureguy",
+        "fb_count": "690K",
+        "fb_url": "https:\/\/www.facebook.com\/posturestrongofficial"
+      }
+    },
+    "pgm_testimonials": {
+      "type": "pgm-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I had chronic lower back pain for 6 years. Doctors told me to just 'manage it.' After 3 weeks in Mike's program, I woke up pain-free for the first time in years. This program changed my life."
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I'm 67 years old and I thought my hip pain was just 'part of aging.' Mike's exercises proved me completely wrong. I'm doing things I couldn't do 10 years ago."
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As someone who works from home all day, my neck and shoulder pain was unbearable. The desk worker program fixed it in 2 weeks. I tell everyone about this."
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I was skeptical at first — how can exercises alone fix posture? But the science makes sense and the results speak for themselves. My posture has completely transformed."
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "What sets Mike apart is that he actually lives this. You can tell every exercise comes from real experience, not a textbook. The community is incredibly supportive too."
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used my HSA to cover the membership — didn't cost me anything out of pocket. The results have been incredible. Worth every penny and then some."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
+      "settings": {
+        "heading": "Thousands Have Fixed Their Posture. You're Next."
+      }
+    },
+    "pgm_about": {
+      "type": "pgm-about",
+      "settings": {
+        "eyebrow": "The Coach Behind the Movement",
+        "heading": "Meet Mike — The Posture Expert Trusted by Millions",
+        "body": "",
+        "cta_label": "Learn More About Mike →",
+        "cta_url": "\/pages\/about"
+      }
+    },
+    "pgm_membership": {
+      "type": "pgm-membership",
+      "blocks": {
+        "feat_1": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "programs",
+            "title": "On-Demand Programs",
+            "description": "Structured posture programs — beginner to advanced — available on iOS, Android, and desktop. Work at your own pace."
+          }
+        },
+        "feat_2": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "live",
+            "title": "Live Classes with Mike",
+            "description": "Join Mike live for real-time coaching, Q&A sessions, and posture challenges with prizes."
+          }
+        },
+        "feat_3": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "community",
+            "title": "Private Community",
+            "description": "Connect with thousands of members, share wins, ask questions, and get support every step of the way."
+          }
+        },
+        "feat_4": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "analysis",
+            "title": "Posture Analysis Tools",
+            "description": "Built-in assessment tools to track your progress and personalise your program to your body's specific needs."
+          }
+        },
+        "feat_5": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "hsa",
+            "title": "HSA\/FSA Eligible",
+            "description": "Your health savings account may cover the cost of the program. The only posture app that qualifies."
+          }
+        },
+        "feat_6": {
+          "type": "feature",
+          "settings": {
+            "icon_name": "start",
+            "title": "Start Here Path",
+            "description": "New to the program? Our guided onboarding removes all guesswork and gets you feeling better fast."
+          }
+        }
+      },
+      "block_order": [
+        "feat_1",
+        "feat_2",
+        "feat_3",
+        "feat_4",
+        "feat_5",
+        "feat_6"
+      ],
+      "settings": {
+        "eyebrow": "The Membership Program",
+        "heading": "Everything You Need to Fix Your Posture — In One Place",
+        "subheading": "Not just videos. A complete posture transformation system with live classes, guided programs, personalized analysis, and a community that has your back.",
+        "cta_heading": "Ready to get out of pain? Start free today.",
+        "cta_label": "Start My Free Trial",
+        "cta_url": "https:\/\/membership.postureguymike.com\/join",
+        "apple_url": "",
+        "android_url": ""
+      }
+    },
+    "pgm_quiz": {
+      "type": "pgm-quiz-cta",
+      "settings": {
+        "bg_image": "",
+        "mobile_image": "",
+        "desktop_text_align": "left",
+        "mobile_layout": "overlay",
+        "mobile_text_position": "bottom",
+        "heading": "What's Your Posture Score?",
+        "subheading": "Take our free 2-minute Posture Score Quiz and get a personalized plan for fixing your specific pain points — delivered straight to your inbox.",
+        "placeholder": "Enter your email address",
+        "cta_label": "Get My Free Score →",
+        "note": "No spam, ever. Unsubscribe anytime. Join 50,000+ subscribers.",
+        "trial_url": "",
+        "result_cta_label": "Start My Free Trial — Fix This Now",
+        "klaviyo_id": "RY86tU",
+        "klaviyo_list_id": "S7DCaR"
+      }
+    },
+    "pgm_spotlight": {
+      "type": "pgm-programs-spotlight",
+      "settings": {
+        "eyebrow": "Free Posture Education",
+        "heading": "Start Improving Your Posture Today",
+        "subheading": "Expert-guided video programs targeting the most common posture problems. One-time payment, lifetime access.",
+        "handle_1": "forward-head-posture",
+        "benefit_1": "Relieve Neck and Shoulder Stress",
+        "handle_2": "rounded-shoulders",
+        "benefit_2": "Correct Rounded Shoulders & Open Your Chest",
+        "handle_3": "hip-alignment",
+        "benefit_3": "Balance Your Hips & Relieve Back Pain",
+        "show_view_all": true,
+        "view_all_url": "\/pages\/programs"
+      }
+    },
+    "pgm_instagram": {
+      "type": "pgm-instagram",
+      "blocks": {
+        "p1": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/reel\/DWDS-G-GLOv\/",
+            "is_reel": true,
+            "likes": "1.6K",
+            "comments": "29"
+          }
+        },
+        "p2": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/reel\/DWAmXAPD5zj\/",
+            "is_reel": true,
+            "likes": "587",
+            "comments": "4"
+          }
+        },
+        "p3": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/reel\/DWAF7D4EqAi\/",
+            "is_reel": true,
+            "likes": "1.9K",
+            "comments": "30"
+          }
+        },
+        "p4": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/reel\/DV974qnFPMB\/",
+            "is_reel": true,
+            "likes": "10.2K",
+            "comments": "50"
+          }
+        },
+        "p5": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/p\/DU_FHNalKbi\/",
+            "is_reel": false,
+            "likes": "176",
+            "comments": "17"
+          }
+        },
+        "p6": {
+          "type": "post",
+          "settings": {
+            "link": "https:\/\/www.instagram.com\/postureguymike\/p\/DV7i_xflAHu\/",
+            "is_reel": false,
+            "likes": "",
+            "comments": "4"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "heading": "@postureguymike on Instagram"
+      }
+    },
+    "pgm_collab": {
+      "type": "pgm-collab",
+      "settings": {
+        "eyebrow": "Brand Partnerships",
+        "heading": "Partner With Posture Guy Mike",
+        "body": "Reach over 2.5 million engaged, health-conscious followers across Instagram, TikTok, YouTube, and Facebook. Our audience actively invests in their health — with a high percentage using HSA\/FSA benefits for wellness purchases.",
+        "form_heading": "Submit a Partnership Inquiry",
+        "submit_label": "Submit Inquiry"
+      }
+    },
+    "pgm_sticky": {
+      "type": "pgm-sticky-cta",
+      "settings": {
+        "quiz_url": "#posture-quiz"
+      }
+    }
+  },
+  "order": [
+    "pgm_hero",
+    "pgm_social_bar",
+    "pgm_testimonials",
+    "pgm_about",
+    "pgm_membership",
+    "pgm_quiz",
+    "pgm_spotlight",
+    "pgm_instagram",
+    "pgm_collab",
+    "pgm_sticky"
+  ]
+}
